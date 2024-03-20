@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="TC_10999" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="867.3333333333334,6028" sap2010:WorkflowViewState.IdRef="TC_10999_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:dp="clr-namespace:Deluxe_ReusableLibrary.Payments;assembly=Deluxe_ReusableLibrary" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ra="clr-namespace:ReporterForUiPath.Activities;assembly=ReporterForUiPath.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="TC_10999" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="867.3333333333334,4922.666666666667" sap2010:WorkflowViewState.IdRef="TC_10999_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:dl="clr-namespace:Deluxe_ReusableLibrary.Login;assembly=Deluxe_ReusableLibrary" xmlns:dl1="clr-namespace:Deluxe_ReusableLibrary.Logout;assembly=Deluxe_ReusableLibrary" xmlns:dp="clr-namespace:Deluxe_ReusableLibrary.Payments;assembly=Deluxe_ReusableLibrary" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ra="clr-namespace:ReporterForUiPath.Activities;assembly=ReporterForUiPath.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>CommonLibrary.Asset</x:String>
@@ -79,6 +79,8 @@
       <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
       <x:String>UiPath.UIAutomationNext.Triggers</x:String>
       <x:String>UiPath.Web.Activities</x:String>
+      <x:String>Deluxe_ReusableLibrary.Login</x:String>
+      <x:String>Deluxe_ReusableLibrary.Logout</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -162,7 +164,7 @@
       <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TC_10999" sap:VirtualizedContainerService.HintSize="678.6666666666666,5843.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TC_10999" sap:VirtualizedContainerService.HintSize="678.6666666666666,4858" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="int_ReportId" />
       <Variable x:TypeArguments="x:String" Name="str_in_testId" />
@@ -210,6 +212,8 @@
       <Variable x:TypeArguments="x:String" Name="str_SurchargeAmount" />
       <Variable x:TypeArguments="x:String" Name="str_AuthorizationCode" />
       <Variable x:TypeArguments="x:String" Name="str_TransactionStatus" />
+      <Variable x:TypeArguments="x:String" Default="C:\Users\anusha.mayreddy\Documents\UiPath\DPPTestData.xlsx" Name="str_TestDataLocation" />
+      <Variable x:TypeArguments="x:String" Default="TC_10999" Name="str_TestCaseId" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -286,12 +290,17 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ReadRange Range="{x:Null}" AddHeaders="True" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="554.6666666666666,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Payments" WorkbookPath="TestData\DPPTestData.xlsx">
+      <ui:ReadRange Range="{x:Null}" AddHeaders="True" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="554.6666666666666,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Payments">
         <ui:ReadRange.DataTable>
           <OutArgument x:TypeArguments="sd:DataTable">
             <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_30">dt_TestData</CSharpReference>
           </OutArgument>
         </ui:ReadRange.DataTable>
+        <ui:ReadRange.WorkbookPath>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_318">str_TestDataLocation</CSharpValue>
+          </InArgument>
+        </ui:ReadRange.WorkbookPath>
       </ui:ReadRange>
       <ui:FilterDataTable DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="554.6666666666666,164" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" SelectColumnsMode="Remove">
         <ui:FilterDataTable.DataTable>
@@ -309,7 +318,7 @@
               </ui:FilterOperationArgument.Column>
               <ui:FilterOperationArgument.Operand>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_151">"TC_10999"</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_319">str_TestCaseId</CSharpValue>
                 </InArgument>
               </ui:FilterOperationArgument.Operand>
             </ui:FilterOperationArgument>
@@ -642,6 +651,23 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:ForEachRow>
     </Sequence>
+    <dl:DPP_Login BreakTriggerScopeInArgument="{x:Null}" sap:VirtualizedContainerService.HintSize="616.6666666666666,250" sap2010:WorkflowViewState.IdRef="DPP_Login_1">
+      <dl:DPP_Login.int_in_ReportId>
+        <InArgument x:TypeArguments="x:Int32">
+          <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_314">int_ReportId</CSharpValue>
+        </InArgument>
+      </dl:DPP_Login.int_in_ReportId>
+      <dl:DPP_Login.str_in_TestId>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_313">str_in_testId</CSharpValue>
+        </InArgument>
+      </dl:DPP_Login.str_in_TestId>
+      <dl:DPP_Login.str_out_DppURL>
+        <OutArgument x:TypeArguments="x:String">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_77">str_Url</CSharpReference>
+        </OutArgument>
+      </dl:DPP_Login.str_out_DppURL>
+    </dl:DPP_Login>
     <dp:PaymentsCreation BreakTriggerScopeInArgument="{x:Null}" str_in_ExistingCustomerName="{x:Null}" DisplayName="Payments creation (PaymentsCreation)" sap:VirtualizedContainerService.HintSize="616.6666666666666,54" sap2010:WorkflowViewState.IdRef="PaymentsCreation_2" bool_in_CreateValutCustomer="False">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -966,7 +992,7 @@
         </OutArgument>
       </dp:AdditionalFields.str_out_DiscountRateAmount>
     </dp:AdditionalFields>
-    <Assign DisplayName="Assign Add two Sale Item Prices" sap:VirtualizedContainerService.HintSize="450,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign DisplayName="Assign Add two Sale Item Prices" sap:VirtualizedContainerService.HintSize="616.6666666666666,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Double">
           <CSharpReference x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">dbl_TwoSaleItemTotal</CSharpReference>
@@ -978,10 +1004,10 @@
         </InArgument>
       </Assign.Value>
     </Assign>
-    <dp:OrderSummary str_in_AmountTendered="{x:Null}" str_in_ThirdSaleItem="{x:Null}" DisplayName="Order summary (OrderSummary)" sap:VirtualizedContainerService.HintSize="450,1619.3333333333333" sap2010:WorkflowViewState.IdRef="OrderSummary_2" dbl_in_ThirdSaleItemTaxRate="0" dbl_in_ThirdSaleitemPrice="0">
+    <dp:OrderSummary str_in_AmountTendered="{x:Null}" str_in_ThirdSaleItem="{x:Null}" DisplayName="Order summary (OrderSummary)" sap:VirtualizedContainerService.HintSize="616.6666666666666,54" sap2010:WorkflowViewState.IdRef="OrderSummary_2" dbl_in_ThirdSaleItemTaxRate="0" dbl_in_ThirdSaleitemPrice="0">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -1116,7 +1142,7 @@
         </OutArgument>
       </dp:OrderSummary.str_out_TaxAmount>
     </dp:OrderSummary>
-    <dp:CloseOrderSummary DisplayName="Close order summary (CloseOrderSummary)" sap:VirtualizedContainerService.HintSize="450,54" sap2010:WorkflowViewState.IdRef="CloseOrderSummary_3">
+    <dp:CloseOrderSummary DisplayName="Close order summary (CloseOrderSummary)" sap:VirtualizedContainerService.HintSize="616.6666666666666,54" sap2010:WorkflowViewState.IdRef="CloseOrderSummary_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1139,7 +1165,7 @@
         </InArgument>
       </dp:CloseOrderSummary.str_in_Url>
     </dp:CloseOrderSummary>
-    <dp:VerifyChargeButtonAmount DisplayName="Verify charge button amount (VerifyChargeButtonAmount)" sap:VirtualizedContainerService.HintSize="450,54" sap2010:WorkflowViewState.IdRef="VerifyChargeButtonAmount_2">
+    <dp:VerifyChargeButtonAmount DisplayName="Verify charge button amount (VerifyChargeButtonAmount)" sap:VirtualizedContainerService.HintSize="616.6666666666666,54" sap2010:WorkflowViewState.IdRef="VerifyChargeButtonAmount_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1167,7 +1193,7 @@
         </InArgument>
       </dp:VerifyChargeButtonAmount.str_in_testId>
     </dp:VerifyChargeButtonAmount>
-    <dp:VerifyTransactionSuccessAndAuthorizationCode DisplayName="ClickOnChargeButtonAndVerifySuccess (VerifyTransactionSuccessAndAuthorizationCode)" sap:VirtualizedContainerService.HintSize="450,54" sap2010:WorkflowViewState.IdRef="VerifyTransactionSuccessAndAuthorizationCode_2">
+    <dp:VerifyTransactionSuccessAndAuthorizationCode DisplayName="ClickOnChargeButtonAndVerifySuccess (VerifyTransactionSuccessAndAuthorizationCode)" sap:VirtualizedContainerService.HintSize="616.6666666666666,54" sap2010:WorkflowViewState.IdRef="VerifyTransactionSuccessAndAuthorizationCode_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1205,7 +1231,7 @@
         </OutArgument>
       </dp:VerifyTransactionSuccessAndAuthorizationCode.str_out_TransactionStatus>
     </dp:VerifyTransactionSuccessAndAuthorizationCode>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,54" sap2010:WorkflowViewState.IdRef="LogMessage_4">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="616.6666666666666,54" sap2010:WorkflowViewState.IdRef="LogMessage_4">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
           <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_311">"Tran Status "+str_TransactionStatus</CSharpValue>
@@ -1218,5 +1244,22 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
+    <dl1:DPP_Logout BreakTriggerScopeInArgument="{x:Null}" sap:VirtualizedContainerService.HintSize="616.6666666666666,250" sap2010:WorkflowViewState.IdRef="DPP_Logout_1">
+      <dl1:DPP_Logout.int_in_ReportId>
+        <InArgument x:TypeArguments="x:Int32">
+          <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_315">int_ReportId</CSharpValue>
+        </InArgument>
+      </dl1:DPP_Logout.int_in_ReportId>
+      <dl1:DPP_Logout.str_in_DppURL>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_317">str_Url</CSharpValue>
+        </InArgument>
+      </dl1:DPP_Logout.str_in_DppURL>
+      <dl1:DPP_Logout.str_in_TestId>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_316">str_in_testId</CSharpValue>
+        </InArgument>
+      </dl1:DPP_Logout.str_in_TestId>
+    </dl1:DPP_Logout>
   </Sequence>
 </Activity>
