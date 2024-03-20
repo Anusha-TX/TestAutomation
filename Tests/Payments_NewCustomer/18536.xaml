@@ -6,7 +6,7 @@
     <InArgument x:TypeArguments="x:Int32" />
   </this:_18536.In_Report_ID>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>847.3333333333334,2660.6666666666665</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>847.3333333333334,3550.6666666666665</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_18536_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -146,7 +146,7 @@
       <AssemblyReference>System.Runtime.InteropServices.RuntimeInformation</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="18536" sap:VirtualizedContainerService.HintSize="512,2596" sap2010:WorkflowViewState.IdRef="Sequence_5">
+  <Sequence DisplayName="18536" sap:VirtualizedContainerService.HintSize="512,3486" sap2010:WorkflowViewState.IdRef="Sequence_5">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="Str_out_StateCode" />
       <Variable x:TypeArguments="x:String" Name="str_out_DiscountRate" />
@@ -180,10 +180,12 @@
       <Variable x:TypeArguments="x:Double" Name="dbl_TaxAmount" />
       <Variable x:TypeArguments="x:String" Name="str_QuickSaleItemName" />
       <Variable x:TypeArguments="x:String" Name="str_QuickSaleItemTax" />
+      <Variable x:TypeArguments="x:Double" Name="dbl_out_TotalAMount" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ra:CreateReport ContinueOnError="{x:Null}" DisplayName="Create Report" sap:VirtualizedContainerService.HintSize="450,136" sap2010:WorkflowViewState.IdRef="CreateReport_1" ReportLocation="C:\Users\T475308\Documents\Project\Deluxe_TestAutomationProject\Reports\Application Tests" ReportName="18536">
@@ -228,14 +230,14 @@
         </OutArgument>
       </cr:startTest.str_out_TestId>
     </cr:startTest>
-    <Sequence DisplayName="Read Test Data Sequence" sap:VirtualizedContainerService.HintSize="450,496.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
+    <Sequence DisplayName="Read Test Data Sequence" sap:VirtualizedContainerService.HintSize="450,632.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_9">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="dt_TestData" />
         <Variable x:TypeArguments="sd:DataTable" Name="dt_TestCaseData" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -279,7 +281,7 @@
           </scg:List>
         </ui:FilterDataTable.SelectColumns>
       </ui:FilterDataTable>
-      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="388,54" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="334,190" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
@@ -509,7 +511,7 @@
                       </ui:AssignOperation.To>
                       <ui:AssignOperation.Value>
                         <InArgument x:TypeArguments="x:String">
-                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_78">Convert.ToDouble(CurrentRow["QuickSaleItemPrice"].ToString())</CSharpValue>
+                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_102">CurrentRow["QuickSaleItemPrice"].ToString()</CSharpValue>
                         </InArgument>
                       </ui:AssignOperation.Value>
                     </ui:AssignOperation>
@@ -520,9 +522,7 @@
                         </OutArgument>
                       </ui:AssignOperation.To>
                       <ui:AssignOperation.Value>
-                        <InArgument x:TypeArguments="x:String">
-                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_73">CurrentRow["CheckNumber"].ToString()</CSharpValue>
-                        </InArgument>
+                        <InArgument x:TypeArguments="x:String">123456789</InArgument>
                       </ui:AssignOperation.Value>
                     </ui:AssignOperation>
                   </scg:List>
@@ -556,13 +556,13 @@
         </ui:ForEachRow.DataTable>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:ForEachRow>
     </Sequence>
-    <dp:PaymentsCreation BreakTriggerScopeInArgument="{x:Null}" str_in_CardExpiration="{x:Null}" str_in_CardNumber="{x:Null}" str_in_ExistingCustomerName="{x:Null}" str_in_Url="{x:Null}" DisplayName="Payments creation" sap:VirtualizedContainerService.HintSize="450,54" sap2010:WorkflowViewState.IdRef="PaymentsCreation_1">
+    <dp:PaymentsCreation BreakTriggerScopeInArgument="{x:Null}" str_in_CardExpiration="{x:Null}" str_in_CardNumber="{x:Null}" str_in_ExistingCustomerName="{x:Null}" str_in_Url="{x:Null}" str_out_MID="{x:Null}" DisplayName="Payments creation" sap:VirtualizedContainerService.HintSize="450,54" sap2010:WorkflowViewState.IdRef="PaymentsCreation_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -687,16 +687,16 @@
       </dp:CustomerInfo.str_out_CustomerStateCode>
     </dp:CustomerInfo>
     <dp:Verify_the_Sale_Item_Fields DisplayName="Verify the Sale Item Fields" sap:VirtualizedContainerService.HintSize="450,92" sap2010:WorkflowViewState.IdRef="Verify_the_Sale_Item_Fields_1" Step="Step" />
-    <dp:AddQuickSaleItem str_in_Url="{x:Null}" DisplayName="Add quick sale item" sap:VirtualizedContainerService.HintSize="450,54" sap2010:WorkflowViewState.IdRef="AddQuickSaleItem_1">
+    <dp:AddQuickSaleItem str_in_Url="{x:Null}" DisplayName="Add quick sale item" sap:VirtualizedContainerService.HintSize="450,408" sap2010:WorkflowViewState.IdRef="AddQuickSaleItem_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <dp:AddQuickSaleItem.dbl_out_SaleItemTaxRate>
         <OutArgument x:TypeArguments="x:Double">
-          <CSharpReference x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpReference`1_39">str_TaxAmount</CSharpReference>
+          <CSharpReference x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpReference`1_42">dbl_TaxAmount</CSharpReference>
         </OutArgument>
       </dp:AddQuickSaleItem.dbl_out_SaleItemTaxRate>
       <dp:AddQuickSaleItem.int_in_ReportId>
@@ -725,10 +725,10 @@
         </InArgument>
       </dp:AddQuickSaleItem.str_in_TestId>
     </dp:AddQuickSaleItem>
-    <dp:AdditionalFields str_in_CustomerTaxExempt="{x:Null}" str_in_InvoiceNumber="{x:Null}" str_in_Url="{x:Null}" str_out_TaxRatePercentage="{x:Null}" DisplayName="Additional fields" sap:VirtualizedContainerService.HintSize="450,566" sap2010:WorkflowViewState.IdRef="AdditionalFields_1">
+    <dp:AdditionalFields str_in_CustomerTaxExempt="{x:Null}" str_in_InvoiceNumber="{x:Null}" str_in_Url="{x:Null}" str_out_TaxRatePercentage="{x:Null}" DisplayName="Additional fields" sap:VirtualizedContainerService.HintSize="450,54" sap2010:WorkflowViewState.IdRef="AdditionalFields_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -779,49 +779,94 @@
         </InArgument>
       </dp:Verify_the_Additional_fields.out_Test_ID>
     </dp:Verify_the_Additional_fields>
-    <dp:OrderSummary dbl_out_TotalAmount="{x:Null}" int_in_ReportId="{x:Null}" str_in_AmountTendered="{x:Null}" str_in_FirstSaleItem="{x:Null}" str_in_PaymentType="{x:Null}" str_in_SecondSaleItem="{x:Null}" str_in_TestId="{x:Null}" str_in_ThirdSaleItem="{x:Null}" str_in_Url="{x:Null}" DisplayName="Order summary" sap:VirtualizedContainerService.HintSize="450,54" sap2010:WorkflowViewState.IdRef="OrderSummary_1" dbl_in_DiscountRateAmount="0" dbl_in_FirstSaleItemTaxRate="0" dbl_in_FirstSaleitemPrice="0" dbl_in_SecondSaleItemTaxRate="0" dbl_in_SecondSaleitemPrice="0" dbl_in_ThirdSaleItemTaxRate="0" dbl_in_ThirdSaleitemPrice="0">
+    <dp:OrderSummary str_in_AmountTendered="{x:Null}" str_in_SecondSaleItem="{x:Null}" str_in_ThirdSaleItem="{x:Null}" str_in_Url="{x:Null}" DisplayName="Order summary" sap:VirtualizedContainerService.HintSize="450,1514" sap2010:WorkflowViewState.IdRef="OrderSummary_2" bool_in_RemoveSurcharge="True" dbl_in_SecondSaleItemTaxRate="0" dbl_in_SecondSaleitemPrice="0" dbl_in_ThirdSaleItemTaxRate="0" dbl_in_ThirdSaleitemPrice="0" str_in_CustomerCountryCode="US" str_in_CustomerSateCode="TX">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <dp:OrderSummary.bool_in_RemoveSurcharge>
-        <InArgument x:TypeArguments="x:Boolean" />
-      </dp:OrderSummary.bool_in_RemoveSurcharge>
+      <dp:OrderSummary.dbl_in_DiscountRateAmount>
+        <InArgument x:TypeArguments="x:Double">
+          <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_113">Convert.ToDouble(str_out_DiscountRate)</CSharpValue>
+        </InArgument>
+      </dp:OrderSummary.dbl_in_DiscountRateAmount>
+      <dp:OrderSummary.dbl_in_FirstSaleItemTaxRate>
+        <InArgument x:TypeArguments="x:Double">
+          <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_114">Convert.ToDouble(str_QuickSaleItemTax)</CSharpValue>
+        </InArgument>
+      </dp:OrderSummary.dbl_in_FirstSaleItemTaxRate>
+      <dp:OrderSummary.dbl_in_FirstSaleitemPrice>
+        <InArgument x:TypeArguments="x:Double">
+          <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_115">Convert.ToDouble(str_SaleItemPrice)</CSharpValue>
+        </InArgument>
+      </dp:OrderSummary.dbl_in_FirstSaleitemPrice>
       <dp:OrderSummary.dbl_in_SaleItemTotalAmount>
-        <InArgument x:TypeArguments="x:Double" />
+        <InArgument x:TypeArguments="x:Double">
+          <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_103">Convert.ToDouble(str_SaleItemPrice)</CSharpValue>
+        </InArgument>
       </dp:OrderSummary.dbl_in_SaleItemTotalAmount>
+      <dp:OrderSummary.dbl_out_TotalAmount>
+        <OutArgument x:TypeArguments="x:Double">
+          <CSharpReference x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpReference`1_41">dbl_out_TotalAMount</CSharpReference>
+        </OutArgument>
+      </dp:OrderSummary.dbl_out_TotalAmount>
+      <dp:OrderSummary.int_in_ReportId>
+        <InArgument x:TypeArguments="x:Int32">
+          <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_105">In_Report_ID</CSharpValue>
+        </InArgument>
+      </dp:OrderSummary.int_in_ReportId>
       <dp:OrderSummary.str_in_CardType>
         <InArgument x:TypeArguments="x:String" />
       </dp:OrderSummary.str_in_CardType>
       <dp:OrderSummary.str_in_CustomerAddress>
-        <InArgument x:TypeArguments="x:String" />
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_109">str_CustAddress</CSharpValue>
+        </InArgument>
       </dp:OrderSummary.str_in_CustomerAddress>
       <dp:OrderSummary.str_in_CustomerCity>
-        <InArgument x:TypeArguments="x:String" />
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_110">str_CustCity</CSharpValue>
+        </InArgument>
       </dp:OrderSummary.str_in_CustomerCity>
-      <dp:OrderSummary.str_in_CustomerCountryCode>
-        <InArgument x:TypeArguments="x:String" />
-      </dp:OrderSummary.str_in_CustomerCountryCode>
-      <dp:OrderSummary.str_in_CustomerSateCode>
-        <InArgument x:TypeArguments="x:String" />
-      </dp:OrderSummary.str_in_CustomerSateCode>
       <dp:OrderSummary.str_in_CustomerZipCode>
-        <InArgument x:TypeArguments="x:String" />
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_111">str_CustZipCode</CSharpValue>
+        </InArgument>
       </dp:OrderSummary.str_in_CustomerZipCode>
       <dp:OrderSummary.str_in_FirstName>
-        <InArgument x:TypeArguments="x:String" />
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_107">str_CustFirstName</CSharpValue>
+        </InArgument>
       </dp:OrderSummary.str_in_FirstName>
+      <dp:OrderSummary.str_in_FirstSaleItem>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_112">str_QuickSaleItemName</CSharpValue>
+        </InArgument>
+      </dp:OrderSummary.str_in_FirstSaleItem>
       <dp:OrderSummary.str_in_Last4Digits>
         <InArgument x:TypeArguments="x:String" />
       </dp:OrderSummary.str_in_Last4Digits>
       <dp:OrderSummary.str_in_LastName>
-        <InArgument x:TypeArguments="x:String" />
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_108">str_CustLastName</CSharpValue>
+        </InArgument>
       </dp:OrderSummary.str_in_LastName>
       <dp:OrderSummary.str_in_OrderNote>
-        <InArgument x:TypeArguments="x:String" />
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_106">str_OrderNote</CSharpValue>
+        </InArgument>
       </dp:OrderSummary.str_in_OrderNote>
+      <dp:OrderSummary.str_in_PaymentType>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_116">str_PaymentType</CSharpValue>
+        </InArgument>
+      </dp:OrderSummary.str_in_PaymentType>
+      <dp:OrderSummary.str_in_TestId>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_104">out_TestID</CSharpValue>
+        </InArgument>
+      </dp:OrderSummary.str_in_TestId>
     </dp:OrderSummary>
     <dp:CloseOrderSummary str_in_Url="{x:Null}" DisplayName="Close order summary" sap:VirtualizedContainerService.HintSize="450,54" sap2010:WorkflowViewState.IdRef="CloseOrderSummary_1">
       <sap:WorkflowViewStateService.ViewState>
