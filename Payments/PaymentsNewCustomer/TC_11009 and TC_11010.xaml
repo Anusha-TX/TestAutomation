@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="_11009" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:cr="clr-namespace:CommonLibrary.Report;assembly=CommonLibrary" xmlns:dc="clr-namespace:Deluxe_ReusableLibrary.Customer_Vault;assembly=Deluxe_ReusableLibrary" xmlns:dp="clr-namespace:Deluxe_ReusableLibrary.Payments;assembly=Deluxe_ReusableLibrary" xmlns:dr="clr-namespace:Deluxe_ReusableLibrary.RealTimeTransaction;assembly=Deluxe_ReusableLibrary" xmlns:dr1="clr-namespace:Deluxe_ReusableLibrary.Reports;assembly=Deluxe_ReusableLibrary" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ra="clr-namespace:ReporterForUiPath.Activities;assembly=ReporterForUiPath.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="_11009" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:cr="clr-namespace:CommonLibrary.Report;assembly=CommonLibrary" xmlns:dc="clr-namespace:Deluxe_ReusableLibrary.Customer_Vault;assembly=Deluxe_ReusableLibrary" xmlns:dl="clr-namespace:Deluxe_ReusableLibrary.Login;assembly=Deluxe_ReusableLibrary" xmlns:dl1="clr-namespace:Deluxe_ReusableLibrary.Logout;assembly=Deluxe_ReusableLibrary" xmlns:dp="clr-namespace:Deluxe_ReusableLibrary.Payments;assembly=Deluxe_ReusableLibrary" xmlns:dr="clr-namespace:Deluxe_ReusableLibrary.RealTimeTransaction;assembly=Deluxe_ReusableLibrary" xmlns:dr1="clr-namespace:Deluxe_ReusableLibrary.Reports;assembly=Deluxe_ReusableLibrary" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ra="clr-namespace:ReporterForUiPath.Activities;assembly=ReporterForUiPath.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="str_SuiteId" Type="InArgument(x:String)" />
     <x:Property Name="str_TestId" Type="InArgument(x:String)" />
@@ -14,7 +14,7 @@
     <InArgument x:TypeArguments="x:Int32" />
   </this:_11009.Int_ReportId>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>961,16079</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>961,12095</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_11009_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -88,6 +88,15 @@
       <x:String>UiPath.Web.Activities</x:String>
       <x:String>Deluxe_ReusableLibrary.Reports</x:String>
       <x:String>CommonLibrary.Asset</x:String>
+      <x:String>Deluxe_ReusableLibrary.Login</x:String>
+      <x:String>UiPath.Activities.System</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Mail.Activities.Business.ForEachMail</x:String>
+      <x:String>UiPath.Mail.Activities.Business</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>Deluxe_ReusableLibrary.Logout</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -167,6 +176,8 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
       <AssemblyReference>Deluxe_TestAutomationProject.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -174,7 +185,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="TC_11009 and TC_11010" sap:VirtualizedContainerService.HintSize="679,16014" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TC_11009 and TC_11010" sap:VirtualizedContainerService.HintSize="679,12030" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_MerchantName" />
       <Variable x:TypeArguments="x:String" Name="str_PaymentMethod" />
@@ -281,14 +292,14 @@
         </OutArgument>
       </cr:startTest.str_out_TestId>
     </cr:startTest>
-    <Sequence DisplayName="Read Test Data Sequence" sap:VirtualizedContainerService.HintSize="617,2158" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence DisplayName="Read Test Data Sequence" sap:VirtualizedContainerService.HintSize="617,81" sap2010:WorkflowViewState.IdRef="Sequence_5">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="dt_TestData" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:ReadRange Range="{x:Null}" AddHeaders="True" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="555,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Sheet1" WorkbookPath="TestData\DPPTestData.xlsx">
@@ -839,11 +850,28 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:ForEachRow>
     </Sequence>
-    <dp:PaymentsCreation BreakTriggerScopeInArgument="{x:Null}" str_in_CardExpiration="{x:Null}" str_in_CardNumber="{x:Null}" str_in_Cash_AmountTender="{x:Null}" str_in_ExistingCustomerName="{x:Null}" DisplayName="Payments creation" sap:VirtualizedContainerService.HintSize="617,1212" sap2010:WorkflowViewState.IdRef="PaymentsCreation_1" bool_in_CreateValutCustomer="True">
+    <dl:DPP_Login BreakTriggerScopeInArgument="{x:Null}" sap:VirtualizedContainerService.HintSize="617,243" sap2010:WorkflowViewState.IdRef="DPP_Login_1">
+      <dl:DPP_Login.int_in_ReportId>
+        <InArgument x:TypeArguments="x:Int32">
+          <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_318">Int_ReportId</CSharpValue>
+        </InArgument>
+      </dl:DPP_Login.int_in_ReportId>
+      <dl:DPP_Login.str_in_TestId>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_317">str_TestId</CSharpValue>
+        </InArgument>
+      </dl:DPP_Login.str_in_TestId>
+      <dl:DPP_Login.str_out_DppURL>
+        <OutArgument x:TypeArguments="x:String">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_88">str_Url</CSharpReference>
+        </OutArgument>
+      </dl:DPP_Login.str_out_DppURL>
+    </dl:DPP_Login>
+    <dp:PaymentsCreation BreakTriggerScopeInArgument="{x:Null}" str_in_CardExpiration="{x:Null}" str_in_CardNumber="{x:Null}" str_in_Cash_AmountTender="{x:Null}" str_in_ExistingCustomerName="{x:Null}" DisplayName="Payments creation" sap:VirtualizedContainerService.HintSize="617,52" sap2010:WorkflowViewState.IdRef="PaymentsCreation_1" bool_in_CreateValutCustomer="True">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <dp:PaymentsCreation.int_in_reportId>
@@ -1399,7 +1427,7 @@
         </InArgument>
       </dc:Verify_TransactionHistory_CustomerVault.str_in_Total>
     </dc:Verify_TransactionHistory_CustomerVault>
-    <Sequence DisplayName="TC_11010 Sequence" sap:VirtualizedContainerService.HintSize="617,6161" sap2010:WorkflowViewState.IdRef="Sequence_9">
+    <Sequence DisplayName="TC_11010 Sequence" sap:VirtualizedContainerService.HintSize="617,5131" sap2010:WorkflowViewState.IdRef="Sequence_9">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="str_TestId2" />
       </Sequence.Variables>
@@ -1955,7 +1983,7 @@
           </InArgument>
         </dr1:TransactionReportAdvanceSearch.str_in_URL>
       </dr1:TransactionReportAdvanceSearch>
-      <dr1:TransactionReportTableVerification str_in_RecurringTransaction="{x:Null}" str_in_VaultTransaction="{x:Null}" DisplayName="Verify the transaction report table details" sap:VirtualizedContainerService.HintSize="388,957" sap2010:WorkflowViewState.IdRef="TransactionReportTableVerification_1">
+      <dr1:TransactionReportTableVerification str_in_RecurringTransaction="{x:Null}" DisplayName="Verify the transaction report table details" sap:VirtualizedContainerService.HintSize="388,957" sap2010:WorkflowViewState.IdRef="TransactionReportTableVerification_1" str_in_VaultTransaction="True">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2058,7 +2086,13 @@
           </InArgument>
         </dr1:SaleItemReport_AdvanceSearch.str_in_TestID>
       </dr1:SaleItemReport_AdvanceSearch>
-      <dr1:SaleItemReportTableVerification sap:VirtualizedContainerService.HintSize="388,1365" sap2010:WorkflowViewState.IdRef="SaleItemReportTableVerification_1" str_in_SaleItem1ItemQuantity="1" str_in_SaleItem2ItemQuantity="1">
+      <dr1:SaleItemReportTableVerification sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="SaleItemReportTableVerification_1" str_in_SaleItem1ItemQuantity="1" str_in_SaleItem2ItemQuantity="1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
         <dr1:SaleItemReportTableVerification.int_in_Report_ID>
           <InArgument x:TypeArguments="x:Int32">
             <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_292">Int_ReportId</CSharpValue>
@@ -2172,6 +2206,23 @@
           </InArgument>
         </dr1:SaleItemReportTableVerification.str_in_ZipCode>
       </dr1:SaleItemReportTableVerification>
+      <dl1:DPP_Logout BreakTriggerScopeInArgument="{x:Null}" sap:VirtualizedContainerService.HintSize="388,243" sap2010:WorkflowViewState.IdRef="DPP_Logout_1">
+        <dl1:DPP_Logout.int_in_ReportId>
+          <InArgument x:TypeArguments="x:Int32">
+            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_319">Int_ReportId</CSharpValue>
+          </InArgument>
+        </dl1:DPP_Logout.int_in_ReportId>
+        <dl1:DPP_Logout.str_in_DppURL>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_321">str_Url</CSharpValue>
+          </InArgument>
+        </dl1:DPP_Logout.str_in_DppURL>
+        <dl1:DPP_Logout.str_in_TestId>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_320">str_TestId2</CSharpValue>
+          </InArgument>
+        </dl1:DPP_Logout.str_in_TestId>
+      </dl1:DPP_Logout>
     </Sequence>
   </Sequence>
 </Activity>
