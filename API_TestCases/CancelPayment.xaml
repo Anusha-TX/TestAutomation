@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="CreatePayment_Card" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="847.3333333333334,1135.3333333333333" sap2010:WorkflowViewState.IdRef="CreatePayment_Card_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:cr="clr-namespace:CommonLibrary.Report;assembly=CommonLibrary" xmlns:dep="clr-namespace:DPP_APILibrary.EndPoints.POST;assembly=DPP_APILibrary" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:ra="clr-namespace:ReporterForUiPath.Activities;assembly=ReporterForUiPath.Activities" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:utat="clr-namespace:UiPath.Testing.Activities.TestData;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="CreatePayment_Card" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="847.3333333333334,4230.666666666667" sap2010:WorkflowViewState.IdRef="CreatePayment_Card_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:cr="clr-namespace:CommonLibrary.Report;assembly=CommonLibrary" xmlns:dep="clr-namespace:DPP_APILibrary.EndPoints.POST;assembly=DPP_APILibrary" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:ra="clr-namespace:ReporterForUiPath.Activities;assembly=ReporterForUiPath.Activities" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:utat="clr-namespace:UiPath.Testing.Activities.TestData;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>GlobalConstantsNamespace</x:String>
@@ -134,19 +134,20 @@
       <AssemblyReference>Deluxe_TestAutomationProject.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="552,1070.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap:VirtualizedContainerService.HintSize="779.3333333333334,4166" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_TestId" />
       <Variable x:TypeArguments="x:Int32" Default="1" Name="int_ReportId" />
+      <Variable x:TypeArguments="x:String" Name="str_Currency" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="490,960" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="717.3333333333334,4055.3333333333335" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="CreatePayment_Card" sap:VirtualizedContainerService.HintSize="512,2019.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence DisplayName="CancelPayment" sap:VirtualizedContainerService.HintSize="678.6666666666666,3816" sap2010:WorkflowViewState.IdRef="Sequence_11">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="ExcelPath" />
             <Variable x:TypeArguments="x:String" Name="ReportPath" />
@@ -173,7 +174,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Extract dynamic Report and TestData Path" sap:VirtualizedContainerService.HintSize="450,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Extract dynamic Report and TestData Path" sap:VirtualizedContainerService.HintSize="616.6666666666666,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="File_Path" />
               <Variable x:TypeArguments="x:String" Name="Report_Path" />
@@ -281,7 +282,7 @@
               </Assign.Value>
             </Assign>
           </Sequence>
-          <ra:CreateReport ContinueOnError="{x:Null}" DisplayName="Create Report" sap:VirtualizedContainerService.HintSize="450,136" sap2010:WorkflowViewState.IdRef="CreateReport_2" ReportName="Create Payment Card">
+          <ra:CreateReport ContinueOnError="{x:Null}" DisplayName="Create Report" sap:VirtualizedContainerService.HintSize="616.6666666666666,136" sap2010:WorkflowViewState.IdRef="CreateReport_2" ReportName="Cancel Payment">
             <ra:CreateReport.ReportLocation>
               <InArgument x:TypeArguments="x:String">
                 <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_85">ReportPath</CSharpValue>
@@ -299,7 +300,7 @@
               </OutArgument>
             </ra:CreateReport.isCreated>
           </ra:CreateReport>
-          <ra:StartSuite ContinueOnError="{x:Null}" DisplayName="Start Suite" sap:VirtualizedContainerService.HintSize="450,86.66666666666667" sap2010:WorkflowViewState.IdRef="StartSuite_2" SuiteName="API testing">
+          <ra:StartSuite ContinueOnError="{x:Null}" DisplayName="Start Suite" sap:VirtualizedContainerService.HintSize="616.6666666666666,86.66666666666667" sap2010:WorkflowViewState.IdRef="StartSuite_2" SuiteName="API testing">
             <ra:StartSuite.ReportId>
               <InArgument x:TypeArguments="x:Int32">
                 <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_64">int_ReportId</CSharpValue>
@@ -317,7 +318,7 @@
               </OutArgument>
             </ra:StartSuite.suiteId>
           </ra:StartSuite>
-          <ra:StartTest ContinueOnError="{x:Null}" TagName="{x:Null}" TestDescription="{x:Null}" DisplayName="Start Test" sap:VirtualizedContainerService.HintSize="450,86.66666666666667" sap2010:WorkflowViewState.IdRef="StartTest_2" Priority="High" TestName="Create Payment Card">
+          <ra:StartTest ContinueOnError="{x:Null}" TagName="{x:Null}" TestDescription="{x:Null}" DisplayName="Start Test" sap:VirtualizedContainerService.HintSize="616.6666666666666,86.66666666666667" sap2010:WorkflowViewState.IdRef="StartTest_2" Priority="High" TestName="Cancel Payment">
             <ra:StartTest.ReportId>
               <InArgument x:TypeArguments="x:Int32">
                 <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_65">int_ReportId</CSharpValue>
@@ -340,7 +341,7 @@
               </OutArgument>
             </ra:StartTest.testId>
           </ra:StartTest>
-          <Sequence DisplayName="Read Test Data Sequence" sap:VirtualizedContainerService.HintSize="450,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="Read Test Data Sequence" sap:VirtualizedContainerService.HintSize="616.6666666666666,1486" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="dt_TestData" />
               <Variable x:TypeArguments="sd:DataTable" Name="dt_TestCaseData" />
@@ -348,7 +349,7 @@
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -427,12 +428,12 @@
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
                             <ui:AssignOperation.To>
                               <OutArgument x:TypeArguments="x:String">
-                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_54">str_PaymentMethod</CSharpReference>
+                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_75">str_Currency</CSharpReference>
                               </OutArgument>
                             </ui:AssignOperation.To>
                             <ui:AssignOperation.Value>
                               <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">CurrentRow["PaymentMethod"].ToString()</CSharpValue>
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_91">CurrentRow["Currency"].ToString()</CSharpValue>
                               </InArgument>
                             </ui:AssignOperation.Value>
                           </ui:AssignOperation>
@@ -642,9 +643,10 @@
               </Assign.Value>
             </Assign>
           </Sequence>
-          <Sequence DisplayName="Create Payment" sap:VirtualizedContainerService.HintSize="450,1230" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <Sequence DisplayName="Create Payment" sap:VirtualizedContainerService.HintSize="616.6666666666666,1625.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="str_accessToken" />
+              <Variable x:TypeArguments="x:String" Name="str_PaymentID" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -668,7 +670,13 @@
                 </OutArgument>
               </dep:FetchAccessToken.out_accessToken>
             </dep:FetchAccessToken>
-            <dep:CreatePayment DisplayName="CreatePayment - Copy (1)" sap:VirtualizedContainerService.HintSize="388,882" sap2010:WorkflowViewState.IdRef="CreatePayment_1">
+            <dep:CreatePayment DisplayName="CreatePayment - Copy (1)" sap:VirtualizedContainerService.HintSize="388,934.6666666666666" sap2010:WorkflowViewState.IdRef="CreatePayment_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
               <dep:CreatePayment.dbl_in_Amount>
                 <InArgument x:TypeArguments="x:Double">
                   <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_69">Convert.ToDouble(str_TotalAmount)</CSharpValue>
@@ -749,15 +757,47 @@
                   <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_82">str_LastName</CSharpValue>
                 </InArgument>
               </dep:CreatePayment.str_in_LastName>
+              <dep:CreatePayment.str_out_paymentID>
+                <OutArgument x:TypeArguments="x:String">
+                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_74">str_PaymentID</CSharpReference>
+                </OutArgument>
+              </dep:CreatePayment.str_out_paymentID>
             </dep:CreatePayment>
+            <dep:CancelPayment sap:VirtualizedContainerService.HintSize="388,302.6666666666667" sap2010:WorkflowViewState.IdRef="CancelPayment_1">
+              <dep:CancelPayment.in_ReportID>
+                <InArgument x:TypeArguments="x:Int32">
+                  <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_100">int_ReportId</CSharpValue>
+                </InArgument>
+              </dep:CancelPayment.in_ReportID>
+              <dep:CancelPayment.in_merchanttoken>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_101">str_MerchantToken</CSharpValue>
+                </InArgument>
+              </dep:CancelPayment.in_merchanttoken>
+              <dep:CancelPayment.in_token>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_99">str_accessToken</CSharpValue>
+                </InArgument>
+              </dep:CancelPayment.in_token>
+              <dep:CancelPayment.out_TestID>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_102">str_TestId</CSharpValue>
+                </InArgument>
+              </dep:CancelPayment.out_TestID>
+              <dep:CancelPayment.str_in_paymentID>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_103">str_PaymentID</CSharpValue>
+                </InArgument>
+              </dep:CancelPayment.str_in_paymentID>
+            </dep:CancelPayment>
           </Sequence>
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="456,786.6666666666666" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="683.3333333333334,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -765,7 +805,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="450,716" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <Sequence sap:VirtualizedContainerService.HintSize="450,626.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_10">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
