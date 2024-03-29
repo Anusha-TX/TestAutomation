@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="CreatePayment_Card" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="852,4173.333333333333" sap2010:WorkflowViewState.IdRef="CreatePayment_Card_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:cr="clr-namespace:CommonLibrary.Report;assembly=CommonLibrary" xmlns:dep="clr-namespace:DPP_APILibrary.EndPoints.POST;assembly=DPP_APILibrary" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:ra="clr-namespace:ReporterForUiPath.Activities;assembly=ReporterForUiPath.Activities" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:utat="clr-namespace:UiPath.Testing.Activities.TestData;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="CreatePayment_Card" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="844,4717.333333333333" sap2010:WorkflowViewState.IdRef="CreatePayment_Card_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:cr="clr-namespace:CommonLibrary.Report;assembly=CommonLibrary" xmlns:dep="clr-namespace:DPP_APILibrary.EndPoints.POST;assembly=DPP_APILibrary" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:ra="clr-namespace:ReporterForUiPath.Activities;assembly=ReporterForUiPath.Activities" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:utat="clr-namespace:UiPath.Testing.Activities.TestData;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>GlobalConstantsNamespace</x:String>
@@ -134,40 +134,41 @@
       <AssemblyReference>Deluxe_TestAutomationProject.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="779.3333333333334,4108.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap:VirtualizedContainerService.HintSize="779.3333333333334,4652.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_TestId" />
       <Variable x:TypeArguments="x:Int32" Default="1" Name="int_ReportId" />
+      <Variable x:TypeArguments="x:String" Name="str_Currency" />
+      <Variable x:TypeArguments="x:String" Name="str_AccountType" />
+      <Variable x:TypeArguments="x:String" Name="str_AccountNumber" />
+      <Variable x:TypeArguments="x:String" Name="str_RoutingNumber" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="717.3333333333334,3998" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="717.3333333333334,4542" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="CreatePaymentmethod_Card" sap:VirtualizedContainerService.HintSize="678.6666666666666,3758.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence DisplayName="CreatePayment_ACH" sap:VirtualizedContainerService.HintSize="678.6666666666666,4302.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="ExcelPath" />
             <Variable x:TypeArguments="x:String" Name="ReportPath" />
             <Variable x:TypeArguments="x:String" Name="str_SuiteId" />
             <Variable x:TypeArguments="x:String" Name="str_MerchantToken" />
-            <Variable x:TypeArguments="x:String" Name="str_PaymentMethod" />
             <Variable x:TypeArguments="x:String" Name="str_TotalAmount" />
             <Variable x:TypeArguments="x:String" Name="str_Email" />
             <Variable x:TypeArguments="x:String" Name="str_CustPhoneNumber" />
-            <Variable x:TypeArguments="x:String" Name="str_CardNumber" />
-            <Variable x:TypeArguments="x:String" Name="str_CardExpiry" />
-            <Variable x:TypeArguments="x:String" Name="str_CardType" />
             <Variable x:TypeArguments="x:String" Name="str_CustomerAddress" />
             <Variable x:TypeArguments="x:String" Name="str_CustomerState" />
             <Variable x:TypeArguments="x:String" Name="str_CustomerCity" />
             <Variable x:TypeArguments="x:String" Name="str_CustomerZipCode" />
-            <Variable x:TypeArguments="x:String" Name="str_CustomerCountryCode" />
             <Variable x:TypeArguments="x:String" Name="str_CustomerCountry" />
             <Variable x:TypeArguments="x:String" Name="str_LastName" />
             <Variable x:TypeArguments="x:String" Name="str_FirstName" />
-            <Variable x:TypeArguments="x:String" Name="str_CustomerID" />
+            <Variable x:TypeArguments="x:String" Name="str_PaymentDay" />
+            <Variable x:TypeArguments="x:String" Name="str_PaymentMonth" />
+            <Variable x:TypeArguments="x:String" Name="str_Frequency" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -282,7 +283,7 @@
               </Assign.Value>
             </Assign>
           </Sequence>
-          <ra:CreateReport ContinueOnError="{x:Null}" DisplayName="Create Report" sap:VirtualizedContainerService.HintSize="616.6666666666666,136" sap2010:WorkflowViewState.IdRef="CreateReport_2" ReportName="Create Payment Method Card">
+          <ra:CreateReport ContinueOnError="{x:Null}" DisplayName="Create Report" sap:VirtualizedContainerService.HintSize="616.6666666666666,136" sap2010:WorkflowViewState.IdRef="CreateReport_2" ReportName="Create Payment ACH">
             <ra:CreateReport.ReportLocation>
               <InArgument x:TypeArguments="x:String">
                 <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_85">ReportPath</CSharpValue>
@@ -318,7 +319,7 @@
               </OutArgument>
             </ra:StartSuite.suiteId>
           </ra:StartSuite>
-          <ra:StartTest ContinueOnError="{x:Null}" TagName="{x:Null}" TestDescription="{x:Null}" DisplayName="Start Test" sap:VirtualizedContainerService.HintSize="616.6666666666666,86.66666666666667" sap2010:WorkflowViewState.IdRef="StartTest_2" Priority="High" TestName="Create Payment Method Card">
+          <ra:StartTest ContinueOnError="{x:Null}" TagName="{x:Null}" TestDescription="{x:Null}" DisplayName="Start Test" sap:VirtualizedContainerService.HintSize="616.6666666666666,86.66666666666667" sap2010:WorkflowViewState.IdRef="StartTest_2" Priority="High" TestName="Create Payment ACH">
             <ra:StartTest.ReportId>
               <InArgument x:TypeArguments="x:Int32">
                 <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_65">int_ReportId</CSharpValue>
@@ -341,7 +342,7 @@
               </OutArgument>
             </ra:StartTest.testId>
           </ra:StartTest>
-          <Sequence DisplayName="Read Test Data Sequence" sap:VirtualizedContainerService.HintSize="616.6666666666666,1455.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="Read Test Data Sequence" sap:VirtualizedContainerService.HintSize="616.6666666666666,1578" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="dt_TestData" />
               <Variable x:TypeArguments="sd:DataTable" Name="dt_TestCaseData" />
@@ -381,7 +382,7 @@
                     </ui:FilterOperationArgument.Column>
                     <ui:FilterOperationArgument.Operand>
                       <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_109">"CreatePaymentMethod"</CSharpValue>
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_91">"CreatePaymentACH"</CSharpValue>
                       </InArgument>
                     </ui:FilterOperationArgument.Operand>
                   </ui:FilterOperationArgument>
@@ -398,19 +399,19 @@
                 </scg:List>
               </ui:FilterDataTable.SelectColumns>
             </ui:FilterDataTable>
-            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="554.6666666666666,793.3333333333334" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="554.6666666666666,916" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="520.6666666666666,603.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="520.6666666666666,726" sap2010:WorkflowViewState.IdRef="Sequence_7">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.6666666666667,516" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.6666666666667,638.6666666666666" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                       <ui:MultipleAssign.AssignOperations>
                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="32">
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -422,6 +423,30 @@
                             <ui:AssignOperation.Value>
                               <InArgument x:TypeArguments="x:String">
                                 <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_41">CurrentRow["MerchantToken"].ToString()</CSharpValue>
+                              </InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">
+                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_78">str_Currency</CSharpReference>
+                              </OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_94">CurrentRow["Currency"].ToString()</CSharpValue>
+                              </InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">
+                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_55">str_TotalAmount</CSharpReference>
+                              </OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">CurrentRow["TotalAmount"].ToString()</CSharpValue>
                               </InArgument>
                             </ui:AssignOperation.Value>
                           </ui:AssignOperation>
@@ -446,42 +471,6 @@
                             <ui:AssignOperation.Value>
                               <InArgument x:TypeArguments="x:String">
                                 <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">CurrentRow["Phone"].ToString()</CSharpValue>
-                              </InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:String">
-                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_58">str_CardNumber</CSharpReference>
-                              </OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">CurrentRow["CardNumber"].ToString()</CSharpValue>
-                              </InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:String">
-                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_59">str_CardExpiry</CSharpReference>
-                              </OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">CurrentRow["CardExpiry"].ToString()</CSharpValue>
-                              </InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:String">
-                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_60">str_CardType</CSharpReference>
-                              </OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">CurrentRow["CardType"].ToString()</CSharpValue>
                               </InArgument>
                             </ui:AssignOperation.Value>
                           </ui:AssignOperation>
@@ -572,12 +561,72 @@
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
                             <ui:AssignOperation.To>
                               <OutArgument x:TypeArguments="x:String">
-                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_75">str_CustomerID</CSharpReference>
+                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_79">str_AccountType</CSharpReference>
                               </OutArgument>
                             </ui:AssignOperation.To>
                             <ui:AssignOperation.Value>
                               <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_114">CurrentRow["CustID"].ToString()</CSharpValue>
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_109">CurrentRow["AccountType"].ToString()</CSharpValue>
+                              </InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">
+                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_80">str_AccountNumber</CSharpReference>
+                              </OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_110">CurrentRow["AccountNumber"].ToString()</CSharpValue>
+                              </InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">
+                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_81">str_RoutingNumber</CSharpReference>
+                              </OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_111">CurrentRow["RoutingNumber"].ToString()</CSharpValue>
+                              </InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">
+                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_83">str_Frequency</CSharpReference>
+                              </OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_148">CurrentRow["Frequency"].ToString()</CSharpValue>
+                              </InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">
+                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_84">str_PaymentMonth</CSharpReference>
+                              </OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_119">CurrentRow["PaymentMonth"].ToString()</CSharpValue>
+                              </InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_25">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">
+                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_85">str_PaymentDay</CSharpReference>
+                              </OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_147">CurrentRow["PaymentDay"].ToString()</CSharpValue>
                               </InArgument>
                             </ui:AssignOperation.Value>
                           </ui:AssignOperation>
@@ -631,7 +680,7 @@
               </Assign.Value>
             </Assign>
           </Sequence>
-          <Sequence DisplayName="Create Payment" sap:VirtualizedContainerService.HintSize="616.6666666666666,1598.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <Sequence DisplayName="Create Payment" sap:VirtualizedContainerService.HintSize="616.6666666666666,2020" sap2010:WorkflowViewState.IdRef="Sequence_8">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="str_accessToken" />
             </Sequence.Variables>
@@ -657,88 +706,123 @@
                 </OutArgument>
               </dep:FetchAccessToken.out_accessToken>
             </dep:FetchAccessToken>
-            <dep:PaymentMethod str_in_AccountNumber="{x:Null}" str_in_AccountType="{x:Null}" str_in_RoutingNumber="{x:Null}" str_out_paymentID="{x:Null}" sap:VirtualizedContainerService.HintSize="388,1250.6666666666667" sap2010:WorkflowViewState.IdRef="PaymentMethod_1" str_in_AccNickName="Test" str_in_Active="true" str_in_PaymentMethod="Card">
-              <dep:PaymentMethod.in_ReportID>
+            <dep:CreatePayment str_out_paymentID="{x:Null}" DisplayName="CreatePayment - Copy (1)" sap:VirtualizedContainerService.HintSize="388,1672" sap2010:WorkflowViewState.IdRef="CreatePayment_1" str_in_Active="true" str_in_Endpoint="subscriptions" str_in_PaymentMethod="ach" str_in_PaymentMethodKey1="accountNumber" str_in_PaymentMethodKey2="routingNumber" str_in_PaymentMethodKey3="accountType" str_in_TestCase="Create Subscription - ACH">
+              <dep:CreatePayment.dbl_in_Amount>
+                <InArgument x:TypeArguments="x:Double">
+                  <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_132">Convert.ToDouble(str_TotalAmount)</CSharpValue>
+                </InArgument>
+              </dep:CreatePayment.dbl_in_Amount>
+              <dep:CreatePayment.in_ReportID>
                 <InArgument x:TypeArguments="x:Int32">
-                  <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_115">int_ReportId</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_133">int_ReportId</CSharpValue>
                 </InArgument>
-              </dep:PaymentMethod.in_ReportID>
-              <dep:PaymentMethod.in_merchanttoken>
+              </dep:CreatePayment.in_ReportID>
+              <dep:CreatePayment.in_merchanttoken>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_116">str_MerchantToken</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_122">str_MerchantToken</CSharpValue>
                 </InArgument>
-              </dep:PaymentMethod.in_merchanttoken>
-              <dep:PaymentMethod.in_token>
+              </dep:CreatePayment.in_merchanttoken>
+              <dep:CreatePayment.in_token>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_117">str_accessToken</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_121">str_accessToken</CSharpValue>
                 </InArgument>
-              </dep:PaymentMethod.in_token>
-              <dep:PaymentMethod.int_in_CustomerID>
+              </dep:CreatePayment.in_token>
+              <dep:CreatePayment.int_in_PaymentMonth>
                 <InArgument x:TypeArguments="x:Int32">
-                  <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_118">Convert.ToInt32(str_CustomerID)</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_142">Convert.ToInt32(str_PaymentMonth)</CSharpValue>
                 </InArgument>
-              </dep:PaymentMethod.int_in_CustomerID>
-              <dep:PaymentMethod.out_TestID>
+              </dep:CreatePayment.int_in_PaymentMonth>
+              <dep:CreatePayment.out_TestID>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_119">str_TestId</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_134">str_TestId</CSharpValue>
                 </InArgument>
-              </dep:PaymentMethod.out_TestID>
-              <dep:PaymentMethod.str_in_CardNumber>
+              </dep:CreatePayment.out_TestID>
+              <dep:CreatePayment.str_in_Currency>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_120">str_CardNumber</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_143">str_Currency</CSharpValue>
                 </InArgument>
-              </dep:PaymentMethod.str_in_CardNumber>
-              <dep:PaymentMethod.str_in_CustEmail>
+              </dep:CreatePayment.str_in_Currency>
+              <dep:CreatePayment.str_in_CustEmail>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_121">str_Email</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_131">str_Email</CSharpValue>
                 </InArgument>
-              </dep:PaymentMethod.str_in_CustEmail>
-              <dep:PaymentMethod.str_in_CustPhoneNumber>
+              </dep:CreatePayment.str_in_CustEmail>
+              <dep:CreatePayment.str_in_CustPhoneNumber>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_122">str_CustPhoneNumber</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_130">str_CustPhoneNumber</CSharpValue>
                 </InArgument>
-              </dep:PaymentMethod.str_in_CustPhoneNumber>
-              <dep:PaymentMethod.str_in_CustomerAddress>
+              </dep:CreatePayment.str_in_CustPhoneNumber>
+              <dep:CreatePayment.str_in_CustomerAddress>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_123">str_CustomerAddress</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_125">str_CustomerAddress</CSharpValue>
                 </InArgument>
-              </dep:PaymentMethod.str_in_CustomerAddress>
-              <dep:PaymentMethod.str_in_CustomerCity>
+              </dep:CreatePayment.str_in_CustomerAddress>
+              <dep:CreatePayment.str_in_CustomerCity>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_124">str_CustomerCity</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_127">str_CustomerCity</CSharpValue>
                 </InArgument>
-              </dep:PaymentMethod.str_in_CustomerCity>
-              <dep:PaymentMethod.str_in_CustomerCountryCode>
+              </dep:CreatePayment.str_in_CustomerCity>
+              <dep:CreatePayment.str_in_CustomerCountryCode>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_125">str_CustomerCountry</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_129">str_CustomerCountry</CSharpValue>
                 </InArgument>
-              </dep:PaymentMethod.str_in_CustomerCountryCode>
-              <dep:PaymentMethod.str_in_CustomerSateCode>
+              </dep:CreatePayment.str_in_CustomerCountryCode>
+              <dep:CreatePayment.str_in_CustomerSateCode>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_126">str_CustomerState</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_128">str_CustomerState</CSharpValue>
                 </InArgument>
-              </dep:PaymentMethod.str_in_CustomerSateCode>
-              <dep:PaymentMethod.str_in_CustomerZipCode>
+              </dep:CreatePayment.str_in_CustomerSateCode>
+              <dep:CreatePayment.str_in_CustomerZipCode>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_127">str_CustomerZipCode</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_126">str_CustomerZipCode</CSharpValue>
                 </InArgument>
-              </dep:PaymentMethod.str_in_CustomerZipCode>
-              <dep:PaymentMethod.str_in_Expiry>
+              </dep:CreatePayment.str_in_CustomerZipCode>
+              <dep:CreatePayment.str_in_EndDate>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_128">str_CardExpiry</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_139">DateTime.Now.AddDays(5).ToString("MM/dd/yy")</CSharpValue>
                 </InArgument>
-              </dep:PaymentMethod.str_in_Expiry>
-              <dep:PaymentMethod.str_in_FirstName>
+              </dep:CreatePayment.str_in_EndDate>
+              <dep:CreatePayment.str_in_FirstName>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_129">str_FirstName</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_123">str_FirstName</CSharpValue>
                 </InArgument>
-              </dep:PaymentMethod.str_in_FirstName>
-              <dep:PaymentMethod.str_in_LastName>
+              </dep:CreatePayment.str_in_FirstName>
+              <dep:CreatePayment.str_in_Frequency>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_130">str_LastName</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_140">str_Frequency</CSharpValue>
                 </InArgument>
-              </dep:PaymentMethod.str_in_LastName>
-            </dep:PaymentMethod>
+              </dep:CreatePayment.str_in_Frequency>
+              <dep:CreatePayment.str_in_LastName>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_124">str_LastName</CSharpValue>
+                </InArgument>
+              </dep:CreatePayment.str_in_LastName>
+              <dep:CreatePayment.str_in_PaymentDay>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_141">str_PaymentDay</CSharpValue>
+                </InArgument>
+              </dep:CreatePayment.str_in_PaymentDay>
+              <dep:CreatePayment.str_in_PaymentMethodValue1>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_136">str_AccountNumber</CSharpValue>
+                </InArgument>
+              </dep:CreatePayment.str_in_PaymentMethodValue1>
+              <dep:CreatePayment.str_in_PaymentMethodValue2>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_144">str_RoutingNumber</CSharpValue>
+                </InArgument>
+              </dep:CreatePayment.str_in_PaymentMethodValue2>
+              <dep:CreatePayment.str_in_PaymentMethodValue3>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_137">str_AccountType</CSharpValue>
+                </InArgument>
+              </dep:CreatePayment.str_in_PaymentMethodValue3>
+              <dep:CreatePayment.str_in_StartDate>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_138">DateTime.Now.ToString("MM/dd/yy")</CSharpValue>
+                </InArgument>
+              </dep:CreatePayment.str_in_StartDate>
+            </dep:CreatePayment>
           </Sequence>
         </Sequence>
       </TryCatch.Try>
@@ -754,7 +838,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="450,716" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <Sequence sap:VirtualizedContainerService.HintSize="450,626.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_10">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
