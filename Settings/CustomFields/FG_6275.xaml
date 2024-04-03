@@ -1,20 +1,20 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="FG_6279" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:cr="clr-namespace:CommonLibrary.Report;assembly=CommonLibrary" xmlns:dc="clr-namespace:Deluxe_ReusableLibrary.Custom_Fields;assembly=Deluxe_ReusableLibrary" xmlns:dl="clr-namespace:Deluxe_ReusableLibrary.Login;assembly=Deluxe_ReusableLibrary" xmlns:dl1="clr-namespace:Deluxe_ReusableLibrary.Logout;assembly=Deluxe_ReusableLibrary" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:ra="clr-namespace:ReporterForUiPath.Activities;assembly=ReporterForUiPath.Activities" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
+    <x:Property Name="str_SuiteId" Type="InArgument(x:String)" />
     <x:Property Name="int_ReportId" Type="InArgument(x:Int32)" />
     <x:Property Name="str_TestId" Type="InArgument(x:String)" />
-    <x:Property Name="str_SuiteId" Type="InArgument(x:String)" />
   </x:Members>
+  <this:FG_6279.str_SuiteId>
+    <InArgument x:TypeArguments="x:String" />
+  </this:FG_6279.str_SuiteId>
   <this:FG_6279.int_ReportId>
     <InArgument x:TypeArguments="x:Int32" />
   </this:FG_6279.int_ReportId>
   <this:FG_6279.str_TestId>
     <InArgument x:TypeArguments="x:String" />
   </this:FG_6279.str_TestId>
-  <this:FG_6279.str_SuiteId>
-    <InArgument x:TypeArguments="x:String" />
-  </this:FG_6279.str_SuiteId>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>822,4959</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1326,10037</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -164,7 +164,12 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="FG_6279" sap:VirtualizedContainerService.HintSize="832,4894" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence DisplayName="FG_6275" sap:VirtualizedContainerService.HintSize="1336,9972" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ExcelPath" />
       <Variable x:TypeArguments="x:String" Name="ReportPath" />
@@ -174,7 +179,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="770,4783" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1274,9861" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Variables>
         <Variable x:TypeArguments="x:String" Name="Str_Url" />
         <Variable x:TypeArguments="x:String" Name="str_CustomizationOptions" />
@@ -206,396 +211,404 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="FG_6279" sap:VirtualizedContainerService.HintSize="732,4555" sap2010:WorkflowViewState.IdRef="Sequence_26">
+        <Sequence DisplayName="FG_6275" sap:VirtualizedContainerService.HintSize="1236,8752" sap2010:WorkflowViewState.IdRef="Sequence_26">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Extract dynamic Report and TestData Path" sap:VirtualizedContainerService.HintSize="670,81" sap2010:WorkflowViewState.IdRef="Sequence_42">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:String" Name="File_Path" />
-              <Variable x:TypeArguments="x:String" Name="Report_Path" />
-              <Variable x:TypeArguments="x:String" Name="FilePath_OP" />
-              <Variable x:TypeArguments="x:String" Name="ReportPath_OP" />
-              <Variable x:TypeArguments="njl:JObject" Name="ExcelFilePathJ" />
-              <Variable x:TypeArguments="njl:JObject" Name="ReportFilePathJ" />
-            </Sequence.Variables>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">
-                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_27">File_Path</CSharpReference>
-                </OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">Config\ExcelPath.json</InArgument>
-              </Assign.Value>
-            </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">
-                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_28">Report_Path</CSharpReference>
-                </OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">Config\Reportpath.json</InArgument>
-              </Assign.Value>
-            </Assign>
-            <ui:ReadTextFile File="{x:Null}" DisplayName="Read Text File" sap:VirtualizedContainerService.HintSize="434,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_1">
-              <ui:ReadTextFile.Content>
-                <OutArgument x:TypeArguments="x:String">
-                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_29">FilePath_OP</CSharpReference>
-                </OutArgument>
-              </ui:ReadTextFile.Content>
-              <ui:ReadTextFile.FileName>
-                <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_76">File_Path</CSharpValue>
-                </InArgument>
-              </ui:ReadTextFile.FileName>
-            </ui:ReadTextFile>
-            <ui:ReadTextFile File="{x:Null}" DisplayName="Read Text File" sap:VirtualizedContainerService.HintSize="434,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_2">
-              <ui:ReadTextFile.Content>
-                <OutArgument x:TypeArguments="x:String">
-                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_30">ReportPath_OP</CSharpReference>
-                </OutArgument>
-              </ui:ReadTextFile.Content>
-              <ui:ReadTextFile.FileName>
-                <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_77">Report_Path</CSharpValue>
-                </InArgument>
-              </ui:ReadTextFile.FileName>
-            </ui:ReadTextFile>
-            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1">
-              <ui:DeserializeJson.JsonObject>
-                <OutArgument x:TypeArguments="njl:JObject">
-                  <CSharpReference x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpReference`1_31">ExcelFilePathJ</CSharpReference>
-                </OutArgument>
-              </ui:DeserializeJson.JsonObject>
-              <ui:DeserializeJson.JsonString>
-                <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_78">FilePath_OP</CSharpValue>
-                </InArgument>
-              </ui:DeserializeJson.JsonString>
-            </ui:DeserializeJson>
-            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2">
-              <ui:DeserializeJson.JsonObject>
-                <OutArgument x:TypeArguments="njl:JObject">
-                  <CSharpReference x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpReference`1_32">ReportFilePathJ</CSharpReference>
-                </OutArgument>
-              </ui:DeserializeJson.JsonObject>
-              <ui:DeserializeJson.JsonString>
-                <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_79">ReportPath_OP</CSharpValue>
-                </InArgument>
-              </ui:DeserializeJson.JsonString>
-            </ui:DeserializeJson>
-            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">
-                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_33">ExcelPath</CSharpReference>
-                </OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_80">Path.Combine(Environment.CurrentDirectory,ExcelFilePathJ.SelectToken("Excel_path").ToString())</CSharpValue>
-                </InArgument>
-              </Assign.Value>
-            </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">
-                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_34">ReportPath</CSharpReference>
-                </OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_81">System.IO.Path.Combine(Environment.CurrentDirectory, ReportFilePathJ.SelectToken("Report_path").ToString())</CSharpValue>
-                </InArgument>
-              </Assign.Value>
-            </Assign>
-          </Sequence>
-          <If sap:VirtualizedContainerService.HintSize="670,403" sap2010:WorkflowViewState.IdRef="If_4">
-            <If.Condition>
-              <InArgument x:TypeArguments="x:Boolean">
-                <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_82">int_ReportId.Equals(0) == true</CSharpValue>
-              </InArgument>
-            </If.Condition>
+          <Sequence DisplayName="FG_6275" sap:VirtualizedContainerService.HintSize="1174,1117" sap2010:WorkflowViewState.IdRef="Sequence_50">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="376,221" sap2010:WorkflowViewState.IdRef="Sequence_43">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ra:CreateReport ContinueOnError="{x:Null}" DisplayName="Create Report" sap:VirtualizedContainerService.HintSize="334,133" sap2010:WorkflowViewState.IdRef="CreateReport_2" ReportName="FG_6279_Delete radio button Field">
-                  <ra:CreateReport.ReportLocation>
-                    <InArgument x:TypeArguments="x:String">
-                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_83">ReportPath</CSharpValue>
-                    </InArgument>
-                  </ra:CreateReport.ReportLocation>
-                  <ra:CreateReport.isCreated>
-                    <OutArgument x:TypeArguments="x:Int32">
-                      <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_35">int_ReportId</CSharpReference>
-                    </OutArgument>
-                  </ra:CreateReport.isCreated>
-                </ra:CreateReport>
-              </Sequence>
-            </If.Then>
-            <If.Else>
-              <Sequence sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_44">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-              </Sequence>
-            </If.Else>
-          </If>
-          <Sequence sap:VirtualizedContainerService.HintSize="670,321" sap2010:WorkflowViewState.IdRef="Sequence_2">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ra:StartSuite ContinueOnError="{x:Null}" DisplayName="Start Suite" sap:VirtualizedContainerService.HintSize="388,85" sap2010:WorkflowViewState.IdRef="StartSuite_1" SuiteName="Settings _CustomFileds">
-              <ra:StartSuite.ReportId>
-                <InArgument x:TypeArguments="x:Int32">
-                  <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">int_ReportId</CSharpValue>
-                </InArgument>
-              </ra:StartSuite.ReportId>
-              <ra:StartSuite.suiteId>
-                <OutArgument x:TypeArguments="x:String">
-                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">str_SuiteId</CSharpReference>
-                </OutArgument>
-              </ra:StartSuite.suiteId>
-            </ra:StartSuite>
-            <ra:StartTest ContinueOnError="{x:Null}" TagName="{x:Null}" TestDescription="{x:Null}" DisplayName="Start Test" sap:VirtualizedContainerService.HintSize="388,85" sap2010:WorkflowViewState.IdRef="StartTest_1" Priority="Low" TestName="FG_6279_Delete radio button Field">
-              <ra:StartTest.ReportId>
-                <InArgument x:TypeArguments="x:Int32">
-                  <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">int_ReportId</CSharpValue>
-                </InArgument>
-              </ra:StartTest.ReportId>
-              <ra:StartTest.SuiteId>
-                <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">str_SuiteId</CSharpValue>
-                </InArgument>
-              </ra:StartTest.SuiteId>
-              <ra:StartTest.testId>
-                <OutArgument x:TypeArguments="x:String">
-                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">str_TestId</CSharpReference>
-                </OutArgument>
-              </ra:StartTest.testId>
-            </ra:StartTest>
-          </Sequence>
-          <Sequence DisplayName="Read Test Data" sap:VirtualizedContainerService.HintSize="670,492" sap2010:WorkflowViewState.IdRef="Sequence_3">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="sd:DataTable" Name="dt_TestData" />
-              <Variable x:TypeArguments="sd:DataTable" Name="dt_TestCaseData" />
-            </Sequence.Variables>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ui:ReadRange Range="{x:Null}" AddHeaders="True" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="388,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Settings_CustomFields">
-              <ui:ReadRange.DataTable>
-                <OutArgument x:TypeArguments="sd:DataTable">
-                  <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">dt_TestData</CSharpReference>
-                </OutArgument>
-              </ui:ReadRange.DataTable>
-              <ui:ReadRange.WorkbookPath>
-                <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_84">ExcelPath</CSharpValue>
-                </InArgument>
-              </ui:ReadRange.WorkbookPath>
-            </ui:ReadRange>
-            <ui:FilterDataTable DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="388,161" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" SelectColumnsMode="Remove">
-              <ui:FilterDataTable.DataTable>
-                <InArgument x:TypeArguments="sd:DataTable">
-                  <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">dt_TestData</CSharpValue>
-                </InArgument>
-              </ui:FilterDataTable.DataTable>
-              <ui:FilterDataTable.Filters>
-                <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
-                  <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
-                    <ui:FilterOperationArgument.Column>
-                      <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">"TestCaseId"</CSharpValue>
-                      </InArgument>
-                    </ui:FilterOperationArgument.Column>
-                    <ui:FilterOperationArgument.Operand>
-                      <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_73">"FG_6279"</CSharpValue>
-                      </InArgument>
-                    </ui:FilterOperationArgument.Operand>
-                  </ui:FilterOperationArgument>
-                </scg:List>
-              </ui:FilterDataTable.Filters>
-              <ui:FilterDataTable.OutputDataTable>
-                <OutArgument x:TypeArguments="sd:DataTable">
-                  <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">dt_TestCaseData</CSharpReference>
-                </OutArgument>
-              </ui:FilterDataTable.OutputDataTable>
-              <ui:FilterDataTable.SelectColumns>
-                <scg:List x:TypeArguments="InArgument" Capacity="4">
-                  <x:Null />
-                </scg:List>
-              </ui:FilterDataTable.SelectColumns>
-            </ui:FilterDataTable>
-            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
-              <ui:ForEachRow.Body>
-                <ActivityAction x:TypeArguments="sd:DataRow">
-                  <ActivityAction.Argument>
-                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
-                  </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="521,421" sap2010:WorkflowViewState.IdRef="Sequence_5">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,333" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
-                      <ui:MultipleAssign.AssignOperations>
-                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:String">
-                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">str_CustomizationOptions</CSharpReference>
-                              </OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">CurrentRow["CustomizationsOptions"].ToString()</CSharpValue>
-                              </InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:String">
-                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">str_in_FieldName</CSharpReference>
-                              </OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">CurrentRow["Field Name"].ToString()</CSharpValue>
-                              </InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:String">
-                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_8">str_in_Description</CSharpReference>
-                              </OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">CurrentRow["Description"].ToString()</CSharpValue>
-                              </InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:String">
-                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">str_in_ToolTip</CSharpReference>
-                              </OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">CurrentRow["ToolTip"].ToString()</CSharpValue>
-                              </InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:String">
-                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_10">str_in_OptionName1</CSharpReference>
-                              </OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">CurrentRow["Option Name1"].ToString()</CSharpValue>
-                              </InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:String">
-                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_11">str_in_OptionName2</CSharpReference>
-                              </OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">CurrentRow["Option Name2"].ToString()</CSharpValue>
-                              </InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:String">
-                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_12">str_in_FieldLabel</CSharpReference>
-                              </OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">CurrentRow["Field Label"].ToString()</CSharpValue>
-                              </InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:String">
-                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_13">str_in_Type</CSharpReference>
-                              </OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">CurrentRow["TYPE"].ToString()</CSharpValue>
-                              </InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
-                        </scg:List>
-                      </ui:MultipleAssign.AssignOperations>
-                    </ui:MultipleAssign>
-                  </Sequence>
-                </ActivityAction>
-              </ui:ForEachRow.Body>
-              <ui:ForEachRow.DataTable>
-                <InArgument x:TypeArguments="sd:DataTable">
-                  <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">dt_TestCaseData</CSharpValue>
-                </InArgument>
-              </ui:ForEachRow.DataTable>
+            <Sequence DisplayName="Extract dynamic Report and TestData Path" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_42">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="File_Path" />
+                <Variable x:TypeArguments="x:String" Name="Report_Path" />
+                <Variable x:TypeArguments="x:String" Name="FilePath_OP" />
+                <Variable x:TypeArguments="x:String" Name="ReportPath_OP" />
+                <Variable x:TypeArguments="njl:JObject" Name="ExcelFilePathJ" />
+                <Variable x:TypeArguments="njl:JObject" Name="ReportFilePathJ" />
+              </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">
+                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_27">File_Path</CSharpReference>
+                  </OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">Config\ExcelPath.json</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">
+                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_28">Report_Path</CSharpReference>
+                  </OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">Config\Reportpath.json</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:ReadTextFile File="{x:Null}" DisplayName="Read Text File" sap:VirtualizedContainerService.HintSize="434,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_1">
+                <ui:ReadTextFile.Content>
+                  <OutArgument x:TypeArguments="x:String">
+                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_29">FilePath_OP</CSharpReference>
+                  </OutArgument>
+                </ui:ReadTextFile.Content>
+                <ui:ReadTextFile.FileName>
+                  <InArgument x:TypeArguments="x:String">
+                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_76">File_Path</CSharpValue>
+                  </InArgument>
+                </ui:ReadTextFile.FileName>
+              </ui:ReadTextFile>
+              <ui:ReadTextFile File="{x:Null}" DisplayName="Read Text File" sap:VirtualizedContainerService.HintSize="434,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_2">
+                <ui:ReadTextFile.Content>
+                  <OutArgument x:TypeArguments="x:String">
+                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_30">ReportPath_OP</CSharpReference>
+                  </OutArgument>
+                </ui:ReadTextFile.Content>
+                <ui:ReadTextFile.FileName>
+                  <InArgument x:TypeArguments="x:String">
+                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_77">Report_Path</CSharpValue>
+                  </InArgument>
+                </ui:ReadTextFile.FileName>
+              </ui:ReadTextFile>
+              <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1">
+                <ui:DeserializeJson.JsonObject>
+                  <OutArgument x:TypeArguments="njl:JObject">
+                    <CSharpReference x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpReference`1_31">ExcelFilePathJ</CSharpReference>
+                  </OutArgument>
+                </ui:DeserializeJson.JsonObject>
+                <ui:DeserializeJson.JsonString>
+                  <InArgument x:TypeArguments="x:String">
+                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_78">FilePath_OP</CSharpValue>
+                  </InArgument>
+                </ui:DeserializeJson.JsonString>
+              </ui:DeserializeJson>
+              <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2">
+                <ui:DeserializeJson.JsonObject>
+                  <OutArgument x:TypeArguments="njl:JObject">
+                    <CSharpReference x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpReference`1_32">ReportFilePathJ</CSharpReference>
+                  </OutArgument>
+                </ui:DeserializeJson.JsonObject>
+                <ui:DeserializeJson.JsonString>
+                  <InArgument x:TypeArguments="x:String">
+                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_79">ReportPath_OP</CSharpValue>
+                  </InArgument>
+                </ui:DeserializeJson.JsonString>
+              </ui:DeserializeJson>
+              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">
+                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_33">ExcelPath</CSharpReference>
+                  </OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">
+                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_80">Path.Combine(Environment.CurrentDirectory,ExcelFilePathJ.SelectToken("Excel_path").ToString())</CSharpValue>
+                  </InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">
+                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_34">ReportPath</CSharpReference>
+                  </OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">
+                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_81">System.IO.Path.Combine(Environment.CurrentDirectory, ReportFilePathJ.SelectToken("Report_path").ToString())</CSharpValue>
+                  </InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+            <If sap:VirtualizedContainerService.HintSize="450,403" sap2010:WorkflowViewState.IdRef="If_4">
+              <If.Condition>
+                <InArgument x:TypeArguments="x:Boolean">
+                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_82">int_ReportId.Equals(0) == true</CSharpValue>
+                </InArgument>
+              </If.Condition>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-            </ui:ForEachRow>
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,221" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ra:CreateReport ContinueOnError="{x:Null}" DisplayName="Create Report" sap:VirtualizedContainerService.HintSize="334,133" sap2010:WorkflowViewState.IdRef="CreateReport_2" ReportName="FG_6275_Delete dropdown Field">
+                    <ra:CreateReport.ReportLocation>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_83">ReportPath</CSharpValue>
+                      </InArgument>
+                    </ra:CreateReport.ReportLocation>
+                    <ra:CreateReport.isCreated>
+                      <OutArgument x:TypeArguments="x:Int32">
+                        <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_35">int_ReportId</CSharpReference>
+                      </OutArgument>
+                    </ra:CreateReport.isCreated>
+                  </ra:CreateReport>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+            <Sequence sap:VirtualizedContainerService.HintSize="450,321" sap2010:WorkflowViewState.IdRef="Sequence_47">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ra:StartSuite ContinueOnError="{x:Null}" DisplayName="Start Suite" sap:VirtualizedContainerService.HintSize="388,85" sap2010:WorkflowViewState.IdRef="StartSuite_2" SuiteName="Settings _CustomFileds">
+                <ra:StartSuite.ReportId>
+                  <InArgument x:TypeArguments="x:Int32">
+                    <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_84">int_ReportId</CSharpValue>
+                  </InArgument>
+                </ra:StartSuite.ReportId>
+                <ra:StartSuite.suiteId>
+                  <OutArgument x:TypeArguments="x:String">
+                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_36">str_SuiteId</CSharpReference>
+                  </OutArgument>
+                </ra:StartSuite.suiteId>
+              </ra:StartSuite>
+              <ra:StartTest ContinueOnError="{x:Null}" TagName="{x:Null}" TestDescription="{x:Null}" DisplayName="Start Test" sap:VirtualizedContainerService.HintSize="388,85" sap2010:WorkflowViewState.IdRef="StartTest_2" Priority="Low" TestName="FG_6275_Delete dropdown Field">
+                <ra:StartTest.ReportId>
+                  <InArgument x:TypeArguments="x:Int32">
+                    <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_85">int_ReportId</CSharpValue>
+                  </InArgument>
+                </ra:StartTest.ReportId>
+                <ra:StartTest.SuiteId>
+                  <InArgument x:TypeArguments="x:String">
+                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_86">str_SuiteId</CSharpValue>
+                  </InArgument>
+                </ra:StartTest.SuiteId>
+                <ra:StartTest.testId>
+                  <OutArgument x:TypeArguments="x:String">
+                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_37">str_TestId</CSharpReference>
+                  </OutArgument>
+                </ra:StartTest.testId>
+              </ra:StartTest>
+            </Sequence>
+            <Sequence DisplayName="Read Test Data" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_43">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="sd:DataTable" Name="dt_TestData" />
+                <Variable x:TypeArguments="sd:DataTable" Name="dt_TestCaseData" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ReadRange Range="{x:Null}" AddHeaders="True" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="555,88" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Settings_CustomFields">
+                <ui:ReadRange.DataTable>
+                  <OutArgument x:TypeArguments="sd:DataTable">
+                    <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_38">dt_TestData</CSharpReference>
+                  </OutArgument>
+                </ui:ReadRange.DataTable>
+                <ui:ReadRange.WorkbookPath>
+                  <InArgument x:TypeArguments="x:String">
+                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_87">ExcelPath</CSharpValue>
+                  </InArgument>
+                </ui:ReadRange.WorkbookPath>
+              </ui:ReadRange>
+              <ui:FilterDataTable DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="555,161" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" SelectColumnsMode="Remove">
+                <ui:FilterDataTable.DataTable>
+                  <InArgument x:TypeArguments="sd:DataTable">
+                    <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_90">dt_TestData</CSharpValue>
+                  </InArgument>
+                </ui:FilterDataTable.DataTable>
+                <ui:FilterDataTable.Filters>
+                  <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                    <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                      <ui:FilterOperationArgument.Column>
+                        <InArgument x:TypeArguments="x:String">
+                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_88">"TestCaseId"</CSharpValue>
+                        </InArgument>
+                      </ui:FilterOperationArgument.Column>
+                      <ui:FilterOperationArgument.Operand>
+                        <InArgument x:TypeArguments="x:String">
+                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_89">"FG_6275"</CSharpValue>
+                        </InArgument>
+                      </ui:FilterOperationArgument.Operand>
+                    </ui:FilterOperationArgument>
+                  </scg:List>
+                </ui:FilterDataTable.Filters>
+                <ui:FilterDataTable.OutputDataTable>
+                  <OutArgument x:TypeArguments="sd:DataTable">
+                    <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_39">dt_TestCaseData</CSharpReference>
+                  </OutArgument>
+                </ui:FilterDataTable.OutputDataTable>
+                <ui:FilterDataTable.SelectColumns>
+                  <scg:List x:TypeArguments="InArgument" Capacity="4">
+                    <x:Null />
+                  </scg:List>
+                </ui:FilterDataTable.SelectColumns>
+              </ui:FilterDataTable>
+              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="555,607" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                <ui:ForEachRow.Body>
+                  <ActivityAction x:TypeArguments="sd:DataRow">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="521,421" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,333" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                        <ui:MultipleAssign.AssignOperations>
+                          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">
+                                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_40">str_CustomizationOptions</CSharpReference>
+                                </OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">
+                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_92">CurrentRow["CustomizationsOptions"].ToString()</CSharpValue>
+                                </InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">
+                                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_41">str_in_FieldName</CSharpReference>
+                                </OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">
+                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_93">CurrentRow["Field Name"].ToString()</CSharpValue>
+                                </InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">
+                                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_42">str_in_Description</CSharpReference>
+                                </OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">
+                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_94">CurrentRow["Description"].ToString()</CSharpValue>
+                                </InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">
+                                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_43">str_in_ToolTip</CSharpReference>
+                                </OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">
+                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_95">CurrentRow["ToolTip"].ToString()</CSharpValue>
+                                </InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">
+                                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_44">str_in_OptionName1</CSharpReference>
+                                </OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">
+                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_96">CurrentRow["Option Name1"].ToString()</CSharpValue>
+                                </InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">
+                                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_45">str_in_OptionName2</CSharpReference>
+                                </OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">
+                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_97">CurrentRow["Option Name2"].ToString()</CSharpValue>
+                                </InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">
+                                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_46">str_in_FieldLabel</CSharpReference>
+                                </OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">
+                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_98">CurrentRow["Field Label"].ToString()</CSharpValue>
+                                </InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">
+                                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_47">str_in_Type</CSharpReference>
+                                </OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">
+                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_99">CurrentRow["TYPE"].ToString()</CSharpValue>
+                                </InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                          </scg:List>
+                        </ui:MultipleAssign.AssignOperations>
+                      </ui:MultipleAssign>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ForEachRow.Body>
+                <ui:ForEachRow.DataTable>
+                  <InArgument x:TypeArguments="sd:DataTable">
+                    <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_91">dt_TestCaseData</CSharpValue>
+                  </InArgument>
+                </ui:ForEachRow.DataTable>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:ForEachRow>
+            </Sequence>
           </Sequence>
-          <Sequence DisplayName="FG_6276" sap:VirtualizedContainerService.HintSize="670,2987" sap2010:WorkflowViewState.IdRef="Sequence_25">
+          <Sequence DisplayName="FG_6276" sap:VirtualizedContainerService.HintSize="1174,7484" sap2010:WorkflowViewState.IdRef="Sequence_25">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <dl:DPP_Login BreakTriggerScopeInArgument="{x:Null}" sap:VirtualizedContainerService.HintSize="608,52" sap2010:WorkflowViewState.IdRef="DPP_Login_1" bool_in_MerchantLogin="True">
+            <dl:DPP_Login BreakTriggerScopeInArgument="{x:Null}" sap:VirtualizedContainerService.HintSize="1112,294" sap2010:WorkflowViewState.IdRef="DPP_Login_1" bool_in_MerchantLogin="True">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -618,7 +631,7 @@
                 </OutArgument>
               </dl:DPP_Login.str_out_DppURL>
             </dl:DPP_Login>
-            <dc:Verify_Settings_Customizations_Fields sap:VirtualizedContainerService.HintSize="608,243" sap2010:WorkflowViewState.IdRef="Verify_Settings_Customizations_Fields_1">
+            <dc:Verify_Settings_Customizations_Fields sap:VirtualizedContainerService.HintSize="1112,243" sap2010:WorkflowViewState.IdRef="Verify_Settings_Customizations_Fields_1">
               <dc:Verify_Settings_Customizations_Fields.Str_in_Url>
                 <InArgument x:TypeArguments="x:String">
                   <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">Str_Url</CSharpValue>
@@ -640,19 +653,19 @@
                 </InArgument>
               </dc:Verify_Settings_Customizations_Fields.str_in_TestId>
             </dc:Verify_Settings_Customizations_Fields>
-            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Custom Field Management" sap:VirtualizedContainerService.HintSize="608,2501" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="3ebe685b-ceb3-4b55-827a-c5ec22e5768b" Version="V2">
+            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Custom Field Management" sap:VirtualizedContainerService.HintSize="1112,6756" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="3ebe685b-ceb3-4b55-827a-c5ec22e5768b" Version="V2">
               <uix:NApplicationCard.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                   </ActivityAction.Argument>
-                  <Sequence sap:VirtualizedContainerService.HintSize="574,2284" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                  <Sequence sap:VirtualizedContainerService.HintSize="1078,6539" sap2010:WorkflowViewState.IdRef="Sequence_24">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence sap:VirtualizedContainerService.HintSize="512,2169" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                    <Sequence sap:VirtualizedContainerService.HintSize="1016,6424" sap2010:WorkflowViewState.IdRef="Sequence_23">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:Boolean" Name="bool_CustomField" />
                         <Variable x:TypeArguments="x:Boolean" Name="bool_Yes" />
@@ -665,7 +678,7 @@
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="Verify the Grid" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                      <Sequence DisplayName="Verify the Grid" sap:VirtualizedContainerService.HintSize="954,916" sap2010:WorkflowViewState.IdRef="Sequence_21">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -999,7 +1012,7 @@
                           </If.Else>
                         </If>
                       </Sequence>
-                      <uix:NGetText DisplayName="Get Text 'Field Name Updated'" sap:VirtualizedContainerService.HintSize="450,157" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="3ebe685b-ceb3-4b55-827a-c5ec22e5768b" Version="V3">
+                      <uix:NGetText DisplayName="Get Text 'Field Name Updated'" sap:VirtualizedContainerService.HintSize="954,157" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="3ebe685b-ceb3-4b55-827a-c5ec22e5768b" Version="V3">
                         <uix:NGetText.Target>
                           <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/settings/customizations/custom-fields-management" DesignTimeRectangle="297, 738, 216, 38" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Field Name Updated'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tag='TD' colName='FIELD NAME ' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tag='TD' colName='FIELD NAME ' type='' class='' /&gt;" Guid="b31342b6-6c16-488e-9392-13f0704370f0" ImageBase64="" InformativeScreenshot="7a0daf02771a33e60fd11fe6e95f522e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Custom Field Management' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
                         </uix:NGetText.Target>
@@ -1009,12 +1022,12 @@
                           </OutArgument>
                         </uix:NGetText.TextString>
                       </uix:NGetText>
-                      <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="5" DisplayName="Click 'I'" sap:VirtualizedContainerService.HintSize="450,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3ebe685b-ceb3-4b55-827a-c5ec22e5768b" Version="V3">
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="5" DisplayName="Click 'I'" sap:VirtualizedContainerService.HintSize="954,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3ebe685b-ceb3-4b55-827a-c5ec22e5768b" Version="V3">
                         <uix:NClick.Target>
                           <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/settings/customizations/custom-fields-management" DesignTimeRectangle="1821, 753, 13, 14" DesignTimeScaleFactor="1" FriendlyName="'I'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tag='I' colName='ACTION' parentid='main-wrapper' idx='2' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tag='I' colName='ACTION' parentid='main-wrapper' type='' class='iconAnchor tooltipzTop fas fa-edit' aaname='' /&gt;" Guid="1d996bec-6536-40ca-ab6b-283a31f8c215" ImageBase64="" InformativeScreenshot="802214762c68bb10df8f816dce4fde4e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Custom Field Management' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
                         </uix:NClick.Target>
                       </uix:NClick>
-                      <uix:NCheckState DisplayName="Check App State 'Delete Custom Field'" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="NCheckState_7" ScopeIdentifier="3ebe685b-ceb3-4b55-827a-c5ec22e5768b" Version="V3">
+                      <uix:NCheckState DisplayName="Check App State 'Delete Custom Field'" sap:VirtualizedContainerService.HintSize="954,322" sap2010:WorkflowViewState.IdRef="NCheckState_7" ScopeIdentifier="3ebe685b-ceb3-4b55-827a-c5ec22e5768b" Version="V3">
                         <uix:NCheckState.Exists>
                           <OutArgument x:TypeArguments="x:Boolean">
                             <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_22">bool_CustomField</CSharpReference>
@@ -1048,7 +1061,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </uix:NCheckState>
-                      <uix:NCheckState DisplayName="Check App State 'Yes'" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="NCheckState_8" ScopeIdentifier="3ebe685b-ceb3-4b55-827a-c5ec22e5768b" Version="V3">
+                      <uix:NCheckState DisplayName="Check App State 'Yes'" sap:VirtualizedContainerService.HintSize="954,322" sap2010:WorkflowViewState.IdRef="NCheckState_8" ScopeIdentifier="3ebe685b-ceb3-4b55-827a-c5ec22e5768b" Version="V3">
                         <uix:NCheckState.Exists>
                           <OutArgument x:TypeArguments="x:Boolean">
                             <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_23">bool_Yes</CSharpReference>
@@ -1082,7 +1095,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </uix:NCheckState>
-                      <uix:NCheckState DisplayName="Check App State 'No'" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="NCheckState_9" ScopeIdentifier="3ebe685b-ceb3-4b55-827a-c5ec22e5768b" Version="V3">
+                      <uix:NCheckState DisplayName="Check App State 'No'" sap:VirtualizedContainerService.HintSize="954,322" sap2010:WorkflowViewState.IdRef="NCheckState_9" ScopeIdentifier="3ebe685b-ceb3-4b55-827a-c5ec22e5768b" Version="V3">
                         <uix:NCheckState.Exists>
                           <OutArgument x:TypeArguments="x:Boolean">
                             <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_25">bool_No</CSharpReference>
@@ -1116,7 +1129,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </uix:NCheckState>
-                      <If sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="If_2">
+                      <If sap:VirtualizedContainerService.HintSize="954,1048" sap2010:WorkflowViewState.IdRef="If_2">
                         <If.Condition>
                           <InArgument x:TypeArguments="x:Boolean">
                             <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_45">bool_No&amp;bool_Yes&amp;bool_CustomField</CSharpValue>
@@ -1135,7 +1148,7 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <cr:passedStep Actual_Result="Delete custom field popup is displayed with the Confirmation message, and Yes or No Button" Expected_Result="Delete custom field popup should be displayed with the Confirmation message, and Yes or No Button" sap:VirtualizedContainerService.HintSize="334,345" sap2010:WorkflowViewState.IdRef="passedStep_2" str_in_actualStep="Click on the delete icon in the Action column for the newly created custom field. (radio button Field)" str_in_expectedStep="Step ">
+                            <cr:passedStep Actual_Result="Delete custom field popup is displayed with the Confirmation message, and Yes or No Button" Expected_Result="Delete custom field popup should be displayed with the Confirmation message, and Yes or No Button" sap:VirtualizedContainerService.HintSize="334,345" sap2010:WorkflowViewState.IdRef="passedStep_2" str_in_actualStep="Click on the delete icon in the Action column for the newly created custom field. (Dropdown)" str_in_expectedStep="Step ">
                               <cr:passedStep.str_in_reportId>
                                 <InArgument x:TypeArguments="x:Int32">
                                   <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_46">int_ReportId</CSharpValue>
@@ -1156,7 +1169,7 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <cr:failedStep Actual_Result="Delete custom field popup is displayed with the Confirmation message, and Yes or No Button" Expected_Result="Delete custom field popup should be displayed with the Confirmation message, and Yes or No Button" sap:VirtualizedContainerService.HintSize="334,345" sap2010:WorkflowViewState.IdRef="failedStep_3" str_in_actualStep="Click on the delete icon in the Action column for the newly created custom field. (radio button Field)" str_in_expectedStep="Step ">
+                            <cr:failedStep Actual_Result="Delete custom field popup is displayed with the Confirmation message, and Yes or No Button" Expected_Result="Delete custom field popup should be displayed with the Confirmation message, and Yes or No Button" sap:VirtualizedContainerService.HintSize="334,345" sap2010:WorkflowViewState.IdRef="failedStep_3" str_in_actualStep="Click on the delete icon in the Action column for the newly created custom field. (Dropdown)" str_in_expectedStep="Step ">
                               <cr:failedStep.str_in_reportId>
                                 <InArgument x:TypeArguments="x:Int32">
                                   <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_48">int_ReportId</CSharpValue>
@@ -1171,14 +1184,14 @@
                           </Sequence>
                         </If.Else>
                       </If>
-                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Yes'" sap:VirtualizedContainerService.HintSize="450,157" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3ebe685b-ceb3-4b55-827a-c5ec22e5768b" Version="V3">
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Yes'" sap:VirtualizedContainerService.HintSize="954,157" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="3ebe685b-ceb3-4b55-827a-c5ec22e5768b" Version="V3">
                         <uix:NClick.Target>
                           <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/settings/customizations/custom-fields-management" DesignTimeRectangle="1151, 676, 49, 35" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Yes'" FullSelectorArgument="&lt;webctrl aaname='Yes ' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Yes ' tag='BUTTON' type='button' class='btn text-white lib-bg-dashboardblue float-right' check:innerText='Yes' /&gt;" Guid="8d299427-e452-4994-8820-ad8c8479d40f" ImageBase64="" InformativeScreenshot="0061c78f5d5e6203af610e11daff7540.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Custom Field Management' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
                         </uix:NClick.Target>
                       </uix:NClick>
-                      <uix:NCheckState DisplayName="Check App State 'Custom field'" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="NCheckState_10" ScopeIdentifier="3ebe685b-ceb3-4b55-827a-c5ec22e5768b" Version="V3">
+                      <uix:NCheckState DisplayName="Check App State 'Custom field'" sap:VirtualizedContainerService.HintSize="954,860" sap2010:WorkflowViewState.IdRef="NCheckState_10" ScopeIdentifier="3ebe685b-ceb3-4b55-827a-c5ec22e5768b" Version="V3">
                         <uix:NCheckState.IfExists>
-                          <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,641" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                          <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,643" sap2010:WorkflowViewState.IdRef="Sequence_36">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1211,7 +1224,7 @@
                           </Sequence>
                         </uix:NCheckState.IfExists>
                         <uix:NCheckState.IfNotExists>
-                          <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                          <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,643" sap2010:WorkflowViewState.IdRef="Sequence_37">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1254,7 +1267,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </uix:NCheckState>
-                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayAfter="3" DelayBefore="3" DisplayName="Type Into 'INPUT txtSearchCart'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="3ebe685b-ceb3-4b55-827a-c5ec22e5768b" Version="V3">
+                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayAfter="3" DelayBefore="3" DisplayName="Type Into 'INPUT txtSearchCart'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="954,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="3ebe685b-ceb3-4b55-827a-c5ec22e5768b" Version="V3">
                         <uix:NTypeInto.Target>
                           <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/settings/customizations/custom-fields-management" DesignTimeRectangle="296, 637, 201, 47" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT txtSearchCart'" FullSelectorArgument="&lt;webctrl id='txtSearchCart' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='txtSearchCart' tag='INPUT' type='text' class='lib-form-control w-auto' aaname='' /&gt;" Guid="75c273ec-0535-4403-9828-c9afae06a970" ImageBase64="" InformativeScreenshot="d0adb91902a6ca4b25a78709840ca6e8.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Custom Field Management' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
                         </uix:NTypeInto.Target>
@@ -1264,7 +1277,7 @@
                           </InArgument>
                         </uix:NTypeInto.Text>
                       </uix:NTypeInto>
-                      <uix:NCheckState DisplayName="Check App State 'No Records Found'" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="NCheckState_11" ScopeIdentifier="3ebe685b-ceb3-4b55-827a-c5ec22e5768b" Timeout="10" Version="V3">
+                      <uix:NCheckState DisplayName="Check App State 'No Records Found'" sap:VirtualizedContainerService.HintSize="954,858" sap2010:WorkflowViewState.IdRef="NCheckState_11" ScopeIdentifier="3ebe685b-ceb3-4b55-827a-c5ec22e5768b" Timeout="10" Version="V3">
                         <uix:NCheckState.IfExists>
                           <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,641" sap2010:WorkflowViewState.IdRef="Sequence_38">
                             <sap:WorkflowViewStateService.ViewState>
@@ -1406,7 +1419,7 @@
                           </Sequence>
                         </If.Else>
                       </If>
-                      <dl1:DPP_Logout BreakTriggerScopeInArgument="{x:Null}" sap:VirtualizedContainerService.HintSize="450,243" sap2010:WorkflowViewState.IdRef="DPP_Logout_1">
+                      <dl1:DPP_Logout BreakTriggerScopeInArgument="{x:Null}" sap:VirtualizedContainerService.HintSize="954,243" sap2010:WorkflowViewState.IdRef="DPP_Logout_1">
                         <dl1:DPP_Logout.int_in_ReportId>
                           <InArgument x:TypeArguments="x:Int32">
                             <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_35">int_ReportId</CSharpValue>
@@ -1447,10 +1460,10 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="736,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1240,798" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -1458,7 +1471,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="450,627" sap2010:WorkflowViewState.IdRef="Sequence_27">
+            <Sequence sap:VirtualizedContainerService.HintSize="450,729" sap2010:WorkflowViewState.IdRef="Sequence_27">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1477,7 +1490,7 @@
                   </InArgument>
                 </ui:LogMessage.Message>
               </ui:LogMessage>
-              <cr:failedStep Expected_Result="{x:Null}" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="failedStep_2" str_in_expectedStep="Step">
+              <cr:failedStep Expected_Result="{x:Null}" sap:VirtualizedContainerService.HintSize="388,345" sap2010:WorkflowViewState.IdRef="failedStep_2" str_in_expectedStep="Step">
                 <cr:failedStep.Actual_Result>
                   <InArgument x:TypeArguments="x:String">
                     <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_42">exception.Source</CSharpValue>
@@ -1505,20 +1518,26 @@
                   </InArgument>
                 </cr:failedStep.str_in_testId>
               </cr:failedStep>
-              <dl1:DPP_Logout BreakTriggerScopeInArgument="{x:Null}" sap:VirtualizedContainerService.HintSize="388,243" sap2010:WorkflowViewState.IdRef="DPP_Logout_2">
+              <dl1:DPP_Logout BreakTriggerScopeInArgument="{x:Null}" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="DPP_Logout_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
                 <dl1:DPP_Logout.int_in_ReportId>
                   <InArgument x:TypeArguments="x:Int32">
-                    <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_85">int_ReportId</CSharpValue>
+                    <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_106">int_ReportId</CSharpValue>
                   </InArgument>
                 </dl1:DPP_Logout.int_in_ReportId>
                 <dl1:DPP_Logout.str_in_DppURL>
                   <InArgument x:TypeArguments="x:String">
-                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_86">Str_Url</CSharpValue>
+                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_107">Str_Url</CSharpValue>
                   </InArgument>
                 </dl1:DPP_Logout.str_in_DppURL>
                 <dl1:DPP_Logout.str_in_TestId>
                   <InArgument x:TypeArguments="x:String">
-                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_87">str_TestId</CSharpValue>
+                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_108">str_TestId</CSharpValue>
                   </InArgument>
                 </dl1:DPP_Logout.str_in_TestId>
               </dl1:DPP_Logout>
