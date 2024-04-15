@@ -889,6 +889,9 @@
             </dl:DPP_Login.str_out_DppURL>
           </dl:DPP_Login>
           <Sequence DisplayName="Recurring Transaction Monthly" sap:VirtualizedContainerService.HintSize="450,124.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_11">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="str_First4DigitCard" />
+            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -964,7 +967,7 @@
                 </InArgument>
               </dp:PaymentsCreation.str_in_testId>
             </dp:PaymentsCreation>
-            <dp:ExistingCustomerDetailsValidations sap:VirtualizedContainerService.HintSize="450,94" sap2010:WorkflowViewState.IdRef="ExistingCustomerDetailsValidations_2" str_StepName="Step">
+            <dp:ExistingCustomerDetailsValidations sap:VirtualizedContainerService.HintSize="450,94" sap2010:WorkflowViewState.IdRef="ExistingCustomerDetailsValidations_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -973,54 +976,64 @@
               </sap:WorkflowViewStateService.ViewState>
               <dp:ExistingCustomerDetailsValidations.int_in_reportId>
                 <InArgument x:TypeArguments="x:Int32">
-                  <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_198">int_ReportId</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_310">int_ReportId</CSharpValue>
                 </InArgument>
               </dp:ExistingCustomerDetailsValidations.int_in_reportId>
-              <dp:ExistingCustomerDetailsValidations.str_Address>
+              <dp:ExistingCustomerDetailsValidations.str_in_Address>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_200">str_CustAddress</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_317">str_CustAddress</CSharpValue>
                 </InArgument>
-              </dp:ExistingCustomerDetailsValidations.str_Address>
-              <dp:ExistingCustomerDetailsValidations.str_City>
+              </dp:ExistingCustomerDetailsValidations.str_in_Address>
+              <dp:ExistingCustomerDetailsValidations.str_in_City>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_204">str_CustCity</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_318">str_CustCity</CSharpValue>
                 </InArgument>
-              </dp:ExistingCustomerDetailsValidations.str_City>
-              <dp:ExistingCustomerDetailsValidations.str_Email>
+              </dp:ExistingCustomerDetailsValidations.str_in_City>
+              <dp:ExistingCustomerDetailsValidations.str_in_Country>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_205">str_CustomerEmail</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_320">str_CustCountry</CSharpValue>
                 </InArgument>
-              </dp:ExistingCustomerDetailsValidations.str_Email>
-              <dp:ExistingCustomerDetailsValidations.str_FirstName>
-                <OutArgument x:TypeArguments="x:String">
-                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_55">str_CustFirstName</CSharpReference>
-                </OutArgument>
-              </dp:ExistingCustomerDetailsValidations.str_FirstName>
-              <dp:ExistingCustomerDetailsValidations.str_LastName>
-                <OutArgument x:TypeArguments="x:String">
-                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_56">str_CustLastName</CSharpReference>
-                </OutArgument>
-              </dp:ExistingCustomerDetailsValidations.str_LastName>
-              <dp:ExistingCustomerDetailsValidations.str_PhoneNumber>
+              </dp:ExistingCustomerDetailsValidations.str_in_Country>
+              <dp:ExistingCustomerDetailsValidations.str_in_Email>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_201">str_CusPhoneNumber</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_315">str_CustomerEmail</CSharpValue>
                 </InArgument>
-              </dp:ExistingCustomerDetailsValidations.str_PhoneNumber>
-              <dp:ExistingCustomerDetailsValidations.str_Postalcode>
+              </dp:ExistingCustomerDetailsValidations.str_in_Email>
+              <dp:ExistingCustomerDetailsValidations.str_in_FirstName>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_203">str_CustZipCode</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_313">str_CustFirstName</CSharpValue>
                 </InArgument>
-              </dp:ExistingCustomerDetailsValidations.str_Postalcode>
+              </dp:ExistingCustomerDetailsValidations.str_in_FirstName>
+              <dp:ExistingCustomerDetailsValidations.str_in_LastName>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_314">str_CustLastName</CSharpValue>
+                </InArgument>
+              </dp:ExistingCustomerDetailsValidations.str_in_LastName>
+              <dp:ExistingCustomerDetailsValidations.str_in_PhoneNumber>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_316">str_CusPhoneNumber</CSharpValue>
+                </InArgument>
+              </dp:ExistingCustomerDetailsValidations.str_in_PhoneNumber>
+              <dp:ExistingCustomerDetailsValidations.str_in_State>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_321">str_CustState</CSharpValue>
+                </InArgument>
+              </dp:ExistingCustomerDetailsValidations.str_in_State>
+              <dp:ExistingCustomerDetailsValidations.str_in_Url>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_312">str_DppUrl</CSharpValue>
+                </InArgument>
+              </dp:ExistingCustomerDetailsValidations.str_in_Url>
+              <dp:ExistingCustomerDetailsValidations.str_in_Zipcode>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_319">str_CustZipCode</CSharpValue>
+                </InArgument>
+              </dp:ExistingCustomerDetailsValidations.str_in_Zipcode>
               <dp:ExistingCustomerDetailsValidations.str_in_testId>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_199">str_TestId</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_311">str_TestId</CSharpValue>
                 </InArgument>
               </dp:ExistingCustomerDetailsValidations.str_in_testId>
-              <dp:ExistingCustomerDetailsValidations.str_state>
-                <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_202">str_CustState</CSharpValue>
-                </InArgument>
-              </dp:ExistingCustomerDetailsValidations.str_state>
             </dp:ExistingCustomerDetailsValidations>
             <dp:AddQuickSaleItem DisplayName="Add quick sale item" sap:VirtualizedContainerService.HintSize="450,94" sap2010:WorkflowViewState.IdRef="AddQuickSaleItem_2">
               <sap:WorkflowViewStateService.ViewState>
@@ -1167,6 +1180,66 @@
                 </InArgument>
               </dp:Verify_the_Additional_fields.out_Test_ID>
             </dp:Verify_the_Additional_fields>
+            <Assign sap:VirtualizedContainerService.HintSize="450,125.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_7">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">
+                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_71">str_First4DigitCard</CSharpReference>
+                </OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_308">str_CardNumber.Substring(0,4)</CSharpValue>
+                </InArgument>
+              </Assign.Value>
+            </Assign>
+            <dp:SelectVaultType in_ACH_number="{x:Null}" in_SelectCard="{x:Null}" sap:VirtualizedContainerService.HintSize="450,94" sap2010:WorkflowViewState.IdRef="SelectVaultType_3" step="Step" str_in_VaultType="Card">
+              <dp:SelectVaultType.In_Report_ID>
+                <InArgument x:TypeArguments="x:Int32">
+                  <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_301">int_ReportId</CSharpValue>
+                </InArgument>
+              </dp:SelectVaultType.In_Report_ID>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <dp:SelectVaultType.in_CardNumber>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_309">str_First4DigitCard</CSharpValue>
+                </InArgument>
+              </dp:SelectVaultType.in_CardNumber>
+              <dp:SelectVaultType.in_PaymentType>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_304">str_PaymentType</CSharpValue>
+                </InArgument>
+              </dp:SelectVaultType.in_PaymentType>
+              <dp:SelectVaultType.in_TestID>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_306">str_TestId</CSharpValue>
+                </InArgument>
+              </dp:SelectVaultType.in_TestID>
+              <dp:SelectVaultType.out_TestID>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_300">str_TestId</CSharpValue>
+                </InArgument>
+              </dp:SelectVaultType.out_TestID>
+              <dp:SelectVaultType.str_CardType>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_302">str_CardType</CSharpValue>
+                </InArgument>
+              </dp:SelectVaultType.str_CardType>
+              <dp:SelectVaultType.str_Url>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_307">str_DppUrl</CSharpValue>
+                </InArgument>
+              </dp:SelectVaultType.str_Url>
+              <dp:SelectVaultType.str_in_CardLogo>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_303">str_CardType</CSharpValue>
+                </InArgument>
+              </dp:SelectVaultType.str_in_CardLogo>
+            </dp:SelectVaultType>
             <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,94" sap2010:WorkflowViewState.IdRef="CommentOut_1">
               <ui:CommentOut.Body>
                 <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,161.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_15">
