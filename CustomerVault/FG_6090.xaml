@@ -404,25 +404,44 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ra:CreateReport ContinueOnError="{x:Null}" DisplayName="Create Report" sap:VirtualizedContainerService.HintSize="388,133" sap2010:WorkflowViewState.IdRef="CreateReport_1" ReportName="FG-6090">
-              <ra:CreateReport.ReportLocation>
-                <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_467">ReportPath</CSharpValue>
+            <If sap:VirtualizedContainerService.HintSize="410,403" sap2010:WorkflowViewState.IdRef="If_20">
+              <If.Condition>
+                <InArgument x:TypeArguments="x:Boolean">
+                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_517">int_ReportId.Equals(0)==true</CSharpValue>
                 </InArgument>
-              </ra:CreateReport.ReportLocation>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ra:CreateReport.isCreated>
-                <OutArgument x:TypeArguments="x:Int32">
-                  <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">int_ReportId</CSharpReference>
-                </OutArgument>
-              </ra:CreateReport.isCreated>
-            </ra:CreateReport>
-            <ra:StartSuite ContinueOnError="{x:Null}" DisplayName="Start Suite" sap:VirtualizedContainerService.HintSize="388,85" sap2010:WorkflowViewState.IdRef="StartSuite_1" SuiteName="CustomerVault">
+              </If.Condition>
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,221" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ra:CreateReport ContinueOnError="{x:Null}" DisplayName="Create Report" sap:VirtualizedContainerService.HintSize="334,133" sap2010:WorkflowViewState.IdRef="CreateReport_1" ReportName="FG-6090">
+                    <ra:CreateReport.ReportLocation>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_467">ReportPath</CSharpValue>
+                      </InArgument>
+                    </ra:CreateReport.ReportLocation>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ra:CreateReport.isCreated>
+                      <OutArgument x:TypeArguments="x:Int32">
+                        <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">int_ReportId</CSharpReference>
+                      </OutArgument>
+                    </ra:CreateReport.isCreated>
+                  </ra:CreateReport>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_62" />
+              </If.Else>
+            </If>
+            <ra:StartSuite ContinueOnError="{x:Null}" DisplayName="Start Suite" sap:VirtualizedContainerService.HintSize="410,85" sap2010:WorkflowViewState.IdRef="StartSuite_1" SuiteName="CustomerVault">
               <ra:StartSuite.ReportId>
                 <InArgument x:TypeArguments="x:Int32">
                   <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">int_ReportId</CSharpValue>
@@ -440,7 +459,7 @@
                 </OutArgument>
               </ra:StartSuite.suiteId>
             </ra:StartSuite>
-            <cr:startTest sap:VirtualizedContainerService.HintSize="388,243" sap2010:WorkflowViewState.IdRef="startTest_1" str_in_testName="FG_6090_TransactionWithMastercardTypeAsCredit/RefundAndVerifyDetails.">
+            <cr:startTest sap:VirtualizedContainerService.HintSize="410,243" sap2010:WorkflowViewState.IdRef="startTest_1" str_in_testName="FG_6090_TransactionWithMastercardTypeAsCredit/RefundAndVerifyDetails.">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -4296,7 +4315,7 @@
                 </InArgument>
               </dr1:SearchTransaction.str_in_URL>
             </dr1:SearchTransaction>
-            <dr1:SearchTransactionGridVerification DisplayName="Verify the report sub menu search transaction grid information" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="SearchTransactionGridVerification_1">
+            <dr1:SearchTransactionGridVerification bool_in_Transaction="{x:Null}" DisplayName="Verify the report sub menu search transaction grid information" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="SearchTransactionGridVerification_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -4398,7 +4417,7 @@
               </dr1:TransactionReportAdvanceSearch.str_in_URL>
             </dr1:TransactionReportAdvanceSearch>
             <Delay Duration="00:00:08" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Delay_1" />
-            <dr1:TransactionReportTableVerification DisplayName="Verify the transaction report table details" sap:VirtualizedContainerService.HintSize="388,957" sap2010:WorkflowViewState.IdRef="TransactionReportTableVerification_1" str_in_RecurringTransaction="True" str_in_VaultTransaction="True">
+            <dr1:TransactionReportTableVerification bool_in_Transaction="{x:Null}" DisplayName="Verify the transaction report table details" sap:VirtualizedContainerService.HintSize="388,957" sap2010:WorkflowViewState.IdRef="TransactionReportTableVerification_1" str_in_RecurringTransaction="True" str_in_VaultTransaction="True">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
