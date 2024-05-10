@@ -8,7 +8,7 @@
     <InArgument x:TypeArguments="x:Int32" />
   </this:DPP_7108.int_ReportId>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>602.6666666666666,4913.333333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1153.3333333333333,4966</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DPP_7108_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -165,9 +165,13 @@
       <AssemblyReference>System.Linq.Async</AssemblyReference>
       <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="612.6666666666666,4848.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_24">
+  <Sequence sap:VirtualizedContainerService.HintSize="612.6666666666666,4901.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_24">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_DppUrl" />
     </Sequence.Variables>
@@ -176,7 +180,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="550.6666666666666,4760.666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="550.6666666666666,4813.333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -184,7 +188,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="DPP_7108" sap:VirtualizedContainerService.HintSize="512,4498.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_20">
+        <Sequence DisplayName="DPP_7108" sap:VirtualizedContainerService.HintSize="512,4551.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_20">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="str_BrowserValue" />
             <Variable x:TypeArguments="x:String" Name="str_FormName" />
@@ -431,7 +435,7 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ra:StartSuite ContinueOnError="{x:Null}" DisplayName="Start Suite" sap:VirtualizedContainerService.HintSize="388,126.66666666666667" sap2010:WorkflowViewState.IdRef="StartSuite_1" SuiteName="Embedded Online Forms">
+            <ra:StartSuite ContinueOnError="{x:Null}" DisplayName="Start Suite" sap:VirtualizedContainerService.HintSize="388,126.66666666666667" sap2010:WorkflowViewState.IdRef="StartSuite_1" SuiteName="OnlineForms">
               <ra:StartSuite.ReportId>
                 <InArgument x:TypeArguments="x:Int32">
                   <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">int_ReportId</CSharpValue>
@@ -1148,7 +1152,7 @@
               </OutArgument>
             </dl:DPP_Login.str_out_DppURL>
           </dl:DPP_Login>
-          <do:CreateForm str_in_Description="{x:Null}" str_in_ImageLocation="{x:Null}" str_in_SaleItem2="{x:Null}" DisplayName="Create form" sap:VirtualizedContainerService.HintSize="450,94" sap2010:WorkflowViewState.IdRef="CreateForm_1" str_in_Form="Embedded">
+          <do:CreateForm str_in_Description="{x:Null}" str_in_ImageLocation="{x:Null}" str_in_LogoHeight="{x:Null}" str_in_LogoWidth="{x:Null}" str_in_SaleItem2="{x:Null}" DisplayName="Create form" sap:VirtualizedContainerService.HintSize="450,94" sap2010:WorkflowViewState.IdRef="CreateForm_1" str_in_Form="Embedded">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1230,6 +1234,9 @@
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
+                  <do:FilterOpenFormandSubmitPayment.str_FormTitle>
+                    <InArgument x:TypeArguments="x:String" />
+                  </do:FilterOpenFormandSubmitPayment.str_FormTitle>
                   <do:FilterOpenFormandSubmitPayment.str_in_Address>
                     <InArgument x:TypeArguments="x:String">
                       <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_256">str_CustAddress</CSharpValue>
@@ -1461,7 +1468,7 @@
             </Assign.To>
             <Assign.Value>
               <InArgument x:TypeArguments="x:String">
-                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_301">Directory.GetCurrentDirectory()+"\\Imports\\EmbeddedForm.html"</CSharpValue>
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_305">Directory.GetCurrentDirectory()+"\\Imports\\Online_Forms\\EmbeddedForm.html"</CSharpValue>
               </InArgument>
             </Assign.Value>
           </Assign>
@@ -1473,11 +1480,11 @@
             </Assign.To>
             <Assign.Value>
               <InArgument x:TypeArguments="x:String">
-                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_302">Directory.GetCurrentDirectory()+"\\Imports\\EmbeddedFormPowerShell.bat"</CSharpValue>
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_306">Directory.GetCurrentDirectory()+"\\Imports\\Online_Forms\\EmbeddedFormPowerShell.bat"</CSharpValue>
               </InArgument>
             </Assign.Value>
           </Assign>
-          <do:FilterOpenFormandSubmitPayment sap:VirtualizedContainerService.HintSize="450,1712" sap2010:WorkflowViewState.IdRef="FilterOpenFormandSubmitPayment_3" str_in_BrowserPath="C:\Program Files\Google\Chrome\Application\chrome.exe" str_in_FaxCode="US/CA (+1)" str_in_Form="Embedded" str_in_PhoneCode="US/CA (+1)" str_in_Url="https://forms2.deluxe.com/gateway/*">
+          <do:FilterOpenFormandSubmitPayment sap:VirtualizedContainerService.HintSize="450,1764.6666666666667" sap2010:WorkflowViewState.IdRef="FilterOpenFormandSubmitPayment_3" str_in_BrowserPath="C:\Program Files\Google\Chrome\Application\chrome.exe" str_in_FaxCode="US/CA (+1)" str_in_Form="Embedded" str_in_PhoneCode="US/CA (+1)" str_in_Url="https://forms2.deluxe.com/gateway/*">
             <do:FilterOpenFormandSubmitPayment.Int_in_Report_ID>
               <InArgument x:TypeArguments="x:Int32">
                 <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_83">int_ReportId</CSharpValue>
@@ -1489,6 +1496,9 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
+            <do:FilterOpenFormandSubmitPayment.str_FormTitle>
+              <InArgument x:TypeArguments="x:String" />
+            </do:FilterOpenFormandSubmitPayment.str_FormTitle>
             <do:FilterOpenFormandSubmitPayment.str_in_Address>
               <InArgument x:TypeArguments="x:String">
                 <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_89">str_CustAddress</CSharpValue>
