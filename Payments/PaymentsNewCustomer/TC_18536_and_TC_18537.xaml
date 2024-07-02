@@ -204,6 +204,14 @@
       <Variable x:TypeArguments="x:String" Name="str_CustPhoneNumber" />
       <Variable x:TypeArguments="x:String" Name="Str_out_StateCode" />
       <Variable x:TypeArguments="x:String" Name="str_out_Surcharge" />
+      <Variable x:TypeArguments="x:String" Name="stroutapprovalcode">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="SourceIdRef">Verify_RealtimeTransactionGrid_2</x:String>
+            <x:String x:Key="SourcePropertyName">str_out_ApprovalCode</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Variable>
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -1455,7 +1463,7 @@
                 </InArgument>
               </dr:TransactionSearched.str_in_Url>
             </dr:TransactionSearched>
-            <dr:Verify_RealtimeTransactionGrid bool_in_transaction="{x:Null}" str_in_VaultAction="{x:Null}" str_out_ApprovalCode="{x:Null}" sap:VirtualizedContainerService.HintSize="388,57.333333333333336" sap2010:WorkflowViewState.IdRef="Verify_RealtimeTransactionGrid_2" str_in_Status="APPROVED">
+            <dr:Verify_RealtimeTransactionGrid bool_in_transaction="{x:Null}" str_in_VaultAction="{x:Null}" sap:VirtualizedContainerService.HintSize="388,57.333333333333336" sap2010:WorkflowViewState.IdRef="Verify_RealtimeTransactionGrid_2" str_in_Status="APPROVED">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1515,6 +1523,11 @@
                   <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_343">str_DppUrl</CSharpValue>
                 </InArgument>
               </dr:Verify_RealtimeTransactionGrid.str_in_Url>
+              <dr:Verify_RealtimeTransactionGrid.str_out_ApprovalCode>
+                <OutArgument x:TypeArguments="x:String">
+                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_86">stroutapprovalcode</CSharpReference>
+                </OutArgument>
+              </dr:Verify_RealtimeTransactionGrid.str_out_ApprovalCode>
             </dr:Verify_RealtimeTransactionGrid>
             <dr:Click_on_ViewIcon_button DisplayName="Click on ViewIcon_button" sap:VirtualizedContainerService.HintSize="388,57.333333333333336" sap2010:WorkflowViewState.IdRef="Click_on_ViewIcon_button_2">
               <sap:WorkflowViewStateService.ViewState>
@@ -1702,13 +1715,16 @@
                 </InArgument>
               </dr:Verify_SaleItemsInRealTimeTransaction.str_in_Url>
             </dr:Verify_SaleItemsInRealTimeTransaction>
-            <dr:Verify_ReceiptDetails dbl_in_FirstSaleitemPrice="{x:Null}" dbl_in_SecondSaleitemPrice="{x:Null}" dbl_in_ThirdSaleitemPrice="{x:Null}" str_in_FirstSaleItemName="{x:Null}" str_in_SecondSaleItemName="{x:Null}" str_in_TaxAmount="{x:Null}" str_in_ThirdSaleItemName="{x:Null}" DisplayName="Verify ReceiptDetails" sap:VirtualizedContainerService.HintSize="388,57.333333333333336" sap2010:WorkflowViewState.IdRef="Verify_ReceiptDetails_1" bool_in_PrintLogoVerify="True" bool_in_VerifyQRCode="True" str_in_Response="APPROVED">
+            <dr:Verify_ReceiptDetails bool_in_VerifyAgrimentStatement="{x:Null}" dbl_in_FirstSaleitemPrice="{x:Null}" dbl_in_SecondSaleitemPrice="{x:Null}" dbl_in_ThirdSaleitemPrice="{x:Null}" str_in_FirstSaleItemName="{x:Null}" str_in_SecondSaleItemName="{x:Null}" str_in_TaxAmount="{x:Null}" str_in_ThirdSaleItemName="{x:Null}" DisplayName="Verify ReceiptDetails" sap:VirtualizedContainerService.HintSize="388,57.333333333333336" sap2010:WorkflowViewState.IdRef="Verify_ReceiptDetails_1" bool_in_PrintLogoVerify="True" bool_in_VerifyQRCode="True" str_in_Response="APPROVED">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
+              <dr:Verify_ReceiptDetails.bool_in_VerifyTaxableItemText>
+                <InArgument x:TypeArguments="x:Boolean" />
+              </dr:Verify_ReceiptDetails.bool_in_VerifyTaxableItemText>
               <dr:Verify_ReceiptDetails.int_in_ReportId>
                 <InArgument x:TypeArguments="x:Int32">
                   <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_468">int_ReportId</CSharpValue>
@@ -1973,7 +1989,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </Delay>
-            <dr1:TransactionReportTableVerification bool_in_Transaction="{x:Null}" str_in_AccountNumber="{x:Null}" DisplayName="Verify the transaction report table details" sap:VirtualizedContainerService.HintSize="388,57.333333333333336" sap2010:WorkflowViewState.IdRef="TransactionReportTableVerification_3" str_in_MerchantName="5/13 ZENTRO PROD TEST" str_in_RecurringTransaction="False" str_in_SubmissionMethod="Portal-Virtual Terminal" str_in_TransactionStatus="APPROVED" str_in_VaultTransaction="False">
+            <dr1:TransactionReportTableVerification bool_in_Transaction="{x:Null}" DisplayName="Verify the transaction report table details" sap:VirtualizedContainerService.HintSize="388,57.333333333333336" sap2010:WorkflowViewState.IdRef="TransactionReportTableVerification_3" str_in_MerchantName="5/13 ZENTRO PROD TEST" str_in_RecurringTransaction="False" str_in_SubmissionMethod="Portal-Virtual Terminal" str_in_TransactionStatus="APPROVED" str_in_VaultTransaction="False">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1985,6 +2001,11 @@
                   <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_409">int_ReportId</CSharpValue>
                 </InArgument>
               </dr1:TransactionReportTableVerification.int_in_Report_ID>
+              <dr1:TransactionReportTableVerification.str_in_AccountNumber>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_496">str_CheckNumber</CSharpValue>
+                </InArgument>
+              </dr1:TransactionReportTableVerification.str_in_AccountNumber>
               <dr1:TransactionReportTableVerification.str_in_Amount>
                 <InArgument x:TypeArguments="x:String">
                   <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_415">dbl_out_TotalAmount.ToString()</CSharpValue>
