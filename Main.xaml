@@ -6,7 +6,7 @@
     <InArgument x:TypeArguments="sd:DataTable" />
   </this:Demo.TestCasesDT>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>854,4588</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>838,5655.333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="128">
@@ -68,6 +68,7 @@
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
     <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>CommonLibrary</AssemblyReference>
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>Microsoft.CSharp</AssemblyReference>
       <AssemblyReference>Microsoft.PowerShell.Commands.Diagnostics</AssemblyReference>
@@ -153,12 +154,9 @@
       <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
-      <AssemblyReference>CommonLibrary</AssemblyReference>
-      <AssemblyReference>System.Linq.Async</AssemblyReference>
-      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="772,4523.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap:VirtualizedContainerService.HintSize="758,5590.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="RowValue" />
       <Variable x:TypeArguments="x:String" Name="TestCase_Name" />
@@ -166,23 +164,22 @@
       <Variable x:TypeArguments="x:String" Name="ReportPath" />
       <Variable x:TypeArguments="x:String" Name="Report_Path" />
       <Variable x:TypeArguments="x:String" Name="path_var" />
+      <Variable x:TypeArguments="x:Boolean" Name="bool_EmailReporting" />
+      <Variable x:TypeArguments="x:Int32" Name="ReportID" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="710,4412.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_13">
-      <Sequence.Variables>
-        <Variable x:TypeArguments="x:Int32" Name="ReportID" />
-      </Sequence.Variables>
+    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="696,5480" sap2010:WorkflowViewState.IdRef="Sequence_13">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Extract dynamic Report and TestData Path" sap:VirtualizedContainerService.HintSize="648,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_24">
+      <Sequence DisplayName="Extract dynamic Report and TestData Path" sap:VirtualizedContainerService.HintSize="634,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_24">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:String" Name="File_Path" />
           <Variable x:TypeArguments="x:String" Name="Report_Path" />
@@ -290,7 +287,7 @@
           </Assign.Value>
         </Assign>
       </Sequence>
-      <ui:ReadRange Range="{x:Null}" AddHeaders="True" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="648,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="TestCases">
+      <ui:ReadRange Range="{x:Null}" AddHeaders="True" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="634,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="TestCases">
         <ui:ReadRange.DataTable>
           <OutArgument x:TypeArguments="sd:DataTable">
             <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_40">TestCasesDT</CSharpReference>
@@ -302,7 +299,7 @@
           </InArgument>
         </ui:ReadRange.WorkbookPath>
       </ui:ReadRange>
-      <ra:CreateReport ContinueOnError="{x:Null}" DisplayName="Create Report" sap:VirtualizedContainerService.HintSize="648,136" sap2010:WorkflowViewState.IdRef="CreateReport_2" ReportName="DPP Application Tests">
+      <ra:CreateReport ContinueOnError="{x:Null}" DisplayName="Create Report" sap:VirtualizedContainerService.HintSize="634,136" sap2010:WorkflowViewState.IdRef="CreateReport_2" ReportName="DPP Application Tests">
         <ra:CreateReport.ReportLocation>
           <InArgument x:TypeArguments="x:String">
             <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_113">ReportPath</CSharpValue>
@@ -319,23 +316,20 @@
           </OutArgument>
         </ra:CreateReport.isCreated>
       </ra:CreateReport>
-      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="648,3873.3333333333335" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="634,3574.6666666666665" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="614,3683.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_12">
-              <Sequence.Variables>
-                <Variable x:TypeArguments="x:Boolean" Name="bool_EmailReporting" />
-              </Sequence.Variables>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="556.6666666666666,3384.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_12">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="0" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="572,192.66666666666666" sap2010:WorkflowViewState.IdRef="GetRowItem_4">
+              <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="0" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="514.6666666666666,192.66666666666666" sap2010:WorkflowViewState.IdRef="GetRowItem_4">
                 <ui:GetRowItem.Row>
                   <InArgument x:TypeArguments="sd:DataRow">
                     <CSharpValue x:TypeArguments="sd:DataRow" sap2010:WorkflowViewState.IdRef="CSharpValue`1_29">CurrentRow</CSharpValue>
@@ -353,7 +347,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:GetRowItem>
-              <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="1" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="572,192.66666666666666" sap2010:WorkflowViewState.IdRef="GetRowItem_5">
+              <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="1" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="514.6666666666666,192.66666666666666" sap2010:WorkflowViewState.IdRef="GetRowItem_5">
                 <ui:GetRowItem.Row>
                   <InArgument x:TypeArguments="sd:DataRow">
                     <CSharpValue x:TypeArguments="sd:DataRow" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">CurrentRow</CSharpValue>
@@ -371,7 +365,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:GetRowItem>
-              <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="2" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="572,192.66666666666666" sap2010:WorkflowViewState.IdRef="GetRowItem_6">
+              <ui:GetRowItem Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="2" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="514.6666666666666,192.66666666666666" sap2010:WorkflowViewState.IdRef="GetRowItem_6">
                 <ui:GetRowItem.Row>
                   <InArgument x:TypeArguments="sd:DataRow">
                     <CSharpValue x:TypeArguments="sd:DataRow" sap2010:WorkflowViewState.IdRef="CSharpValue`1_31">CurrentRow</CSharpValue>
@@ -389,20 +383,21 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:GetRowItem>
-              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="572,92" sap2010:WorkflowViewState.IdRef="WriteLine_3">
+              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="514.6666666666666,92" sap2010:WorkflowViewState.IdRef="WriteLine_3">
                 <InArgument x:TypeArguments="x:String">
                   <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_71" xml:space="preserve">RowValue+"  "+path_var</CSharpValue>
                 </InArgument>
               </WriteLine>
-              <If sap:VirtualizedContainerService.HintSize="572,2311.3333333333335" sap2010:WorkflowViewState.IdRef="If_2">
+              <If sap:VirtualizedContainerService.HintSize="514.6666666666666,2311.3333333333335" sap2010:WorkflowViewState.IdRef="If_2">
                 <If.Condition>
                   <InArgument x:TypeArguments="x:Boolean">
-                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_155">RowValue=="Cycle8"</CSharpValue>
+                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_159">RowValue=="Cycle4"</CSharpValue>
                   </InArgument>
                 </If.Condition>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
@@ -583,7 +578,7 @@
                   </Sequence>
                 </If.Else>
               </If>
-              <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="572,116" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Results">
+              <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="514.6666666666666,116" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Results">
                 <ui:WriteRange.DataTable>
                   <InArgument x:TypeArguments="sd:DataTable">
                     <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_47">TestCasesDT</CSharpValue>
@@ -595,145 +590,6 @@
                   </InArgument>
                 </ui:WriteRange.WorkbookPath>
               </ui:WriteRange>
-              <Sequence DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="572,258.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_31">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="EmailReporting_TobeSent" CacheStrategy="None" DisplayName="Get Asset" FolderPath="DPP_TestAutomation" sap:VirtualizedContainerService.HintSize="388,54" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
-                  <ui:GetRobotAsset.Value>
-                    <OutArgument x:TypeArguments="x:Boolean">
-                      <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_69">bool_EmailReporting</CSharpReference>
-                    </OutArgument>
-                  </ui:GetRobotAsset.Value>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:GetRobotAsset>
-                <If sap:VirtualizedContainerService.HintSize="388,54" sap2010:WorkflowViewState.IdRef="If_3">
-                  <If.Condition>
-                    <InArgument x:TypeArguments="x:Boolean">
-                      <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_147">bool_EmailReporting == true</CSharpValue>
-                    </InArgument>
-                  </If.Condition>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <If.Then>
-                    <Sequence sap:VirtualizedContainerService.HintSize="538,846.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_29">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="496,759.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_28">
-                        <Sequence.Variables>
-                          <Variable x:TypeArguments="x:String" Name="str_HTMLaddress" />
-                          <Variable x:TypeArguments="x:String" Name="str_ToEmail" />
-                          <Variable x:TypeArguments="x:String" Name="str_FromEmail" />
-                          <Variable x:TypeArguments="ss:SecureString" Name="str_FromPassword" />
-                          <Variable x:TypeArguments="x:String" Name="str_outvalue" />
-                        </Sequence.Variables>
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ca:ReadAssetValue sap:VirtualizedContainerService.HintSize="434,54" sap2010:WorkflowViewState.IdRef="ReadAssetValue_1" str_in_AssetName="SendReport_ToEmail" str_in_Orch_FolderPath="DPP_TestAutomation">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ca:ReadAssetValue.str_out_AssetValue>
-                            <OutArgument x:TypeArguments="x:String">
-                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_62">str_ToEmail</CSharpReference>
-                            </OutArgument>
-                          </ca:ReadAssetValue.str_out_AssetValue>
-                        </ca:ReadAssetValue>
-                        <ca:ReadDPPCredentials sap:VirtualizedContainerService.HintSize="434,54" sap2010:WorkflowViewState.IdRef="ReadDPPCredentials_1" str_in_AssetName="SendReport_FromEmail" str_in_Orch_FolderPath="DPP_TestAutomation">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ca:ReadDPPCredentials.str_out_Password>
-                            <OutArgument x:TypeArguments="ss:SecureString">
-                              <CSharpReference x:TypeArguments="ss:SecureString" sap2010:WorkflowViewState.IdRef="CSharpReference`1_64">str_FromPassword</CSharpReference>
-                            </OutArgument>
-                          </ca:ReadDPPCredentials.str_out_Password>
-                          <ca:ReadDPPCredentials.str_out_UserName>
-                            <OutArgument x:TypeArguments="x:String">
-                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_63">str_FromEmail</CSharpReference>
-                            </OutArgument>
-                          </ca:ReadDPPCredentials.str_out_UserName>
-                        </ca:ReadDPPCredentials>
-                        <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_11">
-                          <Assign.To>
-                            <OutArgument x:TypeArguments="x:String">
-                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_65">str_HTMLaddress</CSharpReference>
-                            </OutArgument>
-                          </Assign.To>
-                          <Assign.Value>
-                            <InArgument x:TypeArguments="x:String">
-                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_138">Directory.GetFiles(ReportPath, "*.html", SearchOption.AllDirectories).OrderByDescending(d =&gt; new FileInfo(d).CreationTime).FirstOrDefault("");</CSharpValue>
-                            </InArgument>
-                          </Assign.Value>
-                        </Assign>
-                        <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="Please find the DPP Application Test reports" DisplayName="Send SMTP Mail Message" EnableSSL="True" sap:VirtualizedContainerService.HintSize="434,150.66666666666666" sap2010:WorkflowViewState.IdRef="SendMail_3" IgnoreCRL="False" IsBodyHtml="False" Port="587" SecureConnection="Auto" Server="smtp.office365.com" Subject="Test Execution Report">
-                          <ui:SendMail.Email>
-                            <InArgument x:TypeArguments="x:String">
-                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_141">str_FromEmail</CSharpValue>
-                            </InArgument>
-                          </ui:SendMail.Email>
-                          <ui:SendMail.Files>
-                            <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
-                              <InArgument x:TypeArguments="x:String">
-                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_144">str_HTMLaddress</CSharpValue>
-                              </InArgument>
-                            </scg:List>
-                          </ui:SendMail.Files>
-                          <ui:SendMail.SecurePassword>
-                            <InArgument x:TypeArguments="ss:SecureString">
-                              <CSharpValue x:TypeArguments="ss:SecureString" sap2010:WorkflowViewState.IdRef="CSharpValue`1_142">str_FromPassword</CSharpValue>
-                            </InArgument>
-                          </ui:SendMail.SecurePassword>
-                          <ui:SendMail.To>
-                            <InArgument x:TypeArguments="x:String">
-                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_143">str_ToEmail</CSharpValue>
-                            </InArgument>
-                          </ui:SendMail.To>
-                        </ui:SendMail>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_13">
-                          <ui:LogMessage.Level>
-                            <InArgument x:TypeArguments="ui:LogLevel">
-                              <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_146">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
-                            </InArgument>
-                          </ui:LogMessage.Level>
-                          <ui:LogMessage.Message>
-                            <InArgument x:TypeArguments="x:Object">
-                              <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_145">"Email report sent"</CSharpValue>
-                            </InArgument>
-                          </ui:LogMessage.Message>
-                        </ui:LogMessage>
-                      </Sequence>
-                    </Sequence>
-                  </If.Then>
-                  <If.Else>
-                    <Sequence sap2010:WorkflowViewState.IdRef="Sequence_30" />
-                  </If.Else>
-                </If>
-              </Sequence>
             </Sequence>
           </ActivityAction>
         </ui:ForEachRow.Body>
@@ -749,6 +605,146 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:ForEachRow>
+      <Sequence DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="634,1326" sap2010:WorkflowViewState.IdRef="Sequence_31">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="EmailReporting_TobeSent" CacheStrategy="None" DisplayName="Get Asset" FolderPath="DPP_TestAutomation" sap:VirtualizedContainerService.HintSize="572,144.66666666666666" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
+          <ui:GetRobotAsset.Value>
+            <OutArgument x:TypeArguments="x:Boolean">
+              <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_70">bool_EmailReporting</CSharpReference>
+            </OutArgument>
+          </ui:GetRobotAsset.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:GetRobotAsset>
+        <If sap:VirtualizedContainerService.HintSize="572,1030.6666666666667" sap2010:WorkflowViewState.IdRef="If_3">
+          <If.Condition>
+            <InArgument x:TypeArguments="x:Boolean">
+              <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_147">bool_EmailReporting == true</CSharpValue>
+            </InArgument>
+          </If.Condition>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If.Then>
+            <Sequence sap:VirtualizedContainerService.HintSize="538,846.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_29">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Sequence DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="496,759.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:String" Name="str_HTMLaddress" />
+                  <Variable x:TypeArguments="x:String" Name="str_ToEmail" />
+                  <Variable x:TypeArguments="x:String" Name="str_FromEmail" />
+                  <Variable x:TypeArguments="ss:SecureString" Name="str_FromPassword" />
+                  <Variable x:TypeArguments="x:String" Name="str_outvalue" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ca:ReadAssetValue sap:VirtualizedContainerService.HintSize="434,54" sap2010:WorkflowViewState.IdRef="ReadAssetValue_1" str_in_AssetName="SendReport_ToEmail" str_in_Orch_FolderPath="DPP_TestAutomation">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ca:ReadAssetValue.str_out_AssetValue>
+                    <OutArgument x:TypeArguments="x:String">
+                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_62">str_ToEmail</CSharpReference>
+                    </OutArgument>
+                  </ca:ReadAssetValue.str_out_AssetValue>
+                </ca:ReadAssetValue>
+                <ca:ReadDPPCredentials sap:VirtualizedContainerService.HintSize="434,54" sap2010:WorkflowViewState.IdRef="ReadDPPCredentials_1" str_in_AssetName="SendReport_FromEmail" str_in_Orch_FolderPath="DPP_TestAutomation">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ca:ReadDPPCredentials.str_out_Password>
+                    <OutArgument x:TypeArguments="ss:SecureString">
+                      <CSharpReference x:TypeArguments="ss:SecureString" sap2010:WorkflowViewState.IdRef="CSharpReference`1_64">str_FromPassword</CSharpReference>
+                    </OutArgument>
+                  </ca:ReadDPPCredentials.str_out_Password>
+                  <ca:ReadDPPCredentials.str_out_UserName>
+                    <OutArgument x:TypeArguments="x:String">
+                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_63">str_FromEmail</CSharpReference>
+                    </OutArgument>
+                  </ca:ReadDPPCredentials.str_out_UserName>
+                </ca:ReadDPPCredentials>
+                <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_11">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">
+                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_65">str_HTMLaddress</CSharpReference>
+                    </OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_138">Directory.GetFiles(ReportPath, "*.html", SearchOption.AllDirectories).OrderByDescending(d =&gt; new FileInfo(d).CreationTime).FirstOrDefault("");</CSharpValue>
+                    </InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="Please find the DPP Application Test reports" DisplayName="Send SMTP Mail Message" EnableSSL="True" sap:VirtualizedContainerService.HintSize="434,150.66666666666666" sap2010:WorkflowViewState.IdRef="SendMail_3" IgnoreCRL="False" IsBodyHtml="True" Port="587" SecureConnection="Auto" Server="smtp.office365.com" Subject="Test Execution Report">
+                  <ui:SendMail.Email>
+                    <InArgument x:TypeArguments="x:String">
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_141">str_FromEmail</CSharpValue>
+                    </InArgument>
+                  </ui:SendMail.Email>
+                  <ui:SendMail.Files>
+                    <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_144">str_HTMLaddress</CSharpValue>
+                      </InArgument>
+                    </scg:List>
+                  </ui:SendMail.Files>
+                  <ui:SendMail.SecurePassword>
+                    <InArgument x:TypeArguments="ss:SecureString">
+                      <CSharpValue x:TypeArguments="ss:SecureString" sap2010:WorkflowViewState.IdRef="CSharpValue`1_142">str_FromPassword</CSharpValue>
+                    </InArgument>
+                  </ui:SendMail.SecurePassword>
+                  <ui:SendMail.To>
+                    <InArgument x:TypeArguments="x:String">
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_143">str_ToEmail</CSharpValue>
+                    </InArgument>
+                  </ui:SendMail.To>
+                </ui:SendMail>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_13">
+                  <ui:LogMessage.Level>
+                    <InArgument x:TypeArguments="ui:LogLevel">
+                      <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_146">UiPath.Core.Activities.LogLevel.Info</CSharpValue>
+                    </InArgument>
+                  </ui:LogMessage.Level>
+                  <ui:LogMessage.Message>
+                    <InArgument x:TypeArguments="x:Object">
+                      <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_145">"Email report sent"</CSharpValue>
+                    </InArgument>
+                  </ui:LogMessage.Message>
+                </ui:LogMessage>
+              </Sequence>
+            </Sequence>
+          </If.Then>
+          <If.Else>
+            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_30" />
+          </If.Else>
+        </If>
+      </Sequence>
     </Sequence>
   </Sequence>
 </Activity>
