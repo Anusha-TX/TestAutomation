@@ -9,7 +9,7 @@
     <InArgument x:TypeArguments="x:Int32" />
   </this:DPP_7818.int_ReportId>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>2962,16963</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2962,17881</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DPP_7818_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -164,10 +164,12 @@
       <AssemblyReference>System.Runtime.InteropServices.RuntimeInformation</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="2972,16898" sap2010:WorkflowViewState.IdRef="Sequence_5">
+  <Sequence sap:VirtualizedContainerService.HintSize="2972,17816" sap2010:WorkflowViewState.IdRef="Sequence_5">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_url" />
       <Variable x:TypeArguments="x:String" Default="DPP_7818" Name="str_In_TestCaseID" />
+      <Variable x:TypeArguments="x:String" Name="ExcelPath" />
+      <Variable x:TypeArguments="x:String" Name="ReportPath" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -175,12 +177,10 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="2910,16787" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="2910,17705" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="DPP_7818" sap:VirtualizedContainerService.HintSize="2872,16559" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence DisplayName="DPP_7818" sap:VirtualizedContainerService.HintSize="2872,17477" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <Sequence.Variables>
-            <Variable x:TypeArguments="x:String" Name="ExcelPath" />
-            <Variable x:TypeArguments="x:String" Name="ReportPath" />
             <Variable x:TypeArguments="x:String" Default="https://forms2.deluxe.com/gateway/library*" Name="str_DppUrl" />
             <Variable x:TypeArguments="x:String" Name="Out_FormTitle" />
             <Variable x:TypeArguments="x:String" Name="out_FormName" />
@@ -210,7 +210,7 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Extract Dynamic Testdata and Reports Path" sap:VirtualizedContainerService.HintSize="2810,81" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <Sequence DisplayName="Extract dynamic Report and TestData Path" sap:VirtualizedContainerService.HintSize="2810,999" sap2010:WorkflowViewState.IdRef="Sequence_79">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="File_Path" />
               <Variable x:TypeArguments="x:String" Name="Report_Path" />
@@ -221,89 +221,99 @@
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_7">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">
-                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">File_Path</CSharpReference>
+                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_46">File_Path</CSharpReference>
                 </OutArgument>
               </Assign.To>
               <Assign.Value>
                 <InArgument x:TypeArguments="x:String">Config\ExcelPath.json</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_8">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">
-                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">Report_Path</CSharpReference>
+                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_47">Report_Path</CSharpReference>
                 </OutArgument>
               </Assign.To>
               <Assign.Value>
                 <InArgument x:TypeArguments="x:String">Config\Reportpath.json</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:ReadTextFile File="{x:Null}" DisplayName="Read Text File" sap:VirtualizedContainerService.HintSize="434,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_1">
+            <ui:ReadTextFile File="{x:Null}" DisplayName="Read Text File" sap:VirtualizedContainerService.HintSize="434,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_3">
               <ui:ReadTextFile.Content>
                 <OutArgument x:TypeArguments="x:String">
-                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">FilePath_OP</CSharpReference>
+                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_48">FilePath_OP</CSharpReference>
                 </OutArgument>
               </ui:ReadTextFile.Content>
               <ui:ReadTextFile.FileName>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">File_Path</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_292">File_Path</CSharpValue>
                 </InArgument>
               </ui:ReadTextFile.FileName>
             </ui:ReadTextFile>
-            <ui:ReadTextFile File="{x:Null}" DisplayName="Read Text File" sap:VirtualizedContainerService.HintSize="434,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_2">
+            <ui:ReadTextFile File="{x:Null}" DisplayName="Read Text File" sap:VirtualizedContainerService.HintSize="434,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_4">
               <ui:ReadTextFile.Content>
                 <OutArgument x:TypeArguments="x:String">
-                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">ReportPath_OP</CSharpReference>
+                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_49">ReportPath_OP</CSharpReference>
                 </OutArgument>
               </ui:ReadTextFile.Content>
               <ui:ReadTextFile.FileName>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">Report_Path</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_293">Report_Path</CSharpValue>
                 </InArgument>
               </ui:ReadTextFile.FileName>
             </ui:ReadTextFile>
-            <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonObject="{x:Null}" DisplayName="Deserialize JSON (DeserializeJson)" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_3">
+            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_5">
+              <ui:DeserializeJson.JsonObject>
+                <OutArgument x:TypeArguments="njl:JObject">
+                  <CSharpReference x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpReference`1_50">ExcelFilePathJ</CSharpReference>
+                </OutArgument>
+              </ui:DeserializeJson.JsonObject>
               <ui:DeserializeJson.JsonString>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_290">FilePath_OP</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_294">FilePath_OP</CSharpValue>
                 </InArgument>
               </ui:DeserializeJson.JsonString>
             </ui:DeserializeJson>
-            <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonObject="{x:Null}" DisplayName="Deserialize JSON (DeserializeJson)" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_4">
+            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_6">
+              <ui:DeserializeJson.JsonObject>
+                <OutArgument x:TypeArguments="njl:JObject">
+                  <CSharpReference x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpReference`1_51">ReportFilePathJ</CSharpReference>
+                </OutArgument>
+              </ui:DeserializeJson.JsonObject>
               <ui:DeserializeJson.JsonString>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_291">ReportPath_OP</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_295">ReportPath_OP</CSharpValue>
                 </InArgument>
               </ui:DeserializeJson.JsonString>
             </ui:DeserializeJson>
-            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_9">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">
-                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">ExcelPath</CSharpReference>
+                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_52">ExcelPath</CSharpReference>
                 </OutArgument>
               </Assign.To>
               <Assign.Value>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">Path.Combine(Environment.CurrentDirectory,ExcelFilePathJ.SelectToken("Excel_path").ToString())</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_296">Path.Combine(Environment.CurrentDirectory,ExcelFilePathJ.SelectToken("Excel_path").ToString())</CSharpValue>
                 </InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_10">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">
-                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_8">ReportPath</CSharpReference>
+                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_53">ReportPath</CSharpReference>
                 </OutArgument>
               </Assign.To>
               <Assign.Value>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">System.IO.Path.Combine(Environment.CurrentDirectory, ReportFilePathJ.SelectToken("Report_path").ToString())</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_297">System.IO.Path.Combine(Environment.CurrentDirectory, ReportFilePathJ.SelectToken("Report_path").ToString())</CSharpValue>
                 </InArgument>
               </Assign.Value>
             </Assign>
