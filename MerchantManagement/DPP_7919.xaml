@@ -14,7 +14,7 @@
     <InArgument x:TypeArguments="x:Int32" />
   </this:DPP_7919.int_ReportId>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1202,11566</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1281,11701</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DPP_7919_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -163,13 +163,13 @@
       <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DPP_7919" sap:VirtualizedContainerService.HintSize="1212,11501" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DPP_7919" sap:VirtualizedContainerService.HintSize="1212,11636" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1150,11413" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1150,11548" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Variables>
         <Variable x:TypeArguments="x:String" Name="str_Url" />
         <Variable x:TypeArguments="x:String" Name="MID" />
@@ -180,6 +180,8 @@
         <Variable x:TypeArguments="x:String" Name="CustPhoneCode" />
         <Variable x:TypeArguments="x:String" Name="FaxPhoneNumber" />
         <Variable x:TypeArguments="x:String" Name="CustNotes" />
+        <Variable x:TypeArguments="x:String" Name="CustLastName" />
+        <Variable x:TypeArguments="x:Double" Name="LongDelay" />
       </TryCatch.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -188,7 +190,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="DP_7919" sap:VirtualizedContainerService.HintSize="1112,11162" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence DisplayName="DP_7919" sap:VirtualizedContainerService.HintSize="1112,11297" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="PaymentMethod" />
             <Variable x:TypeArguments="x:String" Name="TransactionAmount_Total" />
@@ -546,7 +548,7 @@
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_46">
                             <ui:AssignOperation.To>
                               <OutArgument x:TypeArguments="x:String">
-                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_62">Out_CustLastName</CSharpReference>
+                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_73">CustLastName</CSharpReference>
                               </OutArgument>
                             </ui:AssignOperation.To>
                             <ui:AssignOperation.Value>
@@ -724,16 +726,13 @@
               </OutArgument>
             </utat:RandomString.Output>
           </utat:RandomString>
-          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Dashboard" sap:VirtualizedContainerService.HintSize="1050,7563" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V2">
+          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Dashboard" sap:VirtualizedContainerService.HintSize="1050,7671" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V2">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1016,7314" sap2010:WorkflowViewState.IdRef="Sequence_26">
-                  <Sequence.Variables>
-                    <Variable x:TypeArguments="x:Double" Name="LongDelay" />
-                  </Sequence.Variables>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1016,7422" sap2010:WorkflowViewState.IdRef="Sequence_26">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -745,8 +744,13 @@
                     </ui:GetRobotAsset.Value>
                   </ui:GetRobotAsset>
                   <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Merchant Management'" sap:VirtualizedContainerService.HintSize="954,189" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
+                    <uix:NClick.DelayAfter>
+                      <InArgument x:TypeArguments="x:Double">
+                        <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_171">ShortDelay</CSharpValue>
+                      </InArgument>
+                    </uix:NClick.DelayAfter>
                     <uix:NClick.Target>
-                      <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/dashboard/dashboard" CvTextArea="55, 523, 150, 17" CvTextArgument="Merchant Management" CvType="Text" DesignTimeRectangle="56, 519, 180, 25" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='menuMerchantmanagement' tag='SPAN' aaname='Merchant Management' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='menuMerchantmanagement' tag='SPAN' aaname='Merchant Management' type='' class='hide-menu' check:text='Merchant Management' /&gt;" Guid="c3616d75-fcc0-4afa-9802-724cea965a20" ImageBase64="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" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dashboard' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                      <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/dashboard/dashboard" CvTextArea="55, 523, 150, 17" CvTextArgument="Merchant Management" CvType="Text" DesignTimeRectangle="56, 519, 180, 25" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='menuMerchantmanagement' tag='SPAN' aaname='Merchant Management' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='menuMerchantmanagement' tag='SPAN' aaname='Merchant Management' type='' class='hide-menu' check:text='Merchant Management' /&gt;" Guid="c3616d75-fcc0-4afa-9802-724cea965a20" ImageBase64="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" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dashboard' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete">
                         <uix:TargetAnchorable.Anchors>
                           <scg:List x:TypeArguments="uix:ITarget" Capacity="0" />
                         </uix:TargetAnchorable.Anchors>
@@ -778,6 +782,11 @@
                     </cr:passedStep.str_in_testId>
                   </cr:passedStep>
                   <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Merchants'" sap:VirtualizedContainerService.HintSize="954,189" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
+                    <uix:NClick.DelayAfter>
+                      <InArgument x:TypeArguments="x:Double">
+                        <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_172">ShortDelay</CSharpValue>
+                      </InArgument>
+                    </uix:NClick.DelayAfter>
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/dashboard/dashboard" CvTextArea="57, 575, 69, 15" CvTextArgument="Merchants" CvType="Text" DesignTimeRectangle="58, 571, 180, 25" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Merchants' parentid='menuMerchantmanagement' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Merchants' parentid='menuMerchantmanagement' tag='SPAN' type='' class='hide-menu' check:text='Merchants' /&gt;" Guid="0f08a655-a267-40e5-a204-5eef94cd3a27" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALgAAAAdCAYAAAAZ4qaaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOYSURBVHhe7ZnfSuNAFIf3ffMKoVdB2IsiFEHoRbPYCyPFC7ULzWKlBFokIkECEkmRgKEwEJA+wW/PJNM2iWldd13Yzp6LD5PMX+E7M2emXwzDAMPoCgvOaA0LzmgNC85oDQvOaA0LzmgNC85oDQvOaM0/Jfh4LhCcNpcxzO9QEXw8XyJ7GFQqlLHvUixFAKeh7DP424JzAP1/1ATPkC0iuK1qpYIBwsWSBWf2iprgMXxapROvXakkMUcRxEOIuCK4hcFdguyVxF/S6p/4cFbBcRpAzKdwH0VeFt+ofk48xDJQ6NvyVSCe9GGq/nIBr1xEq/IsgX9mqrEMdK4CJGLVNkNy66zbFuN5cG438xGPLjp5+RixbLNiPi7atPrwnor5SbIkwPBI9cdowRvBx4cektSHXfpuGG14zyn8HolSErwzTSCiMewDem+14czk+7CQTgq3JAlnfVirflpDRJlA+L2b17F6Lu0K9H5elOcpkkgwPWtTuYnuJEZGc+nKtnJeWQzvmyyjQGlfICi1zcfLaLzQLeZzMKDyDNF3VZ73X13Bu7cpBcEQXRmUav5Z5G6Chtl7aoIn8Fom3KgkjqTnI3320JYr4VpwB0FaT2fom6Agkc9SuFqgmDcx7QLVHN+8jigI7PxZCh7flHePUn8NOAHtAGpnyMerpU/mhAIucNbvdcH79wLprAi24puFznERQKs6zH5TE1wJcB7SSrxZyQYPAtFIpgplwWvb/pqS4KtUQFERsoG3OXJVcOt8SulNVhmvInhtPEMG1A7BjaMhwpT6oXRHJCGml/Zmt2G0oFlww4b/Qqv5IT23ZE4cYpDXqQleWzErfLbgeYqSIhjZaKtd480K/lHBFdZRHxeTgP4fytvvN/WZ/WeL4LS906EyuSOZvAQp/S3qlKUeIJT58rZDWYNwTSmKQatyeN3Nn3cKXpNV8meCm2gfd6ordouCaFfQMnvHVsFzgV9ixKlayfNv1VXbpkPaklZ3t2fROwlz5iEKXHyV5U3CvXvI3CG47E9EGHZlqmTBHoVIXz+YojxliH/Iucp3edbIkN5fqB3BQl8eMvOzhmrP7D07BFc/7FRuFeppSXFNKNS13HIRwztR13pNwhHvXhNuE5yELF8B5ld6s5LAvyC4eUlnC9l+EaAvvx0M4Cd8TagzFcEZRjdYcEZrWHBGa1hwRmtYcEZrWHBGa1hwRmtYcEZrWHBGa1hwRmMM/ATB1EaVl94rvAAAAABJRU5ErkJggg==" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dashboard' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete">
                         <uix:TargetAnchorable.Anchors>
@@ -886,7 +895,7 @@
                     </uix:NCheckState.Target>
                     <uix:NCheckState.Timeout>
                       <InArgument x:TypeArguments="x:Double">
-                        <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_128">ShortDelay</CSharpValue>
+                        <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_177">LongDelay</CSharpValue>
                       </InArgument>
                     </uix:NCheckState.Timeout>
                   </uix:NCheckState>
@@ -909,12 +918,7 @@
                       </InArgument>
                     </uix:NTypeInto.Text>
                   </uix:NTypeInto>
-                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="954,189" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
-                    <uix:NClick.DelayAfter>
-                      <InArgument x:TypeArguments="x:Double">
-                        <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_130">ShortDelay</CSharpValue>
-                      </InArgument>
-                    </uix:NClick.DelayAfter>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="5" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="954,189" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/merchantmanagement/merchant" CvElementArea="500, 287, 41, 38" CvType="Button" DesignTimeRectangle="500, 289, 40, 35" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl class='input-group-text' parentid='main-wrapper' /&gt;" FuzzySelectorArgument="&lt;webctrl class='input-group-text' parentid='main-wrapper' tag='SPAN' type='' aaname='' /&gt;" Guid="fc8e3e40-2970-4edd-a980-705f79afda2d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACwAAAAnCAYAAAB0Q6rCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHvSURBVFhH7dnPS8JgHMfx/sYuHiUIuhRUEJ4irIOEBh6KhIIIBbtUCoEWxUCCEXgwKVihUUOystWa1uwXn/a4aWJPae1Zudjg7WHfDV57eNhh9nAnQGtKFV172A98JAg4yp8hKTwjtn+P9UwZ+XMZl9e3XVHp5g4P6qPB1cDkh6AJNqGhN49fcVV+gfrUHVU0LEHXjwaYrCzBdhuYRFa6fjhgK3LAVueArc4BN1JkSBKpQp//MOZg6ZhDwDOFXvfEewN+BJI5SCr9nu/EFCymltDXDG3JNc1BNIlmBy5y8BiwviCHbKmqn1erEHejGOjXZ0Nrpx/v/UbMwOklYxUDPC4oc4kPw0UeqD+MlPJx3mmMwDksDurgUIY2JzVdk6XNO4sR+AAhsnruWcSLtDmpiLi33UO1jxH4FCtjOiawZ+zd1lTBWGEfFgXKvMOY7eFsxFcD93q3qW8CMTlv7OEo0ibeFMzAaonHpPEmcE3EwIsVKBpMkQvgI7M6VsuzVaTf32HswFrSYQwjBvrzpjBuAs0UXOtSwOqcv7GiJJdnAcvpHBJB82j24KYUWd8WjXOy9jYZNYe2FEytGT28AYF2zRf9PpgkC1ieCWOnQJm16W/AJnLAVueArc4BW93/ANvm+zDB2uoLvO3+47AXGHgDnWaJjRWWCDkAAAAASUVORK5CYII=" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Merchants' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete">
                         <uix:TargetAnchorable.Anchors>
@@ -947,7 +951,7 @@
                       </InArgument>
                     </cr:passedStep.str_in_testId>
                   </cr:passedStep>
-                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'I'" sap:VirtualizedContainerService.HintSize="954,189" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="5" DisplayName="Click 'I'" sap:VirtualizedContainerService.HintSize="954,189" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/merchantmanagement/merchant" CvElementArea="1716, 393, 23, 22" CvType="Icon" DesignTimeRectangle="1720, 397, 14, 14" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='I' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='I' class='fas fa-pencil-alt' aaname='' /&gt;" Guid="3d5ecc8a-0014-4ac9-b0c0-041afe186f8e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEeSURBVDhPrdIta8NAHMfxexcnC3sPq1vlYGKyMDFSFTkKY27EVY2oVg1SMYi7ikHqMjGoy8SgdScqTgRO3iv4LX/S5mG3PlxX8TW5/33IXcKMMThHJ0AaSmnruRuULzC64WCMofucQjXWHCCJ+L5EthGmN+vHQXkGMcugVhH6vIYY4wg+y5nDUIFM7uhNOPrjX9hlgDQv5/ZDG6T7KLB49drYlQ+xqmd3QxWSQLaOVGBv0pr/G9qJ0HGekKztPTZ0AkK1oe3FDmInhGpAS0SE0CbeQccBoWroe4Je8YOZj6AGjkSoCtLvD7idFl9jnSGZh/AcEKqCluMe2IWHcCYQvfi4dkCoCpKxD284QjgVSL8klLaH99W47P91JsjgBy/uMTxl729UAAAAAElFTkSuQmCC" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Merchants' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete">
                         <uix:TargetAnchorable.Anchors>
@@ -1061,13 +1065,18 @@
                     </uix:NCheckState.Timeout>
                   </uix:NCheckState>
                   <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Settings'" sap:VirtualizedContainerService.HintSize="954,189" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
+                    <uix:NClick.DelayAfter>
+                      <InArgument x:TypeArguments="x:Double">
+                        <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_176">LongDelay</CSharpValue>
+                      </InArgument>
+                    </uix:NClick.DelayAfter>
                     <uix:NClick.DelayBefore>
                       <InArgument x:TypeArguments="x:Double">
                         <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_132">ShortDelay</CSharpValue>
                       </InArgument>
                     </uix:NClick.DelayBefore>
                     <uix:NClick.Target>
-                      <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/merchantmanagement/merchant" DesignTimeRectangle="757, 282, 71, 38" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='A' aaname='Settings' idx='2' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='A' aaname='Settings' type='' class='p-2 nav-link' check:text='Settings' /&gt;" Guid="1159939a-d006-49f4-a71f-b6759de6a80d" ImageBase64="" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Merchants' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                      <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/merchantmanagement/merchant" DesignTimeRectangle="757, 282, 71, 38" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='A' aaname='Settings' idx='2' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='A' aaname='Settings' type='' class='p-2 nav-link' check:text='Settings' /&gt;" Guid="1159939a-d006-49f4-a71f-b6759de6a80d" ImageBase64="" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Merchants' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete">
                         <uix:TargetAnchorable.Anchors>
                           <scg:List x:TypeArguments="uix:ITarget" Capacity="0" />
                         </uix:TargetAnchorable.Anchors>
@@ -1099,8 +1108,13 @@
                     </cr:passedStep.str_in_testId>
                   </cr:passedStep>
                   <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="954,189" sap2010:WorkflowViewState.IdRef="NClick_13" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
+                    <uix:NClick.DelayAfter>
+                      <InArgument x:TypeArguments="x:Double">
+                        <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_175">LongDelay</CSharpValue>
+                      </InArgument>
+                    </uix:NClick.DelayAfter>
                     <uix:NClick.Target>
-                      <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/merchantmanagement/merchant" DesignTimeRectangle="1330, 585, 40, 19" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl class='slider' idx='5' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='slider' type='' tag='SPAN' aaname='' /&gt;" Guid="e6bcf1ac-11a0-43b6-9a24-6a5527a22a2d" ImageBase64="" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Merchants' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                      <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/merchantmanagement/merchant" DesignTimeRectangle="1330, 585, 40, 19" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl class='slider' idx='5' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='slider' type='' tag='SPAN' aaname='' /&gt;" Guid="e6bcf1ac-11a0-43b6-9a24-6a5527a22a2d" ImageBase64="" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Merchants' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete">
                         <uix:TargetAnchorable.Anchors>
                           <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                             <uix:Target DesignTimeRectangle="1315, 561, 350, 80" ElementType="CheckBox" FullSelectorArgument="&lt;webctrl tag='DIV' innertext='Swiper (USB) Enabled' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='DIV' innertext='Swiper (USB) Enabled' type='' class='floating col-md-3' aaname='' check:text='Swiper (USB) Enabled' /&gt;" Guid="50c40da5-f820-4a82-b188-c08ac138b5ca" ImageBase64="" SearchSteps="Selector" />
@@ -1151,8 +1165,18 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="388,189" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
+                          <uix:NClick.DelayAfter>
+                            <InArgument x:TypeArguments="x:Double">
+                              <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_180">LongDelay</CSharpValue>
+                            </InArgument>
+                          </uix:NClick.DelayAfter>
+                          <uix:NClick.DelayBefore>
+                            <InArgument x:TypeArguments="x:Double">
+                              <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_174">ShortDelay</CSharpValue>
+                            </InArgument>
+                          </uix:NClick.DelayBefore>
                           <uix:NClick.Target>
-                            <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/merchantmanagement/merchant" DesignTimeRectangle="1330, 585, 40, 19" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl class='slider' idx='5' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='slider' type='' tag='SPAN' aaname='' /&gt;" Guid="45cbfa2a-307e-490c-b55d-dceda6d0115d" ImageBase64="" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Merchants' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                            <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/merchantmanagement/merchant" DesignTimeRectangle="1330, 585, 40, 19" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl class='slider' idx='5' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='slider' type='' tag='SPAN' aaname='' /&gt;" Guid="45cbfa2a-307e-490c-b55d-dceda6d0115d" ImageBase64="" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Merchants' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete">
                               <uix:TargetAnchorable.Anchors>
                                 <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                                   <uix:Target DesignTimeRectangle="1315, 561, 350, 80" ElementType="CheckBox" FullSelectorArgument="&lt;webctrl tag='DIV' innertext='Swiper (USB) Enabled' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='DIV' innertext='Swiper (USB) Enabled' type='' class='floating col-md-3' aaname='' check:text='Swiper (USB) Enabled' /&gt;" Guid="b3e2f269-ca5e-4129-892f-88d5d1ff8224" ImageBase64="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" SearchSteps="Selector" />
@@ -1202,12 +1226,7 @@
                       </InArgument>
                     </uix:NCheckState.Timeout>
                   </uix:NCheckState>
-                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Submit Changes'" sap:VirtualizedContainerService.HintSize="954,189" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
-                    <uix:NClick.DelayBefore>
-                      <InArgument x:TypeArguments="x:Double">
-                        <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_134">ShortDelay</CSharpValue>
-                      </InArgument>
-                    </uix:NClick.DelayBefore>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="5" DelayBefore="3" DisplayName="Click 'Submit Changes'" sap:VirtualizedContainerService.HintSize="954,189" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/merchantmanagement/merchant" CvElementArea="1539, 791, 131, 39" CvTextArea="1552, 802, 105, 17" CvTextArgument="Submit Changes" CvType="Button" DesignTimeRectangle="1541, 793, 128, 35" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl id='submitChanges' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='submitChanges' tag='BUTTON' type='button' class='btn btn-primary' aaname='Submit Changes' check:innerText='Submit Changes' /&gt;" Guid="0eeda42b-7e4c-48b8-81a9-1c4e2bd2feb4" ImageBase64="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" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Merchants' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete">
                         <uix:TargetAnchorable.Anchors>
@@ -1216,7 +1235,7 @@
                       </uix:TargetAnchorable>
                     </uix:NClick.Target>
                   </uix:NClick>
-                  <cr:passedStep sap:VirtualizedContainerService.HintSize="954,84" sap2010:WorkflowViewState.IdRef="passedStep_10" str_in_actualStep="Clicked on the Submit changes button then Appliation displayed the Success Toaster Message" str_in_expectedStep="Step">
+                  <cr:passedStep sap:VirtualizedContainerService.HintSize="954,57" sap2010:WorkflowViewState.IdRef="passedStep_10" str_in_actualStep="Clicked on the Submit changes button then Appliation displayed the Success Toaster Message" str_in_expectedStep="Step">
                     <cr:passedStep.Actual_Result>
                       <InArgument x:TypeArguments="x:String" />
                     </cr:passedStep.Actual_Result>
@@ -1240,12 +1259,7 @@
                       </InArgument>
                     </cr:passedStep.str_in_testId>
                   </cr:passedStep>
-                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Payments'" sap:VirtualizedContainerService.HintSize="954,189" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
-                    <uix:NClick.DelayBefore>
-                      <InArgument x:TypeArguments="x:Double">
-                        <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_135">ShortDelay</CSharpValue>
-                      </InArgument>
-                    </uix:NClick.DelayBefore>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="3" DisplayName="Click 'Payments'" sap:VirtualizedContainerService.HintSize="954,189" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/merchantmanagement/merchant" CvTextArea="55, 288, 65, 16" CvTextArgument="Payments" CvType="Text" DesignTimeRectangle="56, 283, 180, 25" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='menuVirtualTerminal' tag='SPAN' aaname='Payments' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='menuVirtualTerminal' tag='SPAN' aaname='Payments' type='' class='hide-menu' check:text='Payments' /&gt;" Guid="f0707ee5-957a-4478-8c50-f0aa41c3c315" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALgAAAAdCAYAAAAZ4qaaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAP8SURBVHhe7Zn5S1VBFMf7A4p+Dernon4KKuq3MoqIaCURKwnE9qBF2hcpCrUikyKx3dIW2802skVzzX19uWulTypTUhNRPPE9MJd5j4nHMxAcz4UP3LPMvfPgO+eemTdmzPixJAjWYnQKgi0YnYJgC0anINiC0SkItmB0CoItGJ2CYAtGpyDYgtEpCLagG5UuF+lXf38/5RcV0rwliz0HjQBCNm3g3zN/6RJjXBgl6EZmTg4LQ9mLV69i36fCAho3cYLjHwmIwAVGN7wFDgLXh1B9YyOtCQtlkSfeu0td3d1c4Xv+9FD89Wuct3P/PhbUnAUBztjte8KpwlXFvsKSYrr78AG529pocHCQfnV00LGoSLqccIOfA1+Lu5VCt21xxi8PDqLPNTUc6+vro5SXL5yFlvbhPSU/fkSu6mqO9/b2OnO5cjOB56cu2PCv2xhGNXV1nD8wMDBiv06CH+iGSeBLgwKpuraWBR4Vc5Yamppo/eZNHAs/dJC+fPtKW8N30eQZ06motIQOHItwxkLQqa9e8X1ZZQV9//GDx6iF8ruri0orymnl2mCaNnsmfcj8SBnZWZwPG2OuJyXSpKlTOAeL5cKleI5D4FgkEDXi0edieIFgQSJuquB5BQX05Hkq50PY2Xl5zvwES9ENb4FDBPBBhBCwnqtAZT4eHcX3t+8n05v37/ge+SXlZbT36GG2Ida4q1eccQtXLONqiiqvfMjFGIzFM7Nycz1aoxOnT3HVxT0EDlQMecVlpc5cTALHXNUCAVhEaMOULViIbkAQ+oVNJgSHVgFxiAgVE5UTn3lcaB2UqFDlkQ9RQbgQ9ayAuRzTFwJADt6nLyhdlN5throQRy7ErVoPhf4Ok8CxgH62t3NLhHnuizjisYAEC9ENbxF6gxal1e2miMiT/JmHTx8DseTm53Me2pOnL547Y4cicL1CezMUgQPMES0W5tbR2UlXb930iAuWoRu+BA5R3bid6NjebQE4cz6We2k8S28//BU4Fgl6brQRKq7jr8CxILGf0Cs2Wh7sG5QtWIhu+BI4qh1ONRatWsHCe/Qshbp7ejzGoKeta2ig8qpKj77dX4Hj5AWnN9gDYC+A9yUl36PYuIuc60vgaJcam5udDTGeV1tfTwl3kljssD/mZFN6VqbHMwTL0A1fAofIcPKAIzZ1zAYB6lUdvMtI5xZF9/krcNjo/XEMqL9PHev5EjgqNcSLvcLrt2ns27J7J31rbZFjwtGE0fkfoDJic4mjQ1NcEIYVo3OIoGrifBtV+F/HioIwrBidQwBtBT7/+DNn864dxhxBGHaMTkGwBaNTEGzB6BQEWzA6BcEWjE5BsAWjUxBswegUBCsYS38BsLtzsXLhXmkAAAAASUVORK5CYII=" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Merchants' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete">
                         <uix:TargetAnchorable.Anchors>
@@ -1254,7 +1268,7 @@
                       </uix:TargetAnchorable>
                     </uix:NClick.Target>
                   </uix:NClick>
-                  <cr:passedStep sap:VirtualizedContainerService.HintSize="954,84" sap2010:WorkflowViewState.IdRef="passedStep_11" str_in_actualStep="Clicked on the Payments in side menu" str_in_expectedStep="Step">
+                  <cr:passedStep sap:VirtualizedContainerService.HintSize="954,57" sap2010:WorkflowViewState.IdRef="passedStep_11" str_in_actualStep="Clicked on the Payments in side menu" str_in_expectedStep="Step">
                     <cr:passedStep.Actual_Result>
                       <InArgument x:TypeArguments="x:String" />
                     </cr:passedStep.Actual_Result>
@@ -1278,15 +1292,15 @@
                       </InArgument>
                     </cr:passedStep.str_in_testId>
                   </cr:passedStep>
-                  <uix:NCheckState DisplayName="Check App State 'Payments'" sap:VirtualizedContainerService.HintSize="954,416" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
+                  <uix:NCheckState DisplayName="Check App State 'Payments'" sap:VirtualizedContainerService.HintSize="954,389" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
                     <uix:NCheckState.IfExists>
-                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,167" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,140" sap2010:WorkflowViewState.IdRef="Sequence_18">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <cr:passedStep sap:VirtualizedContainerService.HintSize="388,77" sap2010:WorkflowViewState.IdRef="passedStep_12" str_in_actualStep="Application redirected to the Payments page" str_in_expectedStep="Step">
+                        <cr:passedStep sap:VirtualizedContainerService.HintSize="388,50" sap2010:WorkflowViewState.IdRef="passedStep_12" str_in_actualStep="Application redirected to the Payments page" str_in_expectedStep="Step">
                           <cr:passedStep.Actual_Result>
                             <InArgument x:TypeArguments="x:String" />
                           </cr:passedStep.Actual_Result>
@@ -1313,13 +1327,13 @@
                       </Sequence>
                     </uix:NCheckState.IfExists>
                     <uix:NCheckState.IfNotExists>
-                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,167" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,140" sap2010:WorkflowViewState.IdRef="Sequence_19">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <cr:failedStep sap:VirtualizedContainerService.HintSize="388,77" sap2010:WorkflowViewState.IdRef="failedStep_3" str_in_actualStep="Application doesn't redirected to the Payments page" str_in_expectedStep="Step">
+                        <cr:failedStep sap:VirtualizedContainerService.HintSize="388,50" sap2010:WorkflowViewState.IdRef="failedStep_3" str_in_actualStep="Application doesn't redirected to the Payments page" str_in_expectedStep="Step">
                           <cr:failedStep.Actual_Result>
                             <InArgument x:TypeArguments="x:String" />
                           </cr:failedStep.Actual_Result>
@@ -1364,6 +1378,11 @@
                     </uix:NClick.Target>
                   </uix:NClick>
                   <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'INPUT'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="954,250" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
+                    <uix:NTypeInto.DelayAfter>
+                      <InArgument x:TypeArguments="x:Double">
+                        <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_182">LongDelay</CSharpValue>
+                      </InArgument>
+                    </uix:NTypeInto.DelayAfter>
                     <uix:NTypeInto.Target>
                       <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvElementArea="688, 218, 665, 55" CvTextArea="704, 238, 122, 15" CvTextArgument="Search Merchant" CvType="InputBox" DesignTimeRectangle="692, 221, 659, 51" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='INPUT' aria-role='combobox' parentid='selectMerchantId' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='ngx-select__search form-control ng-star-inserted' aaname='' /&gt;" Guid="d678fdd5-c0af-43de-aedc-4992d64b71e7" ImageBase64="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" InformativeScreenshot="41aa33f6f5f9d3f6f17bff2aceced4bc.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
                     </uix:NTypeInto.Target>
@@ -1443,15 +1462,15 @@
                       <OutArgument x:TypeArguments="x:Int32" />
                     </ui:GetRobotAsset.Value>
                   </ui:GetRobotAsset>
-                  <uix:NCheckState DisplayName="Check App State 'Swiper (USB)'" sap:VirtualizedContainerService.HintSize="954,389" sap2010:WorkflowViewState.IdRef="NCheckState_5" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
+                  <uix:NCheckState DisplayName="Check App State 'Swiper (USB)'" sap:VirtualizedContainerService.HintSize="954,416" sap2010:WorkflowViewState.IdRef="NCheckState_5" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
                     <uix:NCheckState.IfExists>
-                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,140" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,167" sap2010:WorkflowViewState.IdRef="Sequence_20">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <cr:failedStep sap:VirtualizedContainerService.HintSize="388,50" sap2010:WorkflowViewState.IdRef="failedStep_4" str_in_actualStep="Swipe Toggle not Disabled" str_in_expectedStep="Step">
+                        <cr:failedStep sap:VirtualizedContainerService.HintSize="388,77" sap2010:WorkflowViewState.IdRef="failedStep_4" str_in_actualStep="Swipe Toggle not Disabled" str_in_expectedStep="Step">
                           <cr:failedStep.Actual_Result>
                             <InArgument x:TypeArguments="x:String" />
                           </cr:failedStep.Actual_Result>
@@ -1478,13 +1497,13 @@
                       </Sequence>
                     </uix:NCheckState.IfExists>
                     <uix:NCheckState.IfNotExists>
-                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,140" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,167" sap2010:WorkflowViewState.IdRef="Sequence_21">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <cr:passedStep sap:VirtualizedContainerService.HintSize="388,50" sap2010:WorkflowViewState.IdRef="passedStep_14" str_in_actualStep="Swipe Toggle Disabled" str_in_expectedStep="Step">
+                        <cr:passedStep sap:VirtualizedContainerService.HintSize="388,77" sap2010:WorkflowViewState.IdRef="passedStep_14" str_in_actualStep="Swipe Toggle Disabled" str_in_expectedStep="Step">
                           <cr:passedStep.Actual_Result>
                             <InArgument x:TypeArguments="x:String" />
                           </cr:passedStep.Actual_Result>
@@ -1526,6 +1545,11 @@
                     </uix:NCheckState.Timeout>
                   </uix:NCheckState>
                   <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Customer Vault'" sap:VirtualizedContainerService.HintSize="954,189" sap2010:WorkflowViewState.IdRef="NClick_11" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
+                    <uix:NClick.DelayAfter>
+                      <InArgument x:TypeArguments="x:Double">
+                        <CSharpValue x:TypeArguments="x:Double" sap2010:WorkflowViewState.IdRef="CSharpValue`1_183">ShortDelay</CSharpValue>
+                      </InArgument>
+                    </uix:NClick.DelayAfter>
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvTextArea="55, 346, 100, 14" CvTextArgument="Customer Vault" CvType="Text" DesignTimeRectangle="56, 342, 180, 25" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='menuCustomervault' tag='SPAN' aaname='Customer Vault' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='menuCustomervault' tag='SPAN' aaname='Customer Vault' type='' class='hide-menu' check:text='Customer Vault' /&gt;" Guid="921cc68a-cc57-4dec-bb30-dda4eda45d12" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALgAAAAdCAYAAAAZ4qaaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAT9SURBVHhe7Znpb1ZFFIf5AzB+NdHPGv1koka/GMW4EYIi0SAukTRorRqDNFhBtIGgVMEFNFYUhGKLgDsttIYqKF1oZOm+UttCF2I37JqmTY95JpnJ7e2Ut23eWnNz3uRJZ86ZmTv33t+cOXe6YMG1C0VRIovXqChRwWtUlKjgNSpKVPAaFSUqeI2KEhW8RkWJCl6jokQFr1GZU/JPnpDd+zO8PiXOBCvXXH+d7Pw8Xbp7emR8fFxGR0elqKRE7rp/0cROs+TZxOelqqZG7lu6xOufb7j/P8+dlfQ9u72+8+VlsiP9s0m+mRIW+NnS87L5vbQJbZQ4Eax8+sUu6ezqktSt75gXeu+SxVJQXCznykrlxttundhxFvzfBQ5pH31o7pf7D9pfSn5N6i9ckMWPL59gnw0q8P8QW7hj0T1SU1cn736wfUIDond1ba28/vZGUw+/DMSKaBEv9WdeWG2EwA4wNjZmIiILhRca/NkXfMPNN0lOXp4MDw+bPh2XL8vaDevd+Fzv4PffGTv+nt5e2ZS2Vb7M2CeDQ4PG1tbRLgkvJ7k+j65cIbX19cY3MjIiR3KPOcEiLq7HeH39/W7eFgTM/BF00H7g28Ny/MRvpsxYmYcOSv/AgLkX5rFr71eurS8FCT436+fazMH+eI7BPkocsAUeNgJ/YNkjkxrt+Xq/ieqUYwm85MwZ+elojhEuwibFQVD4aBOO4IgPQT2ZsMr02ZuVKe0dHaaOv7yqUv7u7JTkNzc4YSGKssoKeezplXLLnbfLyYJT8kdRoWlPnT6Mw3i0qaypNrsTfsTFItm4ZbObQ5js3FwjaFtn9+J66zelmjpR/q/mZnnuxURTZ24XWy+5RTFdgft8SpyxBR5wY1NTzPQhlsDxWzEBgrPbeljg/K1raJA1b6S49oBYidqUEWswJ2YBsiBeWZfsbOwupRXlRojMrfD06QkpxpZt75udhDLisgtuKhAygrZpGeOzSNjlwm0tVxNwLL8KfA6xBR5wPASOGLq6u822jehSUt9yYgsL3BfRgQWSl3/clGNdD4LjIBzfDz9tfeILg7CZu03LwhGd+yElYScgDeJHKjSVgEEFPk/YAiKJR4oCCIDt++djR6X3yhXTH3tY0OG6BfHYfHc2AkdA1hdmOgIHBI2w+QZhFwnm5KQopFE8E9IgbFcTcCy/CnwOsQX7kRl+0L6PzO2f7HD+pSuekIbGRiMyXjb1cHrAqQTlsKD5yzVfTVnn2kMwRZmpwBEf6QSpkfUHma7AVyUlmijOvYZTHsbYdyDT1fFxhGjn+cuv+W7+wI5QUV2lAp8PghUibaxjQqIyEQ3hW/8/fX1GZNgQe8Y3WUbs1E8VF8nvhQWm71OrE6SppcV9nEH4I5Po3dre5j4yZypwrkmqxbyYH0LPOnzInV9PV+DcP8Juvtgy6Vyc58QpzUPLl5nxf8g+IgODg26epFj04zQH/4852TI0PDSlwFlInArZuhJHghVeKv/oIbe0eSXRFNHYNnwwEnXJPflHEOLnQ9EKLmntGiNQ/MFjQjs+YsdHlMOGqGMdE85E4NQRFnPk+uE5TFfggFCZD7tS0I5oOR0Kjs+CslE97GcHDO6O4Tls2/mxuf9Lba1y98MPOrsSB7xGRYkKXqOiRAWvUVGigteoKFHBa1SUqOA1KkpU8BoVJSp4jYoSFbxGRYkKXqOiRIKF8i+/sp+wJaLO1AAAAABJRU5ErkJggg==" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete">
                         <uix:TargetAnchorable.Anchors>
@@ -1534,7 +1558,7 @@
                       </uix:TargetAnchorable>
                     </uix:NClick.Target>
                   </uix:NClick>
-                  <cr:passedStep sap:VirtualizedContainerService.HintSize="954,57" sap2010:WorkflowViewState.IdRef="passedStep_15" str_in_actualStep="Clicked on the Customer Vault side menu" str_in_expectedStep="Step">
+                  <cr:passedStep sap:VirtualizedContainerService.HintSize="954,84" sap2010:WorkflowViewState.IdRef="passedStep_15" str_in_actualStep="Clicked on the Customer Vault side menu" str_in_expectedStep="Step">
                     <cr:passedStep.Actual_Result>
                       <InArgument x:TypeArguments="x:String" />
                     </cr:passedStep.Actual_Result>
@@ -1558,15 +1582,15 @@
                       </InArgument>
                     </cr:passedStep.str_in_testId>
                   </cr:passedStep>
-                  <uix:NCheckState DisplayName="Check App State 'Customer Vault'" sap:VirtualizedContainerService.HintSize="954,389" sap2010:WorkflowViewState.IdRef="NCheckState_6" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
+                  <uix:NCheckState DisplayName="Check App State 'Customer Vault'" sap:VirtualizedContainerService.HintSize="954,416" sap2010:WorkflowViewState.IdRef="NCheckState_6" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
                     <uix:NCheckState.IfExists>
-                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,140" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,167" sap2010:WorkflowViewState.IdRef="Sequence_22">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <cr:passedStep sap:VirtualizedContainerService.HintSize="388,50" sap2010:WorkflowViewState.IdRef="passedStep_16" str_in_actualStep="Application redirect to the Customer vault page" str_in_expectedStep="Step">
+                        <cr:passedStep sap:VirtualizedContainerService.HintSize="388,77" sap2010:WorkflowViewState.IdRef="passedStep_16" str_in_actualStep="Application redirect to the Customer vault page" str_in_expectedStep="Step">
                           <cr:passedStep.Actual_Result>
                             <InArgument x:TypeArguments="x:String" />
                           </cr:passedStep.Actual_Result>
@@ -1593,13 +1617,13 @@
                       </Sequence>
                     </uix:NCheckState.IfExists>
                     <uix:NCheckState.IfNotExists>
-                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,140" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,167" sap2010:WorkflowViewState.IdRef="Sequence_23">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <cr:failedStep sap:VirtualizedContainerService.HintSize="388,50" sap2010:WorkflowViewState.IdRef="failedStep_5" str_in_actualStep="Application doesn't redirect to the Customer vault page" str_in_expectedStep="Step">
+                        <cr:failedStep sap:VirtualizedContainerService.HintSize="388,77" sap2010:WorkflowViewState.IdRef="failedStep_5" str_in_actualStep="Application doesn't redirect to the Customer vault page" str_in_expectedStep="Step">
                           <cr:failedStep.Actual_Result>
                             <InArgument x:TypeArguments="x:String" />
                           </cr:failedStep.Actual_Result>
@@ -1638,15 +1662,15 @@
                       </InArgument>
                     </uix:NCheckState.Timeout>
                   </uix:NCheckState>
-                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="954,247" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="954,274" sap2010:WorkflowViewState.IdRef="CommentOut_5">
                     <ui:CommentOut.Body>
-                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,136" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,163" sap2010:WorkflowViewState.IdRef="Sequence_32">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <dc:CreateNewCustomer str_in_PaymentOption="{x:Null}" str_in_ShippingAddress="{x:Null}" str_in_ShippingCity="{x:Null}" str_in_ShippingCountry="{x:Null}" str_in_ShippingFirstName="{x:Null}" str_in_ShippingLastName="{x:Null}" str_in_ShippingState="{x:Null}" str_in_ShippingZipCode="{x:Null}" str_in_TestID="{x:Null}" str_out_CustomerID="{x:Null}" DisplayName="CreateNewCustomer(Autosaved)" sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="CreateNewCustomer_4" bool_in_ShippingAddressSame="True" str_in_CardExpiry="11/33" str_in_CardNum="4012888888881881" str_in_CustAddress="texas" str_in_CustCity="texas" str_in_CustEmail="test@test.com" str_in_CustLastName="test" str_in_CustState="Texas" str_in_CustZipcode="12234" str_in_FaxPhoneNumber="1234567854" str_in_FaxPhonecode="US/CA (+1)" str_in_MerchantName="6280780007557770" str_in_Notes="notes" str_in_PhoneNumber="1223456733" str_in_Phonecode="US/CA (+1)" str_in_URL="https://payments2.deluxe.com/gateway/*">
+                        <dc:CreateNewCustomer str_in_PaymentOption="{x:Null}" str_in_ShippingAddress="{x:Null}" str_in_ShippingCity="{x:Null}" str_in_ShippingCountry="{x:Null}" str_in_ShippingFirstName="{x:Null}" str_in_ShippingLastName="{x:Null}" str_in_ShippingState="{x:Null}" str_in_ShippingZipCode="{x:Null}" str_in_TestID="{x:Null}" str_out_CustomerID="{x:Null}" DisplayName="CreateNewCustomer(Autosaved)" sap:VirtualizedContainerService.HintSize="354,75" sap2010:WorkflowViewState.IdRef="CreateNewCustomer_4" bool_in_ShippingAddressSame="True" str_in_CardExpiry="11/33" str_in_CardNum="4012888888881881" str_in_CustAddress="texas" str_in_CustCity="texas" str_in_CustEmail="test@test.com" str_in_CustLastName="test" str_in_CustState="Texas" str_in_CustZipcode="12234" str_in_FaxPhoneNumber="1234567854" str_in_FaxPhonecode="US/CA (+1)" str_in_MerchantName="6280780007557770" str_in_Notes="notes" str_in_PhoneNumber="1223456733" str_in_Phonecode="US/CA (+1)" str_in_URL="https://payments2.deluxe.com/gateway/*">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1665,7 +1689,7 @@
                       </Sequence>
                     </ui:CommentOut.Body>
                   </ui:CommentOut>
-                  <dc:CreateNewCustomer str_in_PaymentOption="{x:Null}" str_in_ShippingAddress="{x:Null}" str_in_ShippingCity="{x:Null}" str_in_ShippingCountry="{x:Null}" str_in_ShippingFirstName="{x:Null}" str_in_ShippingLastName="{x:Null}" str_in_ShippingState="{x:Null}" str_in_ShippingZipCode="{x:Null}" str_in_TestID="{x:Null}" str_out_CustomerID="{x:Null}" DisplayName="CreateNewCustomer(Autosaved)" sap:VirtualizedContainerService.HintSize="954,57" sap2010:WorkflowViewState.IdRef="CreateNewCustomer_5" bool_in_ShippingAddressSame="True">
+                  <dc:CreateNewCustomer str_in_PaymentOption="{x:Null}" str_in_ShippingAddress="{x:Null}" str_in_ShippingCity="{x:Null}" str_in_ShippingCountry="{x:Null}" str_in_ShippingFirstName="{x:Null}" str_in_ShippingLastName="{x:Null}" str_in_ShippingState="{x:Null}" str_in_ShippingZipCode="{x:Null}" str_in_TestID="{x:Null}" str_out_CustomerID="{x:Null}" DisplayName="CreateNewCustomer(Autosaved)" sap:VirtualizedContainerService.HintSize="954,84" sap2010:WorkflowViewState.IdRef="CreateNewCustomer_5" bool_in_ShippingAddressSame="True">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1707,7 +1731,7 @@
                     </dc:CreateNewCustomer.str_in_CustFirstName>
                     <dc:CreateNewCustomer.str_in_CustLastName>
                       <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_142">Out_CustLastName</CSharpValue>
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_169">CustLastName</CSharpValue>
                       </InArgument>
                     </dc:CreateNewCustomer.str_in_CustLastName>
                     <dc:CreateNewCustomer.str_in_CustState>
@@ -1756,7 +1780,7 @@
                       </InArgument>
                     </dc:CreateNewCustomer.str_in_URL>
                   </dc:CreateNewCustomer>
-                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="5" DisplayName="Click 'Add New Payment Method'" sap:VirtualizedContainerService.HintSize="954,189" sap2010:WorkflowViewState.IdRef="NClick_12" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="5" DelayBefore="5" DisplayName="Click 'Add New Payment Method'" sap:VirtualizedContainerService.HintSize="954,189" sap2010:WorkflowViewState.IdRef="NClick_12" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/customerdetail" CvElementArea="1662, 626, 227, 43" CvTextArea="1680, 639, 192, 18" CvTextArgument="Add New Payment Method" CvType="Button" DesignTimeRectangle="1664, 628, 224, 40" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl parentid='collapseCustomerVaultDetail' tag='BUTTON' aaname=' Add New Payment Method ' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='collapseCustomerVaultDetail' tag='BUTTON' aaname=' Add New Payment Method ' type='button' class='btn text-white button-blue py-1' check:text='Add New Payment Method' /&gt;" Guid="91003d40-423a-4a13-8abc-a4a411d4b01c" ImageBase64="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" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Customer Vault Detail' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete">
                         <uix:TargetAnchorable.Anchors>
@@ -1765,7 +1789,7 @@
                       </uix:TargetAnchorable>
                     </uix:NClick.Target>
                   </uix:NClick>
-                  <cr:passedStep sap:VirtualizedContainerService.HintSize="954,57" sap2010:WorkflowViewState.IdRef="passedStep_17" str_in_actualStep="Clicked on the Add New payment option, then Application displayed the Add New Payment Pop up" str_in_expectedStep="Step">
+                  <cr:passedStep sap:VirtualizedContainerService.HintSize="954,84" sap2010:WorkflowViewState.IdRef="passedStep_17" str_in_actualStep="Clicked on the Add New payment option, then Application displayed the Add New Payment Pop up" str_in_expectedStep="Step">
                     <cr:passedStep.Actual_Result>
                       <InArgument x:TypeArguments="x:String" />
                     </cr:passedStep.Actual_Result>
@@ -1789,16 +1813,16 @@
                       </InArgument>
                     </cr:passedStep.str_in_testId>
                   </cr:passedStep>
-                  <uix:NCheckState DisplayName="Check App State 'Swiper (USB)'" sap:VirtualizedContainerService.HintSize="954,571" sap2010:WorkflowViewState.IdRef="NCheckState_7" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
+                  <uix:NCheckState DisplayName="Check App State 'Swiper (USB)'" sap:VirtualizedContainerService.HintSize="954,598" sap2010:WorkflowViewState.IdRef="NCheckState_7" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
                     <uix:NCheckState.IfExists>
-                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,140" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,167" sap2010:WorkflowViewState.IdRef="Sequence_24">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <cr:failedStep sap:VirtualizedContainerService.HintSize="388,50" sap2010:WorkflowViewState.IdRef="failedStep_6" str_in_actualStep="Swipe button not Disabled in the Add New Payment Pop up" str_in_expectedStep="Step">
+                        <cr:failedStep sap:VirtualizedContainerService.HintSize="388,77" sap2010:WorkflowViewState.IdRef="failedStep_6" str_in_actualStep="Swipe button not Disabled in the Add New Payment Pop up" str_in_expectedStep="Step">
                           <cr:failedStep.Actual_Result>
                             <InArgument x:TypeArguments="x:String" />
                           </cr:failedStep.Actual_Result>
@@ -1825,14 +1849,14 @@
                       </Sequence>
                     </uix:NCheckState.IfExists>
                     <uix:NCheckState.IfNotExists>
-                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,329" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,356" sap2010:WorkflowViewState.IdRef="Sequence_25">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <cr:passedStep sap:VirtualizedContainerService.HintSize="388,57" sap2010:WorkflowViewState.IdRef="passedStep_18" str_in_actualStep="Swipe button Disabled in the Add New Payment Pop up" str_in_expectedStep="Step">
+                        <cr:passedStep sap:VirtualizedContainerService.HintSize="388,84" sap2010:WorkflowViewState.IdRef="passedStep_18" str_in_actualStep="Swipe button Disabled in the Add New Payment Pop up" str_in_expectedStep="Step">
                           <cr:passedStep.Actual_Result>
                             <InArgument x:TypeArguments="x:String" />
                           </cr:passedStep.Actual_Result>
@@ -1858,7 +1882,7 @@
                         </cr:passedStep>
                         <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '×'" sap:VirtualizedContainerService.HintSize="388,182" sap2010:WorkflowViewState.IdRef="NClick_14" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="80fa919c-ad50-456f-9092-0210a7cb85bf" Version="V3">
                           <uix:NClick.Target>
-                            <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/customerdetail" CvElementArea="1183, 387, 23, 22" CvType="CloseButton" DesignTimeRectangle="1174, 372, 43, 53" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aria-label='Close' tag='BUTTON' type='button' aaname='×' idx='2' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Close' tag='BUTTON' type='button' aaname='×' class='close' check:text='×' /&gt;" Guid="0b5c89c8-9516-4d2c-92b6-3db25dfeb78b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAC8AAAA5CAYAAACmqHIqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJCSURBVGhD7djLaxNRFAZw/yXXunMj5J2QhCQm5P0giYmJmYVuKkFEpIqLLkUQXPjC2pbSlRtB0EpduPDV1qqtSR/apG3EZKb99E6cptFYNM5kPHIPfAQu3OF3hnNnhhw4ePIFqCUQCEAQBJDE+/1+lEolmnifz4disUgT7/V6USgUaOI9Hg/y+TxNvNvtRi6Xo4l3uVzIZrM08U6nE5lMhibe4XAgnU7TxNvtdqRSKZp4m82GZDJJE2+1WpFIJGjiLRYL4vE4XXwsFqOJN5vNiEajNPEmkwmRSITjBx6j0YhwOMzxA4/BYKCND4VCHD/waII/df0DyrcqOHz6Vde6a/gNLo6vwHNpoWu936iOP3uniuWaiFpDwsjU6u6648I8HjzfQkvawcOXW3Ije/f1E1XxJ64uYmGlCaU+bkoYHluG9fw87j/bhLS9I6+z38mZOo4Mve55nd+Nqvij5VlMPKmjKbaRrNY2REzPNiB+u+NKVddFlG9Xe17jT8LwwWBQvbFhDYz/0MDeUgvOojqe5VcNVNZbqsFZNMPffVRD48v2d3a73q02ceZmpeeefqLJ2IxN1+iNDYPf2weu1D95YI9feY+5audRufSpJY8Ja2r0cacp9uRhZ0KNR6WqYyNcW5IbWFxrYehGZ76VBuqfJUw93YDx3FzXvn6iyYFlb89jl3/+BGCfC+GRt399x5Vogh9UOF6vcLxe4Xi9wvF6heP1CsfrFY7XKxyvVzher/wf+EPCDKhlFy//oUKs2vggvgLARob/D4AnXQAAAABJRU5ErkJggg==" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Customer Vault Detail' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                            <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/customerdetail" CvElementArea="1183, 387, 23, 22" CvType="CloseButton" DesignTimeRectangle="1174, 372, 43, 53" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aria-label='Close' tag='BUTTON' type='button' aaname='×' idx='2' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Close' tag='BUTTON' type='button' aaname='×' class='close' check:text='×' /&gt;" Guid="0b5c89c8-9516-4d2c-92b6-3db25dfeb78b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAC8AAAA5CAYAAACmqHIqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJCSURBVGhD7djLaxNRFAZw/yXXunMj5J2QhCQm5P0giYmJmYVuKkFEpIqLLkUQXPjC2pbSlRtB0EpduPDV1qqtSR/apG3EZKb99E6cptFYNM5kPHIPfAQu3OF3hnNnhhw4ePIFqCUQCEAQBJDE+/1+lEolmnifz4disUgT7/V6USgUaOI9Hg/y+TxNvNvtRi6Xo4l3uVzIZrM08U6nE5lMhibe4XAgnU7TxNvtdqRSKZp4m82GZDJJE2+1WpFIJGjiLRYL4vE4XXwsFqOJN5vNiEajNPEmkwmRSITjBx6j0YhwOMzxA4/BYKCND4VCHD/waII/df0DyrcqOHz6Vde6a/gNLo6vwHNpoWu936iOP3uniuWaiFpDwsjU6u6648I8HjzfQkvawcOXW3Ije/f1E1XxJ64uYmGlCaU+bkoYHluG9fw87j/bhLS9I6+z38mZOo4Mve55nd+Nqvij5VlMPKmjKbaRrNY2REzPNiB+u+NKVddFlG9Xe17jT8LwwWBQvbFhDYz/0MDeUgvOojqe5VcNVNZbqsFZNMPffVRD48v2d3a73q02ceZmpeeefqLJ2IxN1+iNDYPf2weu1D95YI9feY+5audRufSpJY8Ja2r0cacp9uRhZ0KNR6WqYyNcW5IbWFxrYehGZ76VBuqfJUw93YDx3FzXvn6iyYFlb89jl3/+BGCfC+GRt399x5Vogh9UOF6vcLxe4Xi9wvF6heP1CsfrFY7XKxyvVzher/wf+EPCDKhlFy//oUKs2vggvgLARob/D4AnXQAAAABJRU5ErkJggg==" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Customer Vault Detail' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete">
                               <uix:TargetAnchorable.Anchors>
                                 <scg:List x:TypeArguments="uix:ITarget" Capacity="0" />
                               </uix:TargetAnchorable.Anchors>
@@ -1889,7 +1913,7 @@
               <uix:TargetApp Area="-8, -8, 1936, 1048" BrowserType="Chrome" IconBase64="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" Selector="&lt;html app='chrome.exe' title='Dashboard' /&gt;" Title="Dashboard" Url="https://payments2.deluxe.com/gateway/dashboard/dashboard" />
             </uix:NApplicationCard.TargetApp>
           </uix:NApplicationCard>
-          <dl1:DPP_Logout BreakTriggerScopeInArgument="{x:Null}" sap:VirtualizedContainerService.HintSize="1050,48" sap2010:WorkflowViewState.IdRef="DPP_Logout_1">
+          <dl1:DPP_Logout BreakTriggerScopeInArgument="{x:Null}" sap:VirtualizedContainerService.HintSize="1050,75" sap2010:WorkflowViewState.IdRef="DPP_Logout_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
