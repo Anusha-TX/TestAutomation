@@ -8,7 +8,7 @@
     <InArgument x:TypeArguments="x:Int32" />
   </this:FG_6811.int_ReportId>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1281,17948</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1281,17898</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>FG_6811_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -143,15 +143,17 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>System.Private.Uri</AssemblyReference>
       <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="FG_6811" sap:VirtualizedContainerService.HintSize="1212,17883" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="FG_6811" sap:VirtualizedContainerService.HintSize="1212,17833" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1150,17795" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1150,17745" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Variables>
         <Variable x:TypeArguments="x:String" Name="ExcelPath" />
         <Variable x:TypeArguments="x:String" Name="ReportPath" />
@@ -182,7 +184,7 @@
         <Variable x:TypeArguments="x:String" Name="Surcharge" />
       </TryCatch.Variables>
       <TryCatch.Try>
-        <Sequence DisplayName="FG_6811" sap:VirtualizedContainerService.HintSize="1112,17544" sap2010:WorkflowViewState.IdRef="Sequence_27">
+        <Sequence DisplayName="FG_6811" sap:VirtualizedContainerService.HintSize="1112,17494" sap2010:WorkflowViewState.IdRef="Sequence_27">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -394,7 +396,7 @@
               </cr:startTest.str_out_TestId>
             </cr:startTest>
           </Sequence>
-          <Sequence DisplayName="Excel" sap:VirtualizedContainerService.HintSize="1050,1363" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="Excel" sap:VirtualizedContainerService.HintSize="1050,1394" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Default="DPP_6757" Name="str_In_TestCaseID" />
               <Variable x:TypeArguments="sd:DataTable" Name="dt_TestCaseData" />
@@ -451,19 +453,19 @@
                 </scg:List>
               </ui:FilterDataTable.SelectColumns>
             </ui:FilterDataTable>
-            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="575,764" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="575,795" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="541,568" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="541,599" sap2010:WorkflowViewState.IdRef="Sequence_12">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,480" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,511" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                       <ui:MultipleAssign.AssignOperations>
                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -610,6 +612,18 @@
                               </InArgument>
                             </ui:AssignOperation.Value>
                           </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">
+                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_40">Amount</CSharpReference>
+                              </OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_135">CurrentRow["Amount"].ToString()</CSharpValue>
+                              </InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
                         </scg:List>
                       </ui:MultipleAssign.AssignOperations>
                     </ui:MultipleAssign>
@@ -659,13 +673,13 @@
               </OutArgument>
             </dl:DPP_Login.str_out_DppURL>
           </dl:DPP_Login>
-          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Dashboard" sap:VirtualizedContainerService.HintSize="1050,13772" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="c2a0072b-2908-44c4-be4f-2232aa9f3101" Version="V2">
+          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Dashboard" sap:VirtualizedContainerService.HintSize="1050,13691" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="c2a0072b-2908-44c4-be4f-2232aa9f3101" Version="V2">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1016,13532" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1016,13451" sap2010:WorkflowViewState.IdRef="Sequence_7">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Default=" * " Name="TotalSurcharge" />
                     <Variable x:TypeArguments="x:String" Name="RequestRefuntButtonState" />
@@ -881,11 +895,11 @@
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="954,175" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info">
                     <ui:LogMessage.Message>
                       <InArgument x:TypeArguments="x:Object">
-                        <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_44">"Pre conditions: The service fee permission should be Request Only in merchant settings"</CSharpValue>
+                        <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_134">"Pre conditions: The service fee permission should be Allow W Full Refund in merchant settings"</CSharpValue>
                       </InArgument>
                     </ui:LogMessage.Message>
                   </ui:LogMessage>
-                  <cr:passedStep Actual_Result="The service fee permission is in Request Only in merchant settings" sap:VirtualizedContainerService.HintSize="954,57" sap2010:WorkflowViewState.IdRef="passedStep_1" str_in_actualStep="The service fee permission should be Request Only in merchant settings" str_in_expectedStep="step">
+                  <cr:passedStep Actual_Result="The service fee permission is in Allow W Full Refund Only in merchant settings" sap:VirtualizedContainerService.HintSize="954,57" sap2010:WorkflowViewState.IdRef="passedStep_1" str_in_actualStep="Pre conditions: The service fee permission should be Allow W Full Refund in merchant settings" str_in_expectedStep="step">
                     <cr:passedStep.Expected_Result>
                       <InArgument x:TypeArguments="x:String" />
                     </cr:passedStep.Expected_Result>
@@ -1168,7 +1182,7 @@
                       </OutArgument>
                     </dp:VerifyTransactionSuccessAndAuthorizationCode.str_out_TransactionStatus>
                   </dp:VerifyTransactionSuccessAndAuthorizationCode>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="954,84" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Warn">
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="954,57" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Warn">
                     <ui:LogMessage.Message>
                       <InArgument x:TypeArguments="x:Object">
                         <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_63">FirstName+"\n"+LastName</CSharpValue>
@@ -1214,7 +1228,7 @@
                       </InArgument>
                     </dm:ManualBatchCloser.str_in_Url>
                   </dm:ManualBatchCloser>
-                  <Delay Duration="00:00:10" sap:VirtualizedContainerService.HintSize="954,84" sap2010:WorkflowViewState.IdRef="Delay_2">
+                  <Delay Duration="00:00:10" sap:VirtualizedContainerService.HintSize="954,57" sap2010:WorkflowViewState.IdRef="Delay_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1222,7 +1236,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </Delay>
-                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="954,84" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="954,57" sap2010:WorkflowViewState.IdRef="CommentOut_3">
                     <ui:CommentOut.Body>
                       <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,268" sap2010:WorkflowViewState.IdRef="Sequence_19">
                         <sap:WorkflowViewStateService.ViewState>
@@ -1504,7 +1518,7 @@
                             </InArgument>
                           </cr:passedStep.str_in_testId>
                         </cr:passedStep>
-                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Amount'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,250" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="c2a0072b-2908-44c4-be4f-2232aa9f3101" Text="0" Version="V3">
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Amount'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,250" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="c2a0072b-2908-44c4-be4f-2232aa9f3101" Version="V3">
                           <uix:NTypeInto.Target>
                             <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/login" CVScreenId="2842f97e-2086-49f6-b0ea-e9173331465c" CvElementArea="809, 735, 317, 52" CvTextArea="942, 755, 50, 13" CvTextArgument="LOGIN" CvType="Button" DesignTimeRectangle="810, 737, 316, 50" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl id='requestRefundAmount' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='okta-signin-submit' tag='INPUT' type='submit' class='button button-primary' aaname='LOGIN' check:text='LOGIN' /&gt;" Guid="e5812ea7-bea3-4ecb-936f-5cce54b8e810" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Deluxe Payments Platform' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
                               <uix:TargetAnchorable.Anchors>
@@ -1512,6 +1526,11 @@
                               </uix:TargetAnchorable.Anchors>
                             </uix:TargetAnchorable>
                           </uix:NTypeInto.Target>
+                          <uix:NTypeInto.Text>
+                            <InArgument x:TypeArguments="x:String">
+                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_136">Amount</CSharpValue>
+                            </InArgument>
+                          </uix:NTypeInto.Text>
                         </uix:NTypeInto>
                         <uix:NGetText DisplayName="Get Text '50'" sap:VirtualizedContainerService.HintSize="354,189" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="c2a0072b-2908-44c4-be4f-2232aa9f3101" Version="V3">
                           <uix:NGetText.Target>
