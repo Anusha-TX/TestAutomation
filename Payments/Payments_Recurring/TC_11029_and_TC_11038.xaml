@@ -4,6 +4,7 @@
     <x:Property Name="str_in_PaymentType" Type="InArgument(x:String)" />
     <x:Property Name="str_SuiteId" Type="InArgument(x:String)" />
     <x:Property Name="str_TestId" Type="InArgument(x:String)" />
+    <x:Property Name="str_in_Dpp_Environment" Type="InArgument(x:String)" />
   </x:Members>
   <this:TC_11029.int_ReportId>
     <InArgument x:TypeArguments="x:Int32" />
@@ -11,8 +12,11 @@
   <this:TC_11029.str_SuiteId>
     <InArgument x:TypeArguments="x:String" />
   </this:TC_11029.str_SuiteId>
+  <this:TC_11029.str_in_Dpp_Environment>
+    <InArgument x:TypeArguments="x:String" />
+  </this:TC_11029.str_in_Dpp_Environment>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>830,12860</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>814,14577.333333333334</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>TC_10999_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -178,7 +182,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TC_11029" sap:VirtualizedContainerService.HintSize="736.6666666666666,12795.333333333334" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TC_11029" sap:VirtualizedContainerService.HintSize="736.6666666666666,14512.666666666666" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_QuickSaleItemTaxName" />
       <Variable x:TypeArguments="x:String" Name="str_SearchPresetSaleitemName" />
@@ -285,7 +289,7 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="674.6666666666666,12707.333333333334" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="674.6666666666666,14402" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Variables>
         <Variable x:TypeArguments="x:String" Default="https://payments2.deluxe.com/gateway/*" Name="str_Url" />
       </TryCatch.Variables>
@@ -296,13 +300,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="636,12448.666666666666" sap2010:WorkflowViewState.IdRef="Sequence_62">
+        <Sequence sap:VirtualizedContainerService.HintSize="636,14162" sap2010:WorkflowViewState.IdRef="Sequence_62">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Extract dynamic Report and TestData Path" sap:VirtualizedContainerService.HintSize="574,123.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_64">
+          <Sequence DisplayName="Extract dynamic Report and TestData Path" sap:VirtualizedContainerService.HintSize="574,1016" sap2010:WorkflowViewState.IdRef="Sequence_64">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="File_Path" />
               <Variable x:TypeArguments="x:String" Name="Report_Path" />
@@ -313,11 +317,11 @@
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="434,125.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_16">
+            <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_16">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">
                   <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_253">File_Path</CSharpReference>
@@ -327,7 +331,7 @@
                 <InArgument x:TypeArguments="x:String">Config\ExcelPath.json</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="434,125.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_17">
+            <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_17">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">
                   <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_254">Report_Path</CSharpReference>
@@ -337,7 +341,7 @@
                 <InArgument x:TypeArguments="x:String">Config\Reportpath.json</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:ReadTextFile File="{x:Null}" DisplayName="Read Text File" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="ReadTextFile_1">
+            <ui:ReadTextFile File="{x:Null}" DisplayName="Read Text File" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="ReadTextFile_1">
               <ui:ReadTextFile.Content>
                 <OutArgument x:TypeArguments="x:String">
                   <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_255">FilePath_OP</CSharpReference>
@@ -349,7 +353,7 @@
                 </InArgument>
               </ui:ReadTextFile.FileName>
             </ui:ReadTextFile>
-            <ui:ReadTextFile File="{x:Null}" DisplayName="Read Text File" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="ReadTextFile_2">
+            <ui:ReadTextFile File="{x:Null}" DisplayName="Read Text File" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="ReadTextFile_2">
               <ui:ReadTextFile.Content>
                 <OutArgument x:TypeArguments="x:String">
                   <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_256">ReportPath_OP</CSharpReference>
@@ -361,7 +365,7 @@
                 </InArgument>
               </ui:ReadTextFile.FileName>
             </ui:ReadTextFile>
-            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="434,100" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1">
+            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1">
               <ui:DeserializeJson.JsonObject>
                 <OutArgument x:TypeArguments="njl:JObject">
                   <CSharpReference x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpReference`1_257">ExcelFilePathJ</CSharpReference>
@@ -373,7 +377,7 @@
                 </InArgument>
               </ui:DeserializeJson.JsonString>
             </ui:DeserializeJson>
-            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="434,100" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2">
+            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2">
               <ui:DeserializeJson.JsonObject>
                 <OutArgument x:TypeArguments="njl:JObject">
                   <CSharpReference x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpReference`1_258">ReportFilePathJ</CSharpReference>
@@ -385,7 +389,7 @@
                 </InArgument>
               </ui:DeserializeJson.JsonString>
             </ui:DeserializeJson>
-            <Assign sap:VirtualizedContainerService.HintSize="434,125.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_18">
+            <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_18">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">
                   <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_259">ExcelPath</CSharpReference>
@@ -397,7 +401,7 @@
                 </InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_19">
+            <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_19">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">
                   <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_260">ReportPath</CSharpReference>
@@ -410,7 +414,7 @@
               </Assign.Value>
             </Assign>
           </Sequence>
-          <If sap:VirtualizedContainerService.HintSize="574,522" sap2010:WorkflowViewState.IdRef="If_14">
+          <If sap:VirtualizedContainerService.HintSize="574,407.3333333333333" sap2010:WorkflowViewState.IdRef="If_14">
             <If.Condition>
               <InArgument x:TypeArguments="x:Boolean">
                 <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1117">int_ReportId.Equals(0) == true</CSharpValue>
@@ -423,13 +427,13 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,242" sap2010:WorkflowViewState.IdRef="Sequence_92">
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="376,223.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_92">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ra:CreateReport ContinueOnError="{x:Null}" DisplayName="Create Report" sap:VirtualizedContainerService.HintSize="354,157.33333333333334" sap2010:WorkflowViewState.IdRef="CreateReport_4" ReportName="TC_11029">
+                <ra:CreateReport ContinueOnError="{x:Null}" DisplayName="Create Report" sap:VirtualizedContainerService.HintSize="334,136" sap2010:WorkflowViewState.IdRef="CreateReport_4" ReportName="TC_11029">
                   <ra:CreateReport.ReportLocation>
                     <InArgument x:TypeArguments="x:String">
                       <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1115">ReportPath</CSharpValue>
@@ -459,7 +463,7 @@
               </Sequence>
             </If.Else>
           </If>
-          <ra:StartSuite ContinueOnError="{x:Null}" DisplayName="Start Suite" sap:VirtualizedContainerService.HintSize="574,126" sap2010:WorkflowViewState.IdRef="StartSuite_3" SuiteName="Payments_Recurring">
+          <ra:StartSuite ContinueOnError="{x:Null}" DisplayName="Start Suite" sap:VirtualizedContainerService.HintSize="574,86.66666666666667" sap2010:WorkflowViewState.IdRef="StartSuite_3" SuiteName="Payments_Recurring">
             <ra:StartSuite.ReportId>
               <InArgument x:TypeArguments="x:Int32">
                 <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_855">int_ReportId</CSharpValue>
@@ -477,7 +481,7 @@
               </OutArgument>
             </ra:StartSuite.suiteId>
           </ra:StartSuite>
-          <ra:StartTest ContinueOnError="{x:Null}" TagName="{x:Null}" TestDescription="{x:Null}" DisplayName="Start Test" sap:VirtualizedContainerService.HintSize="574,126" sap2010:WorkflowViewState.IdRef="StartTest_5" Priority="High" TestName="TC_11038_SemiAnnuallyVisaRecurforNewCustomer">
+          <ra:StartTest ContinueOnError="{x:Null}" TagName="{x:Null}" TestDescription="{x:Null}" DisplayName="Start Test" sap:VirtualizedContainerService.HintSize="574,86.66666666666667" sap2010:WorkflowViewState.IdRef="StartTest_5" Priority="High" TestName="TC_11038_SemiAnnuallyVisaRecurforNewCustomer">
             <ra:StartTest.ReportId>
               <InArgument x:TypeArguments="x:Int32">
                 <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_856">int_ReportId</CSharpValue>
@@ -500,14 +504,14 @@
               </OutArgument>
             </ra:StartTest.testId>
           </ra:StartTest>
-          <Sequence DisplayName="TC_11038" sap:VirtualizedContainerService.HintSize="574,8948" sap2010:WorkflowViewState.IdRef="Sequence_27">
+          <Sequence DisplayName="TC_11038" sap:VirtualizedContainerService.HintSize="574,9696" sap2010:WorkflowViewState.IdRef="Sequence_27">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence sap:VirtualizedContainerService.HintSize="512,123.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_28">
+            <Sequence sap:VirtualizedContainerService.HintSize="512,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_28">
               <Sequence.Variables>
                 <Variable x:TypeArguments="sd:DataTable" Name="dt_TestData" />
               </Sequence.Variables>
@@ -903,7 +907,7 @@
                 </sap:WorkflowViewStateService.ViewState>
               </ui:ForEachRow>
             </Sequence>
-            <dl:DPP_Login BreakTriggerScopeInArgument="{x:Null}" sap:VirtualizedContainerService.HintSize="512,339.3333333333333" sap2010:WorkflowViewState.IdRef="DPP_Login_2" bool_in_MerchantLogin="False">
+            <dl:DPP_Login BreakTriggerScopeInArgument="{x:Null}" sap:VirtualizedContainerService.HintSize="512,408" sap2010:WorkflowViewState.IdRef="DPP_Login_2" bool_in_MerchantLogin="False">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -915,6 +919,16 @@
                   <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1053">int_ReportId</CSharpValue>
                 </InArgument>
               </dl:DPP_Login.int_in_ReportId>
+              <dl:DPP_Login.str_in_Dpp_Environment>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1237">str_in_Dpp_Environment</CSharpValue>
+                </InArgument>
+              </dl:DPP_Login.str_in_Dpp_Environment>
+              <dl:DPP_Login.str_in_ExcelPath>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1238">ExcelPath</CSharpValue>
+                </InArgument>
+              </dl:DPP_Login.str_in_ExcelPath>
               <dl:DPP_Login.str_in_TestId>
                 <InArgument x:TypeArguments="x:String">
                   <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1052">str_TestId</CSharpValue>
@@ -926,7 +940,7 @@
                 </OutArgument>
               </dl:DPP_Login.str_out_DppURL>
             </dl:DPP_Login>
-            <dp:PaymentsCreation BreakTriggerScopeInArgument="{x:Null}" str_in_ExistingCustomerName="{x:Null}" DisplayName="Payments creation" sap:VirtualizedContainerService.HintSize="512,1275.3333333333333" sap2010:WorkflowViewState.IdRef="PaymentsCreation_4" bool_in_CreateValutCustomer="False">
+            <dp:PaymentsCreation BreakTriggerScopeInArgument="{x:Null}" str_in_ExistingCustomerName="{x:Null}" DisplayName="Payments creation" sap:VirtualizedContainerService.HintSize="512,1250.6666666666667" sap2010:WorkflowViewState.IdRef="PaymentsCreation_4" bool_in_CreateValutCustomer="False">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1377,7 +1391,7 @@
               </dp:Frequency_Option.str_in_testid>
             </dp:Frequency_Option>
             <Delay Duration="00:00:10" sap:VirtualizedContainerService.HintSize="512,131.33333333333334" sap2010:WorkflowViewState.IdRef="Delay_2" />
-            <dp:OrderSummary dbl_in_FirstSaleItemTaxRate="{x:Null}" dbl_in_SecondSaleItemTaxRate="{x:Null}" str_in_AmountTendered="{x:Null}" str_in_ThirdSaleItem="{x:Null}" str_out_Surcharge="{x:Null}" DisplayName="Order summary" sap:VirtualizedContainerService.HintSize="512,1639.3333333333333" sap2010:WorkflowViewState.IdRef="OrderSummary_7" bool_in_RemoveSurcharge="True" dbl_in_ThirdSaleItemTaxRate="0" dbl_in_ThirdSaleitemPrice="0">
+            <dp:OrderSummary bool_in_TaxAmountIncluded="{x:Null}" dbl_in_FirstSaleItemTaxRate="{x:Null}" dbl_in_SecondSaleItemTaxRate="{x:Null}" str_in_AmountTendered="{x:Null}" str_in_ThirdSaleItem="{x:Null}" str_out_Surcharge="{x:Null}" DisplayName="Order summary" sap:VirtualizedContainerService.HintSize="512,1639.3333333333333" sap2010:WorkflowViewState.IdRef="OrderSummary_7" bool_in_RemoveSurcharge="True" dbl_in_ThirdSaleItemTaxRate="0" dbl_in_ThirdSaleitemPrice="0">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1644,7 +1658,7 @@
                                 </OutArgument>
                               </uix:NGetAttributeGeneric.Result>
                               <uix:NGetAttributeGeneric.Target>
-                                <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" ContentHash="k0YkYpMYhkC71_0fViE6PA" CvElementArea="324, 977, 368, 46" CvTextArea="455, 989, 115, 22" CvTextArgument="Charge $0.00" CvType="Button" DesignTimeRectangle="329, 980, 362, 42" DesignTimeScaleFactor="1.2000000476837158" ElementType="Button" FriendlyName="'Charge Button'" FullSelectorArgument="&lt;webctrl parentid='main-wrapper' tag='BUTTON' aaname='*Charge*' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='main-wrapper' tag='BUTTON' aaname='  Charge*' type='button' class='btn btn-block charge-btn-color charge-button-disabled rounded text-white mt-2 mx-0 mr-2' check:text='Charge    0.00' /&gt;" Guid="38c10a2c-6c1b-402e-aec8-7dac1697ccf4" ImageBase64="" InformativeScreenshot="117092a916b8d1a0d516161fe33aadcf.png" Reference="qnsGvNsFSUiRvH4oM-Q7Tg/hskwN9O0Y0KOg0OmmSrxvQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                                <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" ContentHash="k0YkYpMYhkC71_0fViE6PA" CvElementArea="324, 977, 368, 46" CvTextArea="455, 989, 115, 22" CvTextArgument="Charge $0.00" CvType="Button" DesignTimeRectangle="329, 980, 362, 42" DesignTimeScaleFactor="1.2000000476837158" ElementType="Button" FullSelectorArgument="&lt;webctrl parentid='main-wrapper' tag='BUTTON' aaname='*Charge*' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='main-wrapper' tag='BUTTON' aaname='  Charge*' type='button' class='btn btn-block charge-btn-color charge-button-disabled rounded text-white mt-2 mx-0 mr-2' check:text='Charge    0.00' /&gt;" Guid="38c10a2c-6c1b-402e-aec8-7dac1697ccf4" ImageBase64="" InformativeScreenshot="117092a916b8d1a0d516161fe33aadcf.png" Reference="qnsGvNsFSUiRvH4oM-Q7Tg/hskwN9O0Y0KOg0OmmSrxvQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
                               </uix:NGetAttributeGeneric.Target>
                             </uix:NGetAttributeGeneric>
                             <uta:VerifyExpressionWithOperator AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify Charge Button is Enabled" sap:VirtualizedContainerService.HintSize="1084,238" sap2010:WorkflowViewState.IdRef="VerifyExpressionWithOperator_13" Operator="Contains" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
@@ -1724,7 +1738,7 @@
                                   </ui:LogMessage>
                                   <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click on Charge Button" sap:VirtualizedContainerService.HintSize="988,198.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_15" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f0e3c822-16b0-4cee-a5a8-c0627d236402" Version="V3">
                                     <uix:NClick.Target>
-                                      <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvElementArea="325, 965, 367, 45" CvTextArea="448, 978, 125, 21" CvTextArgument="Charge $ 15.00" CvType="Button" DesignTimeRectangle="329, 968, 362, 42" DesignTimeScaleFactor="1.2000000476837158" ElementType="Button" FriendlyName="'Charge   15.00'" FullSelectorArgument="&lt;webctrl parentid='main-wrapper' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='main-wrapper' tag='BUTTON' type='button' class='btn btn-block charge-btn-color charge-button-disabled rounded text-white mt-2 mx-0 mr-2' aaname='  Charge    15.00 ' check:innerText='Charge    15.00' /&gt;" Guid="70916510-f9cb-43cb-8b10-2c05f36ffcb2" InformativeScreenshot="c9631dc56d7cdabbc2c0fd01054cce7b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                                      <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvElementArea="325, 965, 367, 45" CvTextArea="448, 978, 125, 21" CvTextArgument="Charge $ 15.00" CvType="Button" DesignTimeRectangle="329, 968, 362, 42" DesignTimeScaleFactor="1.2000000476837158" ElementType="Button" FullSelectorArgument="&lt;webctrl parentid='main-wrapper' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='main-wrapper' tag='BUTTON' type='button' class='btn btn-block charge-btn-color charge-button-disabled rounded text-white mt-2 mx-0 mr-2' aaname='  Charge    15.00 ' check:innerText='Charge    15.00' /&gt;" Guid="70916510-f9cb-43cb-8b10-2c05f36ffcb2" InformativeScreenshot="c9631dc56d7cdabbc2c0fd01054cce7b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
                                     </uix:NClick.Target>
                                   </uix:NClick>
                                   <uta:VerifyControlAttribute AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify Transaction Success Message" sap:VirtualizedContainerService.HintSize="988,476.6666666666667" sap2010:WorkflowViewState.IdRef="VerifyControlAttribute_7" Operator="Equality" OutputArgument="Exists" TakeScreenshotInCaseOfFailingAssertion="True" TakeScreenshotInCaseOfSucceedingAssertion="False">
@@ -1768,7 +1782,7 @@
                                             </OutArgument>
                                           </uix:NCheckState.OutUiElement>
                                           <uix:NCheckState.Target>
-                                            <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvTextArea="736, 615, 69, 16" CvTextArgument="Success!" CvType="Text" DesignTimeRectangle="738, 613, 68, 24" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Success!'" FullSelectorArgument="&lt;webctrl class='modal-title' tag='H4' aaname='Success!' /&gt;" FuzzySelectorArgument="&lt;webctrl class='modal-title' tag='H4' aaname='Success!' type='' check:text='Success!' /&gt;" Guid="943c6de0-dab9-4f44-9913-3562588e855e" InformativeScreenshot="e0febd93f239dad69dca63a0dc2b8a39.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                                            <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvTextArea="736, 615, 69, 16" CvTextArgument="Success!" CvType="Text" DesignTimeRectangle="738, 613, 68, 24" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl class='modal-title' tag='H4' aaname='Success!' /&gt;" FuzzySelectorArgument="&lt;webctrl class='modal-title' tag='H4' aaname='Success!' type='' check:text='Success!' /&gt;" Guid="943c6de0-dab9-4f44-9913-3562588e855e" InformativeScreenshot="e0febd93f239dad69dca63a0dc2b8a39.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
                                           </uix:NCheckState.Target>
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -1853,7 +1867,7 @@
                                         </cr:passedStep>
                                         <uix:NGetText DisplayName="Get Text 'Recurring payment'" sap:VirtualizedContainerService.HintSize="354,198.66666666666666" sap2010:WorkflowViewState.IdRef="NGetText_8" ScopeIdentifier="f0e3c822-16b0-4cee-a5a8-c0627d236402" Version="V3">
                                           <uix:NGetText.Target>
-                                            <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvTextArea="840, 672, 257, 16" CvType="AnyWordGroup" DesignTimeRectangle="723, 671, 496, 20" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Recurring payment'" FullSelectorArgument="&lt;webctrl isleaf='1' tag='SPAN' aaname='Recurring payment has been scheduled.' /&gt;" FuzzySelectorArgument="&lt;webctrl isleaf='1' tag='SPAN' type='' class='text-center transaction-error-msg col-12' /&gt;" Guid="c646918f-81ac-43c0-8071-a27f412613a2" ImageBase64="" InformativeScreenshot="242e3ef73e9e8d96e208504193f4bbba.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                                            <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvTextArea="840, 672, 257, 16" CvType="AnyWordGroup" DesignTimeRectangle="723, 671, 496, 20" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl isleaf='1' tag='SPAN' aaname='Recurring payment has been scheduled.' /&gt;" FuzzySelectorArgument="&lt;webctrl isleaf='1' tag='SPAN' type='' class='text-center transaction-error-msg col-12' /&gt;" Guid="c646918f-81ac-43c0-8071-a27f412613a2" ImageBase64="" InformativeScreenshot="242e3ef73e9e8d96e208504193f4bbba.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
                                           </uix:NGetText.Target>
                                           <uix:NGetText.TextString>
                                             <OutArgument x:TypeArguments="x:String">
@@ -1960,7 +1974,7 @@
                                   </If>
                                   <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Close Toast Message'" sap:VirtualizedContainerService.HintSize="988,181.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_16" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f0e3c822-16b0-4cee-a5a8-c0627d236402" Version="V3">
                                     <uix:NClick.Target>
-                                      <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" ContentHash="hw9VehEB4k6YQEs9OTtufA" DesignTimeRectangle="1218, 575, 52, 64" DesignTimeScaleFactor="1.2000000476837158" ElementType="Button" FriendlyName="'Close Toast Message'" FullSelectorArgument="&lt;webctrl class='modal-title' tag='H4' /&gt;&lt;nav up='1' /&gt;&lt;webctrl aria-label='Close' tag='BUTTON' type='button' class='close' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Close' class='close' tag='BUTTON' type='button' aaname='×' check:innerText='×' /&gt;" Guid="46002169-1900-47cb-b660-85508a8b2bdc" ImageBase64="" InformativeScreenshot="da7caff49eaabaa06f033e53e3b82370.png" Reference="qnsGvNsFSUiRvH4oM-Q7Tg/bMRusudP1kqOQmvybY5YAQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                                      <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" ContentHash="hw9VehEB4k6YQEs9OTtufA" DesignTimeRectangle="1218, 575, 52, 64" DesignTimeScaleFactor="1.2000000476837158" ElementType="Button" FullSelectorArgument="&lt;webctrl class='modal-title' tag='H4' /&gt;&lt;nav up='1' /&gt;&lt;webctrl aria-label='Close' tag='BUTTON' type='button' class='close' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Close' class='close' tag='BUTTON' type='button' aaname='×' check:innerText='×' /&gt;" Guid="46002169-1900-47cb-b660-85508a8b2bdc" ImageBase64="" InformativeScreenshot="da7caff49eaabaa06f033e53e3b82370.png" Reference="qnsGvNsFSUiRvH4oM-Q7Tg/bMRusudP1kqOQmvybY5YAQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
                                     </uix:NClick.Target>
                                   </uix:NClick>
                                 </Sequence>
@@ -2023,7 +2037,7 @@
                                   </OutArgument>
                                 </uix:NGetAttributeGeneric.Result>
                                 <uix:NGetAttributeGeneric.Target>
-                                  <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" ContentHash="k0YkYpMYhkC71_0fViE6PA" CvElementArea="324, 977, 368, 46" CvTextArea="455, 989, 115, 22" CvTextArgument="Charge $0.00" CvType="Button" DesignTimeRectangle="329, 980, 362, 42" DesignTimeScaleFactor="1.2000000476837158" ElementType="Button" FriendlyName="'Charge Button'" FullSelectorArgument="&lt;webctrl parentid='main-wrapper' tag='BUTTON' aaname='*Charge*' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='main-wrapper' tag='BUTTON' aaname='  Charge*' type='button' class='btn btn-block charge-btn-color charge-button-disabled rounded text-white mt-2 mx-0 mr-2' check:text='Charge    0.00' /&gt;" Guid="38c10a2c-6c1b-402e-aec8-7dac1697ccf4" ImageBase64="" InformativeScreenshot="117092a916b8d1a0d516161fe33aadcf.png" Reference="qnsGvNsFSUiRvH4oM-Q7Tg/hskwN9O0Y0KOg0OmmSrxvQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                                  <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" ContentHash="k0YkYpMYhkC71_0fViE6PA" CvElementArea="324, 977, 368, 46" CvTextArea="455, 989, 115, 22" CvTextArgument="Charge $0.00" CvType="Button" DesignTimeRectangle="329, 980, 362, 42" DesignTimeScaleFactor="1.2000000476837158" ElementType="Button" FullSelectorArgument="&lt;webctrl parentid='main-wrapper' tag='BUTTON' aaname='*Charge*' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='main-wrapper' tag='BUTTON' aaname='  Charge*' type='button' class='btn btn-block charge-btn-color charge-button-disabled rounded text-white mt-2 mx-0 mr-2' check:text='Charge    0.00' /&gt;" Guid="38c10a2c-6c1b-402e-aec8-7dac1697ccf4" ImageBase64="" InformativeScreenshot="117092a916b8d1a0d516161fe33aadcf.png" Reference="qnsGvNsFSUiRvH4oM-Q7Tg/hskwN9O0Y0KOg0OmmSrxvQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
                                 </uix:NGetAttributeGeneric.Target>
                               </uix:NGetAttributeGeneric>
                               <uta:VerifyExpressionWithOperator AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify Charge Button is Enabled" sap:VirtualizedContainerService.HintSize="1084,238" sap2010:WorkflowViewState.IdRef="VerifyExpressionWithOperator_15" Operator="Contains" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
@@ -2103,7 +2117,7 @@
                                     </ui:LogMessage>
                                     <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click on Charge Button" sap:VirtualizedContainerService.HintSize="988,198.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_17" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2d45f2ba-dd3c-4030-8da2-71df690bcff7" Version="V3">
                                       <uix:NClick.Target>
-                                        <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" ContentHash="k0YkYpMYhkC71_0fViE6PA" CvElementArea="324, 977, 368, 46" CvTextArea="455, 989, 115, 22" CvTextArgument="Charge $0.00" CvType="Button" DesignTimeRectangle="329, 980, 362, 42" DesignTimeScaleFactor="1.2000000476837158" ElementType="Button" FriendlyName="'Charge Button'" FullSelectorArgument="&lt;webctrl parentid='main-wrapper' tag='BUTTON' aaname='*Charge*' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='main-wrapper' tag='BUTTON' aaname='  Charge*' type='button' class='btn btn-block charge-btn-color charge-button-disabled rounded text-white mt-2 mx-0 mr-2' check:text='Charge    0.00' /&gt;" Guid="38c10a2c-6c1b-402e-aec8-7dac1697ccf4" ImageBase64="" InformativeScreenshot="117092a916b8d1a0d516161fe33aadcf.png" Reference="qnsGvNsFSUiRvH4oM-Q7Tg/hskwN9O0Y0KOg0OmmSrxvQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                                        <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" ContentHash="k0YkYpMYhkC71_0fViE6PA" CvElementArea="324, 977, 368, 46" CvTextArea="455, 989, 115, 22" CvTextArgument="Charge $0.00" CvType="Button" DesignTimeRectangle="329, 980, 362, 42" DesignTimeScaleFactor="1.2000000476837158" ElementType="Button" FullSelectorArgument="&lt;webctrl parentid='main-wrapper' tag='BUTTON' aaname='*Charge*' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='main-wrapper' tag='BUTTON' aaname='  Charge*' type='button' class='btn btn-block charge-btn-color charge-button-disabled rounded text-white mt-2 mx-0 mr-2' check:text='Charge    0.00' /&gt;" Guid="38c10a2c-6c1b-402e-aec8-7dac1697ccf4" ImageBase64="" InformativeScreenshot="117092a916b8d1a0d516161fe33aadcf.png" Reference="qnsGvNsFSUiRvH4oM-Q7Tg/hskwN9O0Y0KOg0OmmSrxvQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
                                       </uix:NClick.Target>
                                     </uix:NClick>
                                     <uta:VerifyControlAttribute AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify Transaction Success Message" sap:VirtualizedContainerService.HintSize="988,516.6666666666666" sap2010:WorkflowViewState.IdRef="VerifyControlAttribute_8" Operator="Equality" OutputArgument="Exists" TakeScreenshotInCaseOfFailingAssertion="True" TakeScreenshotInCaseOfSucceedingAssertion="False">
@@ -2147,7 +2161,7 @@
                                               </OutArgument>
                                             </uix:NCheckState.OutUiElement>
                                             <uix:NCheckState.Target>
-                                              <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvTextArea="688, 592, 84, 16" CvTextArgument="Success!" CvType="Text" DesignTimeRectangle="691, 588, 82, 29" DesignTimeScaleFactor="1.2000000476837158" ElementType="Text" FriendlyName="'Success!'" FullSelectorArgument="&lt;webctrl class='modal-title' innertext='Success!' /&gt;" FuzzySelectorArgument="&lt;webctrl class='modal-title' innertext='Success!' tag='H4' type='' aaname='Success!' check:text='Success!' /&gt;" Guid="2fdfc2f6-0164-45d0-a978-1566bec6cbe8" InformativeScreenshot="2a32b4eff152084198b6cee644cb5e5b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                                              <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvTextArea="688, 592, 84, 16" CvTextArgument="Success!" CvType="Text" DesignTimeRectangle="691, 588, 82, 29" DesignTimeScaleFactor="1.2000000476837158" ElementType="Text" FullSelectorArgument="&lt;webctrl class='modal-title' innertext='Success!' /&gt;" FuzzySelectorArgument="&lt;webctrl class='modal-title' innertext='Success!' tag='H4' type='' aaname='Success!' check:text='Success!' /&gt;" Guid="2fdfc2f6-0164-45d0-a978-1566bec6cbe8" InformativeScreenshot="2a32b4eff152084198b6cee644cb5e5b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
                                             </uix:NCheckState.Target>
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -2232,7 +2246,7 @@
                                           </cr:passedStep>
                                           <uix:NGetText DisplayName="Get Text 'Recurring payment'" sap:VirtualizedContainerService.HintSize="354,198.66666666666666" sap2010:WorkflowViewState.IdRef="NGetText_9" ScopeIdentifier="2d45f2ba-dd3c-4030-8da2-71df690bcff7" Version="V3">
                                             <uix:NGetText.Target>
-                                              <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvTextArea="769, 660, 398, 21" CvType="AnyWordGroup" DesignTimeRectangle="691, 658, 560, 24" DesignTimeScaleFactor="1.2000000476837158" FriendlyName="'Recurring payment'" FullSelectorArgument="&lt;webctrl tag='PRE' aaname='Recurring payment has been scheduled.' innertext='Recurring payment has been scheduled.' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='PRE' type='' class='text-center dpp-payment-link-font vt-modal-body-text' /&gt;" Guid="104d09e0-fbbc-4730-bcee-1de4bd22eb5a" ImageBase64="" InformativeScreenshot="24822a296bfb88490be8dd4e2d520d6a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                                              <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" CvTextArea="769, 660, 398, 21" CvType="AnyWordGroup" DesignTimeRectangle="691, 658, 560, 24" DesignTimeScaleFactor="1.2000000476837158" FullSelectorArgument="&lt;webctrl tag='PRE' aaname='Recurring payment has been scheduled.' innertext='Recurring payment has been scheduled.' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='PRE' type='' class='text-center dpp-payment-link-font vt-modal-body-text' /&gt;" Guid="104d09e0-fbbc-4730-bcee-1de4bd22eb5a" ImageBase64="" InformativeScreenshot="24822a296bfb88490be8dd4e2d520d6a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
                                             </uix:NGetText.Target>
                                             <uix:NGetText.TextString>
                                               <OutArgument x:TypeArguments="x:String">
@@ -2339,7 +2353,7 @@
                                     </If>
                                     <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Close Toast Message'" sap:VirtualizedContainerService.HintSize="988,181.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_18" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2d45f2ba-dd3c-4030-8da2-71df690bcff7" Version="V3">
                                       <uix:NClick.Target>
-                                        <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" ContentHash="hw9VehEB4k6YQEs9OTtufA" DesignTimeRectangle="1218, 575, 52, 64" DesignTimeScaleFactor="1.2000000476837158" ElementType="Button" FriendlyName="'Close Toast Message'" FullSelectorArgument="&lt;webctrl class='modal-title' tag='H4' /&gt;&lt;nav up='1' /&gt;&lt;webctrl aria-label='Close' tag='BUTTON' type='button' class='close' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Close' class='close' tag='BUTTON' type='button' aaname='×' check:innerText='×' /&gt;" Guid="46002169-1900-47cb-b660-85508a8b2bdc" ImageBase64="" InformativeScreenshot="da7caff49eaabaa06f033e53e3b82370.png" Reference="qnsGvNsFSUiRvH4oM-Q7Tg/bMRusudP1kqOQmvybY5YAQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                                        <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/virtual-terminal" ContentHash="hw9VehEB4k6YQEs9OTtufA" DesignTimeRectangle="1218, 575, 52, 64" DesignTimeScaleFactor="1.2000000476837158" ElementType="Button" FullSelectorArgument="&lt;webctrl class='modal-title' tag='H4' /&gt;&lt;nav up='1' /&gt;&lt;webctrl aria-label='Close' tag='BUTTON' type='button' class='close' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Close' class='close' tag='BUTTON' type='button' aaname='×' check:innerText='×' /&gt;" Guid="46002169-1900-47cb-b660-85508a8b2bdc" ImageBase64="" InformativeScreenshot="da7caff49eaabaa06f033e53e3b82370.png" Reference="qnsGvNsFSUiRvH4oM-Q7Tg/bMRusudP1kqOQmvybY5YAQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Payments' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
                                       </uix:NClick.Target>
                                     </uix:NClick>
                                   </Sequence>
@@ -2483,7 +2497,7 @@
                           </sap:WorkflowViewStateService.ViewState>
                           <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Customer Vault'" sap:VirtualizedContainerService.HintSize="354,199.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="14dbc44b-bde7-4d35-a291-43a16ededf25" Version="V3">
                             <uix:NClick.Target>
-                              <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/customervault" CvTextArea="69, 510, 121, 16" CvTextArgument="Customer Vault" CvType="Text" DesignTimeRectangle="72, 504, 216, 30" DesignTimeScaleFactor="1.2000000476837158" ElementType="Text" FriendlyName="'Customer Vault'" FullSelectorArgument="&lt;webctrl parentid='menuCustomervault' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='menuCustomervault' tag='SPAN' type='' class='hide-menu' aaname='Customer Vault' check:innerText='Customer Vault' /&gt;" Guid="9d46eed8-6dfa-4b91-96e3-558cd7b4ae11" InformativeScreenshot="7c201485ffe148c7b383fddf1f329bf0.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Customer Vault' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                              <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/customervault" CvTextArea="69, 510, 121, 16" CvTextArgument="Customer Vault" CvType="Text" DesignTimeRectangle="72, 504, 216, 30" DesignTimeScaleFactor="1.2000000476837158" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='menuCustomervault' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='menuCustomervault' tag='SPAN' type='' class='hide-menu' aaname='Customer Vault' check:innerText='Customer Vault' /&gt;" Guid="9d46eed8-6dfa-4b91-96e3-558cd7b4ae11" InformativeScreenshot="7c201485ffe148c7b383fddf1f329bf0.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Customer Vault' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
                             </uix:NClick.Target>
                           </uix:NClick>
                           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,187.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_20">
@@ -2500,7 +2514,7 @@
                           </ui:LogMessage>
                           <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'INPUT'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,262.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="14dbc44b-bde7-4d35-a291-43a16ededf25" Version="V3">
                             <uix:NTypeInto.Target>
-                              <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/customervault" CvElementArea="341, 485, 1076, 46" CvType="InputBox" DesignTimeRectangle="341, 488, 1076, 42" DesignTimeScaleFactor="1.2000000476837158" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='form-control ng-untouched ng-pristine ng-valid' aaname='' /&gt;" Guid="5a8629d8-3e2d-4869-9742-868218872436" InformativeScreenshot="d05070e81f241055330e083a9b9bc562.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Customer Vault' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                              <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/customervault" CvElementArea="341, 485, 1076, 46" CvType="InputBox" DesignTimeRectangle="341, 488, 1076, 42" DesignTimeScaleFactor="1.2000000476837158" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='form-control ng-untouched ng-pristine ng-valid' aaname='' /&gt;" Guid="5a8629d8-3e2d-4869-9742-868218872436" InformativeScreenshot="d05070e81f241055330e083a9b9bc562.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Customer Vault' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
                             </uix:NTypeInto.Target>
                             <uix:NTypeInto.Text>
                               <InArgument x:TypeArguments="x:String">
@@ -2510,7 +2524,7 @@
                           </uix:NTypeInto>
                           <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="354,184.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="14dbc44b-bde7-4d35-a291-43a16ededf25" Version="V3">
                             <uix:NClick.Target>
-                              <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/customervault" DesignTimeRectangle="1417, 488, 48, 42" DesignTimeScaleFactor="1.2000000476837158" FriendlyName="'SPAN'" FullSelectorArgument="&lt;webctrl class='input-group-text' parentid='main-wrapper' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='input-group-text' parentid='main-wrapper' tag='SPAN' type='' aaname='' /&gt;" Guid="a39ae673-04e7-4d75-ab73-f3aad77e018d" InformativeScreenshot="3a137cddc3124269a5e2df105c24a8aa.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Customer Vault' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                              <uix:TargetAnchorable BrowserURL="https://payments2.deluxe.com/gateway/customervault" DesignTimeRectangle="1417, 488, 48, 42" DesignTimeScaleFactor="1.2000000476837158" FullSelectorArgument="&lt;webctrl class='input-group-text' parentid='main-wrapper' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='input-group-text' parentid='main-wrapper' tag='SPAN' type='' aaname='' /&gt;" Guid="a39ae673-04e7-4d75-ab73-f3aad77e018d" InformativeScreenshot="3a137cddc3124269a5e2df105c24a8aa.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Customer Vault' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
                             </uix:NClick.Target>
                           </uix:NClick>
                         </Sequence>
