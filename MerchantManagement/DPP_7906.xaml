@@ -4,12 +4,13 @@
     <x:Property Name="str_TestId" Type="InOutArgument(x:String)" />
     <x:Property Name="str_SuiteId" Type="InOutArgument(x:String)" />
     <x:Property Name="str_in_Dpp_Environment" Type="InArgument(x:String)" />
+    <x:Property Name="str_out_FailedStatus" Type="OutArgument(x:String)" />
   </x:Members>
   <this:DPP_7906.str_in_Dpp_Environment>
     <InArgument x:TypeArguments="x:String" />
   </this:DPP_7906.str_in_Dpp_Environment>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>814,5306</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1054,1515</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DPP_7906_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -164,9 +165,10 @@
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
       <AssemblyReference>DPP_TestAutomationProject.Core</AssemblyReference>
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>DPP_TestAutomationProject.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="770.6666666666666,5241.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_18">
+  <Sequence sap:VirtualizedContainerService.HintSize="598,1450" sap2010:WorkflowViewState.IdRef="Sequence_18">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="Str_DppUrl" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_DataTable" />
@@ -176,9 +178,9 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="708.6666666666666,5130.666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="536,1339" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="DPP_7906" sap:VirtualizedContainerService.HintSize="670,4891.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence DisplayName="DPP_7906" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="ExcelPath" />
             <Variable x:TypeArguments="x:String" Name="ReportPath" />
@@ -191,11 +193,11 @@
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Extract Dynamic Testdata and Reports Path" sap:VirtualizedContainerService.HintSize="608,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Extract Dynamic Testdata and Reports Path" sap:VirtualizedContainerService.HintSize="693,81" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="FilePath_OP" />
               <Variable x:TypeArguments="njl:JObject" Name="ExcelFilePathJ" />
@@ -303,7 +305,7 @@
               </Assign.Value>
             </Assign>
           </Sequence>
-          <Sequence DisplayName="Repoert" sap:VirtualizedContainerService.HintSize="608,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="Repoert" sap:VirtualizedContainerService.HintSize="693,81" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -395,14 +397,14 @@
               </cr:startTest.str_out_TestId>
             </cr:startTest>
           </Sequence>
-          <Sequence DisplayName="Excel" sap:VirtualizedContainerService.HintSize="608,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <Sequence DisplayName="Excel" sap:VirtualizedContainerService.HintSize="693,1104" sap2010:WorkflowViewState.IdRef="Sequence_8">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ReadRange Range="{x:Null}" AddHeaders="True" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="631,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Customizations">
+            <ui:ReadRange Range="{x:Null}" AddHeaders="True" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="631,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Merchant">
               <ui:ReadRange.DataTable>
                 <OutArgument x:TypeArguments="sd:DataTable">
                   <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_21">dt_DataTable</CSharpReference>
@@ -414,10 +416,10 @@
                 </InArgument>
               </ui:ReadRange.WorkbookPath>
             </ui:ReadRange>
-            <ui:FilterDataTable DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="631,161" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" SelectColumnsMode="Remove">
+            <ui:FilterDataTable DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="631,161" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" SelectColumnsMode="Remove">
               <ui:FilterDataTable.DataTable>
                 <InArgument x:TypeArguments="sd:DataTable">
-                  <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">dt_DataTable</CSharpValue>
+                  <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_76">dt_DataTable</CSharpValue>
                 </InArgument>
               </ui:FilterDataTable.DataTable>
               <ui:FilterDataTable.Filters>
@@ -425,12 +427,12 @@
                   <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
                     <ui:FilterOperationArgument.Column>
                       <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">"TestCaseId"</CSharpValue>
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_74">"MerchantId"</CSharpValue>
                       </InArgument>
                     </ui:FilterOperationArgument.Column>
                     <ui:FilterOperationArgument.Operand>
                       <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_56">"DPP_7906"</CSharpValue>
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_77">"M3"</CSharpValue>
                       </InArgument>
                     </ui:FilterOperationArgument.Operand>
                   </ui:FilterOperationArgument>
@@ -438,7 +440,7 @@
               </ui:FilterDataTable.Filters>
               <ui:FilterDataTable.OutputDataTable>
                 <OutArgument x:TypeArguments="sd:DataTable">
-                  <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_22">dt_TestCaseData</CSharpReference>
+                  <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_30">dt_TestCaseData</CSharpReference>
                 </OutArgument>
               </ui:FilterDataTable.OutputDataTable>
               <ui:FilterDataTable.SelectColumns>
@@ -482,7 +484,7 @@
                                     </ui:AssignOperation.To>
                                     <ui:AssignOperation.Value>
                                       <InArgument x:TypeArguments="x:String">
-                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_67">CurrentRow["SearchMerchant"].ToString()</CSharpValue>
+                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_78">CurrentRow["MID"].ToString()</CSharpValue>
                                       </InArgument>
                                     </ui:AssignOperation.Value>
                                   </ui:AssignOperation>
@@ -520,7 +522,7 @@
               </sap:WorkflowViewStateService.ViewState>
             </ui:ForEachRow>
           </Sequence>
-          <ca:ReadAssetValue sap:VirtualizedContainerService.HintSize="608,197.33333333333334" sap2010:WorkflowViewState.IdRef="ReadAssetValue_1" str_in_AssetName="BrowserValue" str_in_Orch_FolderPath="DPP_TestAutomation">
+          <ca:ReadAssetValue sap:VirtualizedContainerService.HintSize="693,192" sap2010:WorkflowViewState.IdRef="ReadAssetValue_1" str_in_AssetName="BrowserValue" str_in_Orch_FolderPath="DPP_TestAutomation">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -533,7 +535,7 @@
               </OutArgument>
             </ca:ReadAssetValue.str_out_AssetValue>
           </ca:ReadAssetValue>
-          <dl:DPP_Login BreakTriggerScopeInArgument="{x:Null}" bool_in_MerchantLogin="{x:Null}" DisplayName="DPP Login" sap:VirtualizedContainerService.HintSize="608,408" sap2010:WorkflowViewState.IdRef="DPP_Login_1">
+          <dl:DPP_Login BreakTriggerScopeInArgument="{x:Null}" bool_in_MerchantLogin="{x:Null}" DisplayName="DPP Login" sap:VirtualizedContainerService.HintSize="693,396" sap2010:WorkflowViewState.IdRef="DPP_Login_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -566,7 +568,7 @@
               </OutArgument>
             </dl:DPP_Login.str_out_DppURL>
           </dl:DPP_Login>
-          <Sequence DisplayName="copy the access token in merchant detail tab" sap:VirtualizedContainerService.HintSize="608,3633.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_12">
+          <Sequence DisplayName="copy the access token in merchant detail tab" sap:VirtualizedContainerService.HintSize="693,3634" sap2010:WorkflowViewState.IdRef="Sequence_12">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -949,10 +951,10 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="674,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="502,1176" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -960,14 +962,24 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="416,69" sap2010:WorkflowViewState.IdRef="Sequence_19">
+            <Sequence sap:VirtualizedContainerService.HintSize="496,1107" sap2010:WorkflowViewState.IdRef="Sequence_19">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_3">
+              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_10">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">
+                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_31">str_out_FailedStatus</CSharpReference>
+                  </OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">Fail</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_3">
                 <ui:LogMessage.Level>
                   <InArgument x:TypeArguments="ui:LogLevel">
                     <CSharpValue x:TypeArguments="ui:LogLevel" sap2010:WorkflowViewState.IdRef="CSharpValue`1_59">UiPath.Core.Activities.LogLevel.Error</CSharpValue>
@@ -979,7 +991,7 @@
                   </InArgument>
                 </ui:LogMessage.Message>
               </ui:LogMessage>
-              <cr:failedStep str_in_expectedStep="{x:Null}" sap:VirtualizedContainerService.HintSize="388,345" sap2010:WorkflowViewState.IdRef="failedStep_2" str_in_actualStep="Exception">
+              <cr:failedStep str_in_expectedStep="{x:Null}" sap:VirtualizedContainerService.HintSize="434,345" sap2010:WorkflowViewState.IdRef="failedStep_2" str_in_actualStep="Exception">
                 <cr:failedStep.Actual_Result>
                   <InArgument x:TypeArguments="x:String">
                     <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_63">exception.Message</CSharpValue>
